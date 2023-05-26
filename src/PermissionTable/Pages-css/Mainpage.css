@@ -1,0 +1,771 @@
+.mainpage {
+    width: 20%;
+    height: 960px;
+    border-radius: 0px 0px 0px 0px;
+    margin-left: 0%;
+    border: 1px solid #E5E5E5;
+    background-color: #E5E5E5;
+}
+.profilesection {
+    width: 79%;
+    height: 70px;
+    background: #d6d3d3;
+    border-radius: 10px;
+    border: 1px solid #E4E4E4;
+    margin-left: 10%;
+    margin-top: 28px;
+}
+.profilesection img.circle {
+    margin-top: 10px;
+    margin-left: -133px;
+}
+
+.adminname {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: #494949;
+    margin-top: -25px;
+    margin-left: -14px;
+    text-transform: capitalize;
+    margin-top: -23px;
+}
+.adminlabel {
+    display: block;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: #494949;
+    margin-top: -41px;
+    margin-left: -14px;
+    text-transform: capitalize;
+}
+
+.generalaccesssection {
+    display: flex;
+    flex-direction: row;
+    background: #cfdfe4;
+    border-radius: 50px;
+    width: 79%;
+    height: 42px;
+    margin-left: 10%;
+    margin-top: 38px;
+    border-color: transparent;
+    position: relative;
+    top: 9px;
+}
+.generalaccesssectionnoborder {
+    display: flex;
+    flex-direction: row;
+    background: #E5E5E5;
+    width: 79%;
+    height: 42px;
+    margin-left: 10%;
+    margin-top: 38px;
+    border-color: transparent;
+}
+.generalaccesssection img.generalaccesslogo {
+    width: 18px;
+    height: 18px;
+    left: 12%;
+    position: absolute;
+    top: 12px;
+}
+.generalaccesssectionnoborder img.generalaccessnoborderlogo{
+    width: 18px;
+    height: 18px;
+    left: 4%;
+    position: absolute;
+    top: 260px;
+}
+.generalaccesssection img.generalaccessnoborderlogo {
+    display: none;
+}
+.generalaccesssectionnoborder img.generalaccesslogo {
+    display: none;
+}
+.generalaccesssection .generalaccesssectionlabel {
+    left: 25%;
+    margin-top: 7px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #19A3D1;
+    position:absolute;
+    top: 2px;
+}
+.generalaccesssectionnoborder .generalaccesssectionlabel {
+    position:absolute;
+    left: 6%;
+    margin-top: 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #494949;
+}
+.generalaccesssection img.dropdownlogo{
+    width: 12px;
+    height: 12px;
+    left: 89%;
+    top: 17px;
+    position:absolute;
+}
+.generalaccesssectionnoborder img.dropdownlogo {
+    display:none;
+}
+.bulkaccesssection {
+    border-color: transparent;
+    display: flex;
+    flex-direction: row;
+    height: 42px;
+    margin-left: 11%;
+    margin-top: 48px;
+    width: 79%;
+    position: relative;
+    top: 0px;
+    background: #cfdfe4;
+    border-radius: 50px;
+}
+.bulkaccesssectionnoborder {
+    display: flex;
+    flex-direction: row;
+    background: #E5E5E5;
+    width: 79%;
+    height: 42px;
+    margin-left: 10%;
+    margin-top: 48px;
+    border-color: transparent;
+}
+.bulkaccesssection img.bulkaccesslogo{
+    height: 18px;
+    left: 9%;
+    position: absolute;
+    top: 29%;
+    width: 18px
+}
+
+.bulkaccesssectionnoborder img.bulkaccessnoborderlogo {
+    height: 18px;
+    left: 13%;
+    position: relative;
+    top: 47%;
+    width: 18px;
+}
+.bulkaccesssection .bulkaccesssectionlabel {
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    left: 23%;
+    letter-spacing: .01em;
+    line-height: 24px;
+    margin-top: 8px;
+    position: absolute;
+    color: #19a3d1;
+}
+.bulkaccesssectionnoborder .bulkaccesssectionlabel {
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    left: 6%;
+    letter-spacing: .01em;
+    line-height: 24px;
+    margin-top: 16px;
+    position: absolute;
+    color: #494949;
+}
+.bulkaccesssection img.bulkaccessnoborderlogo {
+    display: none;
+}
+.bulkaccesssectionnoborder img.bulkaccesslogo {
+    display: none;
+}
+.bulkaccesssection img.dropdownlogo {
+    height: 12px;
+    left: 88%;
+    position: absolute;
+    top: 14px;
+    width: 12px;
+}
+.bulkaccesssectionnoborder img.dropdownlogo{
+    display:none;
+}
+.useraccesssection {
+    display: flex;
+    flex-direction: row;
+    background: #cfdfe4;
+    border-radius: 50px;
+    width: 79%;
+    height: 42px;
+    margin-left: 10%;
+    margin-top: 48px;
+    border-color: transparent;
+}
+.useraccesssectionnoborder {
+    display: flex;
+    flex-direction: row;
+    background: #E5E5E5;
+    width: 79%;
+    height: 42px;
+    margin-left: 10%;
+    margin-top: 48px;
+    border-color: transparent;
+}
+.useraccesssection img.useraccesslogo {
+    width: 18px;
+    height: 18px;
+    top: 432px;
+    left: 3.5%;
+    position: absolute;
+}
+.useraccesssectionnoborder img.useraccessnoborderlogo {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 432px;
+    left: 4%;
+}
+.useraccesssection img.useraccessnoborderlogo {
+    display: none;
+}
+.useraccesssectionnoborder img.useraccesslogo {
+    display: none;
+}
+.useraccesssection .useraccesssectionlabel {
+    left: 5.5%;
+    position:absolute;
+    margin-top: 7px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #19A3D1;
+}
+.useraccesssectionnoborder .useraccesssectionlabel {
+    position:absolute;
+    left: 6%;
+    margin-top: 7px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #494949;
+}
+.useraccesssection img.dropdownlogo {
+    width: 12px;
+    height: 12px;
+    left: 16.5%;
+    top: 439px;
+    position:absolute;
+}
+.useraccesssectionnoborder img.dropdownlogo {
+    display: none;
+}
+.fieldaccesssection {
+    display: flex;
+    flex-direction: row;
+    width: 79%;
+    height: 42px;
+    background: #cfdfe4;
+    border-radius: 50px;
+    margin-left: 10%;
+    margin-top: 50px;
+    border-color: transparent;
+}
+.fieldaccesssectionnoborder {
+    display: flex;
+    flex-direction: row;
+    width: 79%;
+    height: 42px;
+    margin-left: 10%;
+    padding-top: 56px;
+    border-color: transparent;
+    background-color: #E5E5E5;
+}
+.fieldaccesssection img.fieldaccesslogo {
+    width: 18px;
+    height: 18px;
+    left: 4%;
+    top: 522px;
+    position: absolute;
+}
+.fieldaccesssectionnoborder img.fieldaccessnoborderlogo{
+    margin-left: -3.5%;
+    /* margin-top: -20px; */
+    width: 12%;
+    position: absolute;
+    height: 20px;
+    top: 506px
+}
+.fieldaccesssection img.fieldaccessnoborderlogo {
+    display: none;
+}
+.fieldaccesssectionnoborder img.fieldaccesslogo {
+    display: none;
+}
+.fieldaccesssection .fieldaccesssectionlabel {
+    left: 6%;
+    margin-top: 7px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #19A3D1;
+    position:absolute;
+}
+.fieldaccesssectionnoborder .fieldaccesssectionlabel {
+    position:absolute;
+    left: 6%;
+    top: 507px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #494949;
+}
+.fieldaccesssection img.dropdownlogo {
+    width: 12px;
+    height: 12px;
+    left: 16%;
+    top: 528px;
+    position:absolute;
+}
+.fieldaccesssectionnoborder img.dropdownlogo {
+    display: none;
+}
+
+
+.protocolaccesssection {
+    display: flex;
+    flex-direction: row;
+    width: 79%;
+    height: 42px;
+    background: #cfdfe4;
+    border-radius: 50px;
+    margin-left: 10%;
+    margin-top: 46px;
+    border-color: transparent;
+}
+.protocolaccesssectionnoborder {
+    display: flex;
+    flex-direction: row;
+    width: 1.5%;
+    height: 42px;
+    margin-left: 10%;
+    border-color: transparent;
+    background-color: #E5E5E5;
+}
+.protocolaccesssection img.protocolaccesslogo {
+    width: 18px;
+    height: 18px;
+    left: 4%;
+    top: 577px;
+    position: absolute;
+}
+.protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
+    margin-left: 1.5%;
+    position: absolute;
+    top: 581px;
+}
+.protocolaccesssection img.protocolaccesssectionnoborder {
+    display: none;
+}
+.protocolaccesssectionnoborder img.protocolaccesslogo {
+    display: none;
+}
+.protocolaccesssection .protocolaccesssectionlabel {
+    left: 6%;
+    margin-top: 7px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #19A3D1;
+    position:absolute;
+}
+.protocolaccesssectionnoborder .protocolaccesssectionlabel {
+    position:absolute;
+    left: 6%;
+    top: 591px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #494949;
+}
+.protocolaccesssection img.dropdownlogo {
+    height: 12px;
+    left: 16%;
+    position: absolute;
+    top: 581px;
+    width: 12px;
+}
+.protocolaccesssectionnoborder img.dropdownlogo {
+    display: none;
+}
+
+.studyaccesssection {
+    display: flex;
+    flex-direction: row;
+    width: 79%;
+    height: 42px;
+    background: #cfdfe4;
+    border-radius: 50px;
+    margin-left: 10%;
+    margin-top: 133px;
+    border-color: transparent;
+}
+.studyaccesssectionnoborder {
+    display: flex;
+    flex-direction: row;
+    width: 79%;
+    height: 42px;
+    margin-left: 10%;
+    border-color: transparent;
+    background-color: #E5E5E5;
+}
+.studyaccesssection img.studyaccesslogo {
+    height: 18px;
+    top: 746px;
+    position: absolute;
+    width: 26px;
+    left: 38px;
+}
+.studyaccesssectionnoborder img.studyaccessnoborderlogo{
+    height: 50px;
+    margin-left: 19px;
+    top: 723px;
+    position: absolute;
+    width: 23px;
+}
+.studyaccesssection img.studyaccessnoborderlogo {
+    display: none;
+}
+.studyaccesssectionnoborder img.studyaccesslogo {
+    display: none;
+}
+.studyaccesssection .studyaccesssectionlabel {
+    left: 6%;
+    margin-top: 7px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #19A3D1;
+    position:absolute;
+}
+.studyaccesssectionnoborder .studyaccesssectionlabel {
+    position:absolute;
+    left: 6%;
+    top: 737px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #494949;
+}
+.studyaccesssection img.dropdownlogo {
+    width: 12px;
+    height: 12px;
+    left: 16%;
+    top: 753px;
+    position:absolute;
+}
+.studyaccesssectionnoborder img.dropdownlogo {
+    display: none;
+}
+
+.projectaccesssection {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 42px;
+    background: #cfdfe4;
+    border-radius: 50px;
+    margin-left: 10%;
+    margin-top: 89px;
+    border-color: transparent;
+}
+.projectaccesssectionnoborder {
+    display: flex;
+    flex-direction: row;
+    width: 2%;
+    height: 42px;
+    margin-left: 10%;
+    border-color: transparent;
+    background-color: #E5E5E5;
+}
+.projectaccesssection img.projectaccesslogo {
+    width: 18px;
+    height: 18px;
+    left: 4%;
+    top: 661px;
+    position: absolute;
+}
+.projectaccesssectionnoborder img.projectaccesssectionnoborder{
+    margin-left: 1%;
+    /* margin-top: -23px; */
+    position: absolute;
+    top: 660px;
+}
+.projectaccesssection img.projectaccesssectionnoborder {
+    display: none;
+}
+.projectaccesssectionnoborder img.projectaccesslogo {
+    display: none;
+}
+.projectaccesssection .projectaccesssectionlabel {
+    left: 6%;
+    margin-top: 7px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #19A3D1;
+    position:absolute;
+}
+.projectaccesssectionnoborder .projectaccesssectionlabel {
+    position:absolute;
+    left: 6%;
+    top: 665px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #494949;
+}
+.projectaccesssection img.dropdownlogo {
+    width: 12px;
+    height: 12px;
+    left: 16%;
+    top: 667px;
+    position:absolute;
+}
+.projectaccesssectionnoborder img.dropdownlogo {
+    display: none;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .profilesection {
+        width: 140px;
+        margin-left: 8px;
+        margin-top: 28px;
+    }
+    .profilesection img.circle {
+        margin-left: -78px;
+        margin-top: 10px;
+        width: 41px;
+    }
+    .adminname {
+        font-size: 15px;
+        margin-left: 27px;
+        margin-top: -21px;
+    }
+    .adminlabel {
+        font-size: 15px;
+        margin-left: 29px;
+    }
+    .generalaccesssection{
+        width: 97%;
+        margin-left: 1%;
+    }
+    .generalaccesssectionnoborder img.generalaccessnoborderlogo{
+        left: 3%;
+        top: 278px;
+    }
+    .generalaccesssection img.dropdownlogo{
+        left: 85%;
+        top: 16px;
+    }
+    .generalaccesssection img.generalaccesslogo{
+        left: 7%;
+        top: 12px;
+    }
+    .generalaccesssection img.generalaccesslogo .tablesearch, .generalaccesssectionnoborder img.generalaccessnoborderlogo
+    .tablesearch{
+        left: 3%;
+        top: 273px;
+    }
+    .generalaccesssection .generalaccesssectionlabel{
+        font-size: 12px;
+    }
+    .bulkaccesssection{
+        width: 101%;
+        margin-left: 1%;
+    }
+    .bulkaccesssection img.bulkaccesslogo{
+        left: 5%;
+        top: 10px;
+    }
+    .bulkaccesssectionnoborder img.bulkaccessnoborderlogo{
+        left: -3%;
+        top: 18px;
+    }
+    .bulkaccesssection .bulkaccesssectionlabel{
+        left: 18%;
+    }
+    .bulkaccesssection img.dropdownlogo{
+        left: 91.5%;
+        top: 15px;
+    }
+    .bulkaccesssectionnoborder .bulkaccesssectionlabel{
+        left:4.5%;
+    }
+    input.tablesearchbox {
+    width: 203px;
+    margin-left: 133px;
+    }
+    .searchlogo{
+        left: 158px;
+        filter: opacity(0.5);
+    }
+.useraccesssection {
+    width: 145px;
+    margin-left: 6px;
+}
+.useraccesssection img.userlogo{
+    margin-left: 11px;
+    left: 2%;
+}
+.useraccesssectionnoborder img.userlogo{
+    left: 3%;
+}
+.useraccesssection img.useraccesslogo{
+    left: 2.5%;
+    top: 450px;
+}
+.useraccesssectionnoborder img.useraccessnoborderlogo{
+    left: 3%;
+    top: 446px;
+}
+.useraccesssection .useraccesssectionlabel, .useraccesssectionnoborder .useraccesssectionlabel{
+    line-height: 17px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.useraccesssection img.dropdownlogo, .useraccesssectionnoborder img.dropdownlogo{
+    top: 457px;
+    left: 142px;
+}
+.fieldaccesssection{
+    width: 96%;
+    margin-left: 4%;
+}
+.fieldaccesssection img.fieldaccesslogo{
+    left: 2%;
+    top: 540px;
+}
+.fieldaccesssection .fieldaccesssectionlabel{
+    left: 5%;
+    font-size: 13px;
+}
+.fieldaccesssectionnoborder .fieldaccesssectionlabel{
+    left: 5%;
+    top: 514px;
+}
+.fieldaccesssectionnoborder{
+    margin-left: 11px;
+    width: 195px;
+    margin-top: 18px;
+}
+.fieldaccesssection img.dropdownlogo{
+    left: 18%;
+    top: 546px;
+}
+.groupaccesssectionnoborder{
+    width: 197px;
+    margin-left: 9px;
+}
+.fieldaccesssectionnoborder img.fieldaccessnoborderlogo {
+    margin-left: -4%;
+    margin-top: 9px;
+}
+.protocolaccesssection {
+    width: 100%;
+    margin-left: 1%;
+}
+.protocolaccesssection img.protocolaccesslogo{
+    height: 18px;
+    left: 1%;
+    position: absolute;
+    top: 613px;
+    width: 18px;
+}
+.protocolaccesssection .protocolaccesssectionlabel{
+    left: 4%;
+}
+.protocolaccesssection img.dropdownlogo{
+    left: 18%;
+    top: 617px;
+}
+.projectaccesssection {
+    margin-top: 51px;
+    margin-left: 1%;
+    width: 98%;
+}
+.projectaccesssection img.projectaccesslogo {
+    left: 2%;
+}
+.projectaccesssection .projectaccesssectionlabel{
+    left: 5%;
+}
+.projectaccesssection img.dropdownlogo{
+    left: 18%;
+    top: 665px;
+}
+.projectaccesssectionnoborder img.projectaccesssectionnoborder{
+    margin-left: 2%;
+    top: 656px;
+}
+.studyaccesssectionnoborder img.studyaccessnoborderlogo{
+    margin-left: 3px;
+}
+.studyaccesssection{
+    margin-top: 95px;
+    margin-left: 1%;
+}
+.studyaccesssection img.studyaccesslogo{
+    left: 1px;
+}
+.studyaccesssection .studyaccesssectionlabel{
+    left: 3%;
+}
+.studyaccesssection img.dropdownlogo{
+    left: 15%;
+}
+.studyaccesssectionnoborder .studyaccesssectionlabel{
+    left: 5%;
+}
+}
