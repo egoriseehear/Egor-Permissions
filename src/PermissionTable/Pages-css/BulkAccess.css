@@ -13,7 +13,8 @@
     margin-left: 28px;
 }
 .bulkpanel .userlogo img {
-
+    position: relative;
+    top: -4px;
     padding-left: -25px;
     margin-left: -76px;
 }
@@ -63,20 +64,20 @@
     display: none;
   }
 .bulkpanel .selectrequire{
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 2px 10px;
-        gap: 10px;
-        position: relative;
-        width: 200px;
-        height: 18px;
-        left: -26.9%;
-        top: 20px;
-        background: #FFFFFF;
-        border: 0.2px solid #BCBCBC;
-        border-radius: 5px;
+    align-items: center;
+    background: #fff;
+    border: 0.2px solid #bcbcbc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 18px;
+    left: 41.1%;
+    padding: 2px 10px;
+    position: absolute;
+    top: 221px;
+    width: 154px;
   }
 .bulkpanel .selectrequire .requirelabel {
         font-family: 'Roboto';
@@ -267,13 +268,14 @@ span.tabletitle1label {
     height: 40px;
     /* max-width: 100%; */
     color: rgba(0, 0, 0, 0.87);
-    /* background-color: #F5F5F5; */
+    background-color: #FFFFFF; 
     /* padding-right: 11px; */
     padding-left: -2px;
-    left: 0px;
+    left: -1px;
     top: 39px;
     /* border-radius: 30px 0px 0px 0px; */
     border: 1px solid #C0BFBB;
+    border-inline-start: 5px solid #E43626;
 }
 .bulkpanel .tablepanel3 {
     position: absolute;
@@ -387,6 +389,7 @@ input.tablesearchbox {
     top: -21px;
     /* border-radius: 30px 0px 0px 0px; */
     border: 1px solid #C0BFBB;
+    border-inline-start: 5px solid #E43626;
 }
 .tablepanel3less .tableSelectAll{
     position: relative;
@@ -404,6 +407,7 @@ input.tablesearchbox {
     top: 13px;
     /* border-radius: 30px 0px 0px 0px; */
     border: 1px solid #C0BFBB;
+    border-inline-start: 5px solid #E43626;
 }
 input.selectall {
     left: -3px;
@@ -412,6 +416,9 @@ input.selectall {
     width: 18px;
     top: 10px;
     background-color: #6D6D6D;
+}
+input[type="checkbox"]:focus{
+    outline:none;
 }
 .tableSelectAll label {
     display: none;
@@ -426,6 +433,9 @@ input.noselectall {
 }
 .noselectall label {
     display: none;
+}
+.tablepanel3less span.header {
+    background-color: transparent;
 }
 .selectall {
     -webkit-appearance: none; /* Hide the default checkbox */
@@ -465,25 +475,28 @@ input.noselectall {
   }
   
   input.selectall2 {
-    left: 0px;
-    margin-left: 17px;
+    left: 6px !important;
+    margin-left: 14px;
     border: 1.5px solid #6D6D6D;
     top: 1px;
     background-color: #6D6D6D;
-    width: 19px;
-    margin-top: 10px;
-    height: 19px;
+    width: 18px;
+    margin-top: 9px;
+    height: 18px;
+    outline:none !important;
 }
 .tableSelectAll label {
     display: none;
 }
 input.noselectall2 {
-    /* padding-left: 131px; */
-    left: 12px;
-    margin-left: 26px;
+    left: 20px;
+    margin-left: 21px;
     border: 1.5px solid #6D6D6D;
     width:18px;
     background-color: #FFFFFF;
+    position: absolute;
+    top: 10px;
+    height: 18px;
 }
 .noselectall2 label {
     display: none;
@@ -527,13 +540,34 @@ input.noselectall2 {
 .tableSelectAll label {
     display: none;
 }
+/*
 input.noselectall3 {
-    /* padding-left: 131px; */
     left: 12px;
-    margin-left: 31px;
+    margin-left: 23px;
     border: 1.5px solid #6D6D6D;
     width:18px;
     background-color: #FFFFFF;
+}*/
+.tablepanel3less input.noselectall3 {
+    background: #f5f5f5;
+    border-radius: 0 0 0 0;
+    box-shadow: 0 0 3px rgba(0,0,0,.25);
+    height: 18;
+    left: 32px;
+    width:18px;
+    margin-left: 23px;
+    position: absolute;
+    top: 9px;
+}
+.tablepanel3 input.noselectall3 {
+    background: #f5f5f5;
+    border-radius: 0 0 0 0;
+    box-shadow: 0 0 3px rgba(0,0,0,.25);
+    height: 18px;
+    left: 9.8%;
+    position: absolute;
+    top: 7px;
+    width: 18px;
 }
 .noselectall3 label {
     display: none;
@@ -587,8 +621,21 @@ span.header {
     color: #4B4B4B;
     opacity: 0.8;
 }
-.tableSelectAll .header {
-    background-color: transparent;
+.tablepanel2 .tableSelectAll .header {
+    background-color: initial !important;
+    margin-left: 72px;
+    position: absolute;
+}
+.tablepanel .tableSelectAll .header {
+    background-color: initial !important;
+    margin-left: 75px;
+    position: absolute;
+    left: -20px;
+}
+.tablepanel3 .tableSelectAll .header {
+    background-color: initial !important;
+    margin-left: 75px;
+    position: absolute;
 }
 input.itemcheckbox.hidden{
     display:none;
@@ -655,14 +702,14 @@ input.itemcheckbox.hidden{
     border-radius: 3px;
     box-shadow: 0 0 3px rgba(0,0,0,.25);
     height: 148.5px;
-    left: 3.1%;
+    left: 1.1%;
     margin-left: 0%;
     margin-top: -529px;
     min-height: 159.5px;
     overflow: visible;
     overflow-y: scroll;
     top: 136%;
-    width: 32%;
+    width: 34%;
 }
 .my-custom-table2 .rdt_TableHead {
     display: none;
@@ -687,10 +734,10 @@ input.itemcheckbox.hidden{
     min-height: 163.5px;
     overflow: visible;
     overflow-y: scroll;
-	left: -5.7%;
+	left: -7.7%;
     margin-left: 11%;
     margin-top: -272px;
-    width: 32%;
+    width: 34%;
 }
 .bulkpanel .table3 .my-custom-table3less {
     margin-top: -428px;
@@ -735,8 +782,17 @@ input.itemcheckbox.hidden{
 .my-custom-table3less .rdt_TableHead {
     display: none;
 }
-.rdt_Table {
-    border-inline-start: 5px solid #089CCD;
+.my-custom-table .rdt_Table {
+    border-inline-start: 5px solid #E43626;
+}
+.my-custom-table2 .rdt_Table {
+    border-inline-start: 5px solid #827f7f;
+}
+.my-custom-table3 .rdt_Table {
+    border-inline-start: 5px solid #827f7f;
+}
+.my-custom-table3less .rdt_Table {
+    border-inline-start: 5px solid #827f7f;
 }
 .rdt_TableRow {
     border-bottom: 1px solid #ddd4d4;
@@ -785,13 +841,17 @@ input.itemcheckbox.hidden{
     border: 1.5px solid #6D6D6D;
     width:18px;
 } 
-input.itemcheckboxtabel1{
+.my-custom-table input.itemcheckboxtabel1{
     width: 18px;
     height: 18px;
+    accent-color: #827f7f !important;
 }
 input.itemcheckboxtabel1clicked{
     appearance: none;
     background-color: red;
+}
+input.itemcheckbox {
+    accent-color: #827f7f !important;
 }
 .borderclass {
     margin-left: 52.3%;
@@ -867,14 +927,16 @@ img.dropdownrotate1
 }
 
 input.selectall3 {
-    margin-left: 14px;
+    margin-left: 10px;
     width: 19px;
     height: 19px;
     margin-top: 10px;
-    left: 3px;
+    left: 32px;
     border: 1.5px solid #6D6D6D;
     top: 1px;
     background-color: #6D6D6D;
+    outline:none !important;
+    position: absolute;
 }
 input.itemcheckbox2 {
     width: 18px;
@@ -942,6 +1004,39 @@ span.header5 {
 img.dropdown2 {
     width:8px !important;
     margin-left: 12px;
+}
+.tablepanel3less img.dropdown2 {
+    margin-left: 19px;
+    width: 8px!important;
+}
+.tablepanel3less span.header {
+    background-color: transparent;
+    position: absolute;
+    left: 80px;
+}
+.tablepanel3less input.selectall3 {
+    background-color: #6d6d6d;
+    border: 1.5px solid #6d6d6d;
+    height: 19px;
+    left: 46px;
+    margin-left: 10px;
+    margin-top: 10px;
+    outline: none!important;
+    position: absolute;
+    top: 1px;
+    width: 19px;
+}
+.tablepanel3 input.selectall3 {
+    background-color: #6d6d6d;
+    border: 1.5px solid #6d6d6d;
+    height: 19px;
+    left: 32px;
+    margin-left: 10px;
+    margin-top: 10px;
+    outline: none!important;
+    position: absolute;
+    top: 1px;
+    width: 19px;
 }
 span.access1 {
     margin-left: 18px;
@@ -1027,7 +1122,7 @@ img.dropdownrotate2
 .popuptable1 {
     border-collapse: collapse;
     width: 100%;
-    margin-left: 1px;
+    margin-left: 0px;
   }
   
   .popuptable1 td {
@@ -1161,12 +1256,20 @@ img.dropdownrotate2
     .bulkpanel .userlogo img {
         margin-left: -76px;
         margin-top: -8px;
+        position: relative;
+        top: -4px;
     }
     .bulkpanel .css-b62m3t-container{
         height: 43px;
         left: -1%;
         margin-left: 3%;
         width: 60%;
+    }
+    .bulkpanel .selectrequire{
+        top: 237px;
+    }
+    .bulkpanel .rowrequire {
+        width: 58%;
     }
     .bulkpanel .title{
         margin-top: -20px;
@@ -1176,7 +1279,7 @@ img.dropdownrotate2
     }
     input.tablesearchbox{
         margin-left: -93%;
-        width: 0;
+        width: 223px !important;
     }
     .tableSelectAll .header{
         font-weight: bold;
@@ -1189,38 +1292,85 @@ img.dropdownrotate2
         padding-left: 108px;
         top: 51px;
     }
+    .bulkpanel .my-custom-table{
+        height: 530px;
+    }
+    span.hOXYFc {
+        position: absolute;
+        left: 199px;
+        font-size: 10px;
+        font-weight: bold;
+        width: 10px;
+    }
+    .bulkpanel nav.rdt_Pagination span.fwhfat{
+        margin: 0 1px;
+        left: 280px;
+        position: absolute;
+        width: 30px;
+    }
+    .bcYJHc{
+        width: 140px;
+    }
+    .hSDvtr{
+        position: absolute;
+        flex-shrink: 0;
+        font-size: inherit;
+        color: inherit;
+        margin-top: 1px;
+        left: 234px;
+    }
+    
     .bulkpanel .table2 .my-custom-table2{
-        margin-top: -550px;
+        margin-top: -544px;
     }
     .bulkpanel .table3 .my-custom-table3{
-        margin-top: -293px;
+        margin-top: -286px;
+    }
+    .bulkpanel .tablepanel3less{
+        top: 405.5px;
+    }
+    input.noselectall2{
+        left: 14px;
+    }
+    input.selectall2{
+        left: 2px !important;
     }
     .borderclass{
         margin-top: -530px;
     }
     .bulkpanel .tablepanel4{
-        top: 927px;
+        top: 908px;
     }
     .tablepanel2 .tableSelectAll{
-        top: 49px;
+        top: 42px;
     }
     .tablepanel3 .tableSelectAll{
-        top: 39px;
+        top: 5px;
     }
     .bulkpanel .tablepanel2{
-        top: 295px;
+        top: 291px;
     }
     .tablepanel3less .tableSelectAll{
         top: 4px;
     }
     .bulkpanel .table3 .my-custom-table3less{
-        margin-top: -450px;
-    }
-    .tablepanel3 .tableSelectAll {
-        top: 15px;
+        margin-top: -454px;
     }
     .noborderclass{
-        margin-top: -551px;
-        height: 495px
+        height: 506px;
+        margin-top: -562px;
     }
-        }
+    .tablepanel3 input.noselectall3{
+        left: 12.8%;
+    }
+    .tablepanel3 input.selectall3{
+        left: 25px;
+    }
+    .bulkpanel .tablepanel4{
+        height: 59px;
+    }
+    .BAModal{
+        margin-left: 17%!important;
+        margin-top: 10%!important;
+    }
+  }

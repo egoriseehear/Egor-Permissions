@@ -364,7 +364,7 @@
     background: #cfdfe4;
     border-radius: 50px;
     margin-left: 10%;
-    margin-top: 46px;
+    margin-top: 51px;
     border-color: transparent;
 }
 .protocolaccesssectionnoborder {
@@ -380,13 +380,14 @@
     width: 18px;
     height: 18px;
     left: 4%;
-    top: 577px;
+    top: 581px;
     position: absolute;
 }
 .protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
-    margin-left: 1.5%;
+    margin-left: 1.8%;
     position: absolute;
     top: 581px;
+    width: 20px;
 }
 .protocolaccesssection img.protocolaccesssectionnoborder {
     display: none;
@@ -422,7 +423,7 @@
     height: 12px;
     left: 16%;
     position: absolute;
-    top: 581px;
+    top: 586px;
     width: 12px;
 }
 .protocolaccesssectionnoborder img.dropdownlogo {
@@ -454,7 +455,7 @@
     top: 746px;
     position: absolute;
     width: 26px;
-    left: 38px;
+    left: 47px;
 }
 .studyaccesssectionnoborder img.studyaccessnoborderlogo{
     height: 50px;
@@ -532,10 +533,11 @@
     position: absolute;
 }
 .projectaccesssectionnoborder img.projectaccesssectionnoborder{
-    margin-left: 1%;
+    margin-left: 1.8%;
     /* margin-top: -23px; */
     position: absolute;
-    top: 660px;
+    top: 658px;
+    width: 20px;
 }
 .projectaccesssection img.projectaccesssectionnoborder {
     display: none;

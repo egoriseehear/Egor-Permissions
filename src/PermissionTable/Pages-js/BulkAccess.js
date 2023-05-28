@@ -7,7 +7,7 @@ import userpagelogo from '../Logos/userpagelogo.svg'
 import searchlogo from '../Logos/searchlogo.svg'
 import checkboxsymbol from '../Logos/checkboxsymbol.svg'
 import BAModal from 'react-modal';
-import {BulkAccess_URL} from '../Pages-js/URL';
+import {BulkAccess_URL,BulkAccessPost_URL} from '../Pages-js/URL';
 import axios from 'axios';
 
 
@@ -26,6 +26,7 @@ function BulkAccess() {
   const [filterText2, setFilterText2] = useState("");
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectOptions, setSelectOptions] = useState("");
+  const [selectOptionsValue, setSelectOptionsValue] = useState("");
   const [selectedOptionsIndex, setSelectedOptionsIndex] = useState("");
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [selectedRowId, setSelectedRowId] = useState(null);
@@ -39,7 +40,8 @@ function BulkAccess() {
   const [isSelectValue, setIsSelectValue] = useState(true);
   const [isSelectRow, setIsSelectRow] = useState(true);
   const [isSelectRow2, setIsSelectRow2] = useState(true);
-  const [bulkInput,setBulkInput]=useState();
+  const [dataHoldingList,setDataHoldingList]=useState([]);
+  const [accessGroupList,setAccessGroupList]=useState([]);
 
  
 
@@ -54,10 +56,18 @@ function BulkAccess() {
      // Call the API using Axios for AdminName
      const url=`${BulkAccess_URL}`;
      axios.get(url)
-     .then(response => {
-      setBulkInput(response.data)
-
+     .then(response => { 
        console.log(response.data)
+           const dataholdingusers = response.data.dataHoldingUsersList.map(({userid,username}) => ({
+                id: userid,
+                name: username,
+      }))
+      const accessgroupusers = response.data.accessOnlyUsersList.map(({userid,username}) => ({
+        id: userid,
+        name: username,
+}))
+      setDataHoldingList(dataholdingusers)
+      setAccessGroupList(accessgroupusers)
      })
      .catch(error => {
      console.error(error);
@@ -66,10 +76,14 @@ function BulkAccess() {
 
   /* Select option*/
 const handleChange = (selectedOptions) => {
-    setSelectedOptions(selectedOptions);
+  setSelectedOptions(selectedOptions);
+  if(selectedOptions.length!==0){
+    setIsSelectValue(true);
+  } 
     const Options=selectedOptions.map(options => options.label);
-    setSelectOptions(selectedOptions.map(options => options.label));
+    setSelectOptions(selectedOptions.map(options => options.value));
     setSelectedOptionsIndex(selectedOptions.index);
+    setSelectOptionsValue(Options);
   };
   
   /* select arrow style change*/
@@ -176,102 +190,9 @@ const handleChange = (selectedOptions) => {
     }),
   });
 
-  const data = [
-    { id: "i1", name: "John" },
-    { id: "i2", name: "Jane" },
-    { id: "i3", name: "Bob" },
-    { id: "i4", name: "Alice" },
-    { id: "i5", name: "John" },
-    { id: "i6", name: "Jane" },
-    { id: "i7", name: "Bob" },
-    { id: "i8", name: "Alice" },
-    { id: "i9", name: "John" },
-    { id: "i10", name: "Jane" },
-    { id: "i11", name: "Bob" },
-    { id: "i12", name: "Alice" },
-    { id: "i13", name: "John" },
-    { id: "i14", name: "Jane" },
-    { id: "i15", name: "Bob" },
-    { id: "i16", name: "Alice" },
-    { id: "i17", name: "John" },
-    { id: "i18", name: "Jane" },
-    { id: "i19", name: "Bob" },
-    { id: "i20", name: "Alice" },
-    { id: "i21", name: "John" },
-    { id: "i22", name: "Jane" },
-    { id: "i23", name: "Bob" },
-    { id: "i24", name: "Alice" },
-    { id: "i25", name: "John" },
-    { id: "i26", name: "Jane" },
-    { id: "i27", name: "Bob" },
-    { id: "i28", name: "Alice" },
-    { id: "i29", name: "John" },
-    { id: "i30", name: "Jane" }
-  ];
-  const data2 = [
-    { id: "i1", name: "John" },
-    { id: "i2", name: "Jane" },
-    { id: "i3", name: "Bob" },
-    { id: "i4", name: "Alice" },
-    { id: "i5", name: "John" },
-    { id: "i6", name: "Jane" },
-    { id: "i7", name: "Bob" },
-    { id: "i8", name: "Alice" },
-    { id: "i9", name: "John" },
-    { id: "i10", name: "Jane" },
-    { id: "i11", name: "Bob" },
-    { id: "i12", name: "Alice" },
-    { id: "i13", name: "John" },
-    { id: "i14", name: "Jane" },
-    { id: "i15", name: "Bob" },
-    { id: "i16", name: "Alice" },
-    { id: "i17", name: "John" },
-    { id: "i18", name: "Jane" },
-    { id: "i19", name: "Bob" },
-    { id: "i20", name: "Alice" },
-    { id: "i21", name: "John" },
-    { id: "i22", name: "Jane" },
-    { id: "i23", name: "Bob" },
-    { id: "i24", name: "Alice" },
-    { id: "i25", name: "John" },
-    { id: "i26", name: "Jane" },
-    { id: "i27", name: "Bob" },
-    { id: "i28", name: "Alice" },
-    { id: "i29", name: "John" },
-    { id: "i30", name: "Jane" }
-  ];
-  var data3 = [
-    { id: "i1", name: "John" },
-    { id: "i2", name: "Jane" },
-    { id: "i3", name: "Bob" },
-    { id: "i4", name: "Alice" },
-    { id: "i5", name: "John" },
-    { id: "i6", name: "Jane" },
-    { id: "i7", name: "Bob" },
-    { id: "i8", name: "Alice" },
-    { id: "i9", name: "John" },
-    { id: "i10", name: "Jane" },
-    { id: "i11", name: "Bob" },
-    { id: "i12", name: "Alice" },
-    { id: "i13", name: "John" },
-    { id: "i14", name: "Jane" },
-    { id: "i15", name: "Bob" },
-    { id: "i16", name: "Alice" },
-    { id: "i17", name: "John" },
-    { id: "i18", name: "Jane" },
-    { id: "i19", name: "Bob" },
-    { id: "i20", name: "Alice" },
-    { id: "i21", name: "John" },
-    { id: "i22", name: "Jane" },
-    { id: "i23", name: "Bob" },
-    { id: "i24", name: "Alice" },
-    { id: "i25", name: "John" },
-    { id: "i26", name: "Jane" },
-    { id: "i27", name: "Bob" },
-    { id: "i28", name: "Alice" },
-    { id: "i29", name: "John" },
-    { id: "i30", name: "Jane" }
-  ];
+  const data = dataHoldingList;
+  const data2 = dataHoldingList;
+  const data3=accessGroupList;
   const columns = [
          {
         name: 'Name',
@@ -355,7 +276,9 @@ selector: '',
       newSelectedRows.push(row);
     }
     setSelectedRowsTable(newSelectedRows);
-    console.log(newSelectedRows);  
+    if(newSelectedRows.length !==0){
+      setIsSelectRow(true);
+      }
     if (newSelectedRows.length === data.length) {
       setSelectAll(true);
     } else {
@@ -370,9 +293,11 @@ selector: '',
   };
   const handleSelectAll = () => {
     const newSelectedRows = selectAll ? [] : [...data];
+        if(newSelectedRows.length !==0){
+      setIsSelectRow(true);
+      }
     setSelectedRowsTable(newSelectedRows);
     setSelectAll(!selectAll);
-    console.log(newSelectedRows); 
   };
   const filteredData2 = data2.filter(row =>
     row.name.toLowerCase().includes(filterText2.toLowerCase())
@@ -388,6 +313,9 @@ selector: '',
 
   const handleRowSelected2 = (row) => {
     const newSelectedRows = [...selectedRowsTable2];
+    if(newSelectedRows.length !==0){
+      setIsSelectRow2(true);
+      }
     const index = newSelectedRows.findIndex((r) => r.id === row.id);
     if (index > -1) {
       newSelectedRows.splice(index, 1);
@@ -395,6 +323,11 @@ selector: '',
       newSelectedRows.push(row);
     }
     setSelectedRowsTable2(newSelectedRows);
+    if (newSelectedRows.length === data2.length) {
+      setSelectAll2(true);
+    } else {
+      setSelectAll2(false);
+    }
   };  
 
   
@@ -403,9 +336,11 @@ selector: '',
   };
   const handleSelectAll2 = () => {
     const newSelectedRows = selectAll2 ? [] : [...data2];
+    if(newSelectedRows.length !==0){
+      setIsSelectRow2(true);
+      }
     setSelectedRowsTable2(newSelectedRows);
     setSelectAll2(!selectAll2);
-    console.log(newSelectedRows);
   };
 
 
@@ -418,7 +353,11 @@ selector: '',
       newSelectedRows.push(row);
     }
     setSelectedRowsTable3(newSelectedRows);
-    console.log(newSelectedRows);
+    if (newSelectedRows.length === data3.length) {
+      setSelectAll3(true);
+    } else {
+      setSelectAll3(false);
+    }
   };  
 
   
@@ -429,8 +368,7 @@ selector: '',
     const newSelectedRows = selectAll3 ? [] : [...data3];
     setSelectedRowsTable3(newSelectedRows);
     setSelectAll3(!selectAll3);
-    console.log(newSelectedRows);
-  };
+   };
 
   const handleDropdownClick = () => {
     setShowTable(!showTable);
@@ -476,7 +414,7 @@ selector: '',
         <div className='options'>
          <span className='optionslabel'> 
                   <ul className="items-list">
-                    {selectOptions.map((item) => (
+                    {selectOptionsValue.map((item) => (
                       <li className='items' key={item}>{item}</li>
                     ))}
                   </ul>
@@ -518,9 +456,9 @@ selector: '',
     };
 
     const handleSubmit = () => {
-      setIsSelectValue(true);
+    /*  setIsSelectValue(true);
       setIsSelectRow(true);
-      setIsSelectRow2(true);
+      setIsSelectRow2(true);*/
         if(selectOptions.length===0 && selectedRowsTable2.length ===0 && selectedRowsTable.length ===0){
         setIsSelectValue(false);
         setIsSelectRow(false);
@@ -572,11 +510,21 @@ selector: '',
         setIsConfirmationOpen(false);
         // Perform submit action
          // Call the API using Axios
-        /* const url=`${GeneralAccess_URL}/${selectOption}`;
-         axios.get(url)
+         const ownerids = selectedRowsTable.map(item => item.id);
+          const accessUserIds = selectedRowsTable3.map(item => item.id);
+            const permissions =selectOptions;   
+            console.log(ownerids)
+            console.log(accessUserIds)
+            console.log(permissions)     
+         const url=`${BulkAccessPost_URL}`;
+         axios.post(url,{
+        "ownerIds":ownerids,
+        "accessUserIds":accessUserIds,
+        "permissions":permissions
+      }) 
          .then(response => {
-          console.log(response.data.longMessage)
-          if(response.data.longMessage==="success"){
+          console.log(response.data)
+          if(response.data==="success"){
          setIsUpdateSuccessful(true);
           }
           else{
@@ -589,7 +537,7 @@ selector: '',
          })
          .finally(() => {
          setIsConfirmationOpen(false);
-         });*/
+         });
       };
     
       const handleClose = () => {
@@ -742,9 +690,9 @@ selector: '',
       </div>
 
       <div className="tableSelectAll">
+      <img className={showTable?"dropdownrotate1" : "dropdown1"} src={`${process.env.PUBLIC_URL}js/permissions/media/dropdown.54f3e29fc5039e44a7463745979b0cfe.svg`} alt="Dropdown" onClick={handleDropdownClick} />
         <input style={{ visibility: showTable? 'visible' : 'hidden' }} className={selectAll2?"selectall2":"noselectall2"} type="checkbox" checked={selectAll2} onChange={handleSelectAll2} />
-        <label>{selectAll2 ? '' : '-'}</label>
-        <img className={showTable?"dropdownrotate1" : "dropdown1"} src={`${process.env.PUBLIC_URL}js/permissions/media/dropdown.54f3e29fc5039e44a7463745979b0cfe.svg`} alt="Dropdown" onClick={handleDropdownClick} />      
+        <label>{selectAll2 ? '' : '-'}</label>              
         <span className='header' >Data Holding Group</span>
         <div className={isSelectRow2?'row2notrequire':'row2require'}>
       <img className='requirelogo'src={`${process.env.PUBLIC_URL}js/permissions/media/requirelogo.8cf0c0632507087b71a289a8b2a8285b.svg`} alt="requirelogo" />
@@ -810,9 +758,9 @@ selector: '',
       <div className={showTable?'tablepanel3':'tablepanel3less'}>   
       <div className="tabletitle"></div>      
       <div className="tableSelectAll">
+      <img className={showTable1?"dropdownrotate2" : "dropdown2"} src={`${process.env.PUBLIC_URL}js/permissions/media/dropdown.54f3e29fc5039e44a7463745979b0cfe.svg`} alt="Dropdown" onClick={handleDropdownClick2} />
         <input style={{ visibility: showTable1? 'visible' : 'hidden' }} className={selectAll3?"selectall3":"noselectall3"} type="checkbox" checked={selectAll3} onChange={handleSelectAll3} />
-        <label>{selectAll3 ? '' : '-'}</label>
-        <img className={showTable1?"dropdownrotate2" : "dropdown2"} src={`${process.env.PUBLIC_URL}js/permissions/media/dropdown.54f3e29fc5039e44a7463745979b0cfe.svg`} alt="Dropdown" onClick={handleDropdownClick2} />      
+        <label>{selectAll3 ? '' : '-'}</label>      
         <span className='header' >Access Only Group</span>       
     </div>
     </div>

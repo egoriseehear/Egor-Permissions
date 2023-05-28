@@ -10,7 +10,7 @@ import dropdownlogo from '../Logos/dropdownlogo.svg'
 import fieldaccesslogo from '../Logos/fieldlogo.svg'
 import fieldaccessnoborderlogo from '../Logos/fieldaccessblack.svg'
 import '../Pages-css/Mainpage.css'
-import {useNavigate,Link } from 'react-router-dom' 
+import {useNavigate,Link,useLocation  } from 'react-router-dom' 
 import {AdminName_URL} from '../Pages-js/URL';
 import axios from 'axios';
 import GeneralAccess from './GeneralAccess'
@@ -27,7 +27,7 @@ import studyaccesslogo from'../Logos/studyaccess.svg'
 
 function Mainpage() {
   const navigate = useNavigate();
-  const [showGeneralBorder, setShowGeneralBorder] = useState(true);
+  const [showGeneralBorder, setShowGeneralBorder] = useState(false);
   const [showBulkAccessBorder, setShowBulkAccessBorder] = useState(false);
   const [showUserAccessBorder, setShowUserAccessBorder] = useState(false);
   const [showFieldBorder, setShowFieldBorder] = useState(false);
@@ -36,7 +36,7 @@ function Mainpage() {
   const [showStudyAccessBorder, setStudyAccessBorder] = useState(false);
   const [adminName, setAdminName] = useState('');
 
-
+  const location = useLocation();
 const generalAccessPage=()=>{
 // navigate('SMDB/generalAccess') 
   setShowGeneralBorder(true); 
@@ -109,7 +109,33 @@ const studyAccessPage=()=>{
 }
 
 useEffect(() => {
-  generalAccessPage();
+    //const page =location.pathname;
+    const page =window.location.href
+    console.log(page);
+    if (page.includes('generalAccess')) {
+      generalAccessPage();
+    } else if(page.includes("bulkAccess")){
+      bulkAccessPage();
+    }
+    else if(page.includes("userAccess")){
+      userAccessPage();
+    }
+    else if(page.includes("fieldAccess")){
+      fieldAccessPage();
+    }
+    else if(page.includes("protocolAccess")){
+      protocolAccessPage();
+    }    
+    else if(page.includes("projectAccess")){
+      projectAccessPage();
+    }
+    else if(page.includes("studyAccess")){
+      studyAccessPage();
+    }
+    else {
+      generalAccessPage();
+    }
+
    // Call the API using Axios for AdminName
    const url=`${AdminName_URL}`;
    axios.get(url)
