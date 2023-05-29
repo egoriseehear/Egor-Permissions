@@ -202,60 +202,8 @@ const handleChange = (selectedOptions) => {
       }
 
   ];
-  const columns2 = [
-    {
-   name: 'Access User',
-   selector: 'name',
-   sortable: true,   
- },
- {
-  name: 'View',
-  selector: '',
-    
-},
-{
-  name: 'Edit',
-  selector: '',
-   
-},
-{
-  name: 'Create',
-  selector: '',
-     
-},
-{
-  name: 'Transfer', 
-  selector: '',
-  
-}
-]; 
-const columns3 = [
-  {
- name: 'Access User',
- selector: 'name',
- sortable: true,   
-},
-{
-name: 'View',
-selector: '',
-  
-},
-{
-name: 'Edit',
-selector: '',
- 
-},
-{
-name: 'Create',
-selector: '',
-   
-},
-{
-name: 'Transfer',
-selector: '',
 
-}
-];
+ 
   const filteredData = data.filter(row =>
     row.name.toLowerCase().includes(filterText.toLowerCase())
   );
@@ -518,9 +466,9 @@ selector: '',
             console.log(permissions)     
          const url=`${BulkAccessPost_URL}`;
          axios.post(url,{
-        "ownerIds":ownerids,
-        "accessUserIds":accessUserIds,
-        "permissions":permissions
+        ownerIds:ownerids,
+        accessUserIds:accessUserIds,
+        permissions:permissions
       }) 
          .then(response => {
           console.log(response.data)
@@ -728,6 +676,13 @@ selector: '',
             when: row => selectedRowId === row.id,
             style: {
               backgroundColor: '#E5E5E5',
+            }
+          },
+          {
+            when: row => (row.name === "Me" ), 
+            style: {
+              display: "none"
+              
             }
           }
         ]}

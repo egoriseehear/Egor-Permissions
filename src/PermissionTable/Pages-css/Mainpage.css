@@ -665,29 +665,43 @@
     left: 3%;
 }
 .useraccesssection img.useraccesslogo{
-    left: 2.5%;
+    left: 1.5%;
     top: 450px;
 }
 .useraccesssectionnoborder img.useraccessnoborderlogo{
-    left: 3%;
+    left: 2%;
     top: 446px;
 }
-.useraccesssection .useraccesssectionlabel, .useraccesssectionnoborder .useraccesssectionlabel{
+.useraccesssection .useraccesssectionlabel{
     line-height: 17px;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 14px;
+    left: 3.5%;
 }
-.useraccesssection img.dropdownlogo, .useraccesssectionnoborder img.dropdownlogo{
+
+.useraccesssectionnoborder .useraccesssectionlabel{
+    line-height: 17px;
+    margin-top: 10px;
+    font-size: 14px;
+    left: 5%;
+}
+.useraccesssection img.dropdownlogo{
+    left: 142px;
+    top: 455px;
+}
+
+.useraccesssectionnoborder img.dropdownlogo{
     top: 457px;
     left: 142px;
 }
-.fieldaccesssection{
+.fieldaccesssection {
     width: 96%;
     margin-left: 4%;
+    margin-top: 30px;
 }
 .fieldaccesssection img.fieldaccesslogo{
     left: 2%;
-    top: 540px;
+    top: 523px;
 }
 .fieldaccesssection .fieldaccesssectionlabel{
     left: 5%;
@@ -704,7 +718,7 @@
 }
 .fieldaccesssection img.dropdownlogo{
     left: 18%;
-    top: 546px;
+    top: 528px;
 }
 .groupaccesssectionnoborder{
     width: 197px;
@@ -716,21 +730,29 @@
 }
 .protocolaccesssection {
     width: 100%;
-    margin-left: 1%;
+    margin-top: 27px;
+    margin-left: -1%;
+    width: 106%;
 }
 .protocolaccesssection img.protocolaccesslogo{
     height: 18px;
     left: 1%;
     position: absolute;
-    top: 613px;
+    top: 595px;
     width: 18px;
 }
 .protocolaccesssection .protocolaccesssectionlabel{
     left: 4%;
 }
 .protocolaccesssection img.dropdownlogo{
-    left: 18%;
-    top: 617px;
+    left: 19%;
+    top: 598px;
+}
+.protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
+    margin-left: -0.8%;
+}
+.protocolaccesssectionnoborder .protocolaccesssectionlabel{
+    left: 5%;
 }
 .projectaccesssection {
     margin-top: 51px;
@@ -748,24 +770,29 @@
     top: 665px;
 }
 .projectaccesssectionnoborder img.projectaccesssectionnoborder{
-    margin-left: 2%;
+    margin-left: 0%;
     top: 656px;
 }
+.projectaccesssectionnoborder .projectaccesssectionlabel{
+    left: 5%;
+}
 .studyaccesssectionnoborder img.studyaccessnoborderlogo{
-    margin-left: 3px;
+    margin-left: -5px;
 }
 .studyaccesssection{
     margin-top: 95px;
     margin-left: 1%;
+    width:93%;
 }
 .studyaccesssection img.studyaccesslogo{
-    left: 1px;
+    left: 5px;
 }
 .studyaccesssection .studyaccesssectionlabel{
-    left: 3%;
+    left: 4%;
 }
 .studyaccesssection img.dropdownlogo{
-    left: 15%;
+    left: 17%;
+    top: 750px;
 }
 .studyaccesssectionnoborder .studyaccesssectionlabel{
     left: 5%;
