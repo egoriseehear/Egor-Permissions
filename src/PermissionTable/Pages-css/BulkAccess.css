@@ -264,14 +264,14 @@ span.tabletitle1label {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 100.4%;
     height: 40px;
     /* max-width: 100%; */
     color: rgba(0, 0, 0, 0.87);
     background-color: #FFFFFF; 
     /* padding-right: 11px; */
     padding-left: -2px;
-    left: -1px;
+    left: -2px;
     top: 39px;
     /* border-radius: 30px 0px 0px 0px; */
     border: 1px solid #C0BFBB;
@@ -305,8 +305,7 @@ span.tabletitle1label {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
     border-radius: 0 0 15px 15px;
     top: 869px;
-    width: 35.4%;
-    left: 61.7%;
+    left: 62%;
 }
 .tablesearch3 {
     width: 0%;
@@ -552,7 +551,7 @@ input.noselectall3 {
     background: #f5f5f5;
     border-radius: 0 0 0 0;
     box-shadow: 0 0 3px rgba(0,0,0,.25);
-    height: 18;
+    height: 18px;
     left: 32px;
     width:18px;
     margin-left: 23px;
@@ -631,6 +630,18 @@ span.header {
     margin-left: 75px;
     position: absolute;
     left: -20px;
+}
+.tablepanel span.header {
+    padding-top: 10px;
+	padding-left: 32px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: #4B4B4B;
+    opacity: 0.8;
 }
 .tablepanel3 .tableSelectAll .header {
     background-color: initial !important;
@@ -1006,13 +1017,13 @@ img.dropdown2 {
     margin-left: 12px;
 }
 .tablepanel3less img.dropdown2 {
-    margin-left: 19px;
+    margin-left: 15px;
     width: 8px!important;
 }
 .tablepanel3less span.header {
     background-color: transparent;
     position: absolute;
-    left: 80px;
+    left: 73px;
 }
 .tablepanel3less input.selectall3 {
     background-color: #6d6d6d;
@@ -1252,6 +1263,103 @@ img.dropdownrotate2
   .items-list li {
     margin-right: 10px; /* Adjust as needed */
   }
+  .bulkpanel .success-modal {
+    box-sizing: border-box;
+    position: fixed;
+    width: 85%;
+    height: 120px;
+    background: #47B861;
+    border: 1px solid #BDBDBD;
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-left: -12%;
+    top: 80%;
+}
+.bulkpanel .success-modal span.close-symbol {
+    position: absolute;
+    left: 94%;
+    top: 19px;
+    color: white;
+    height: 74px;
+    font-size: 34px;
+    cursor: pointer;
+}
+.bulkpanel .success-modal h1 {
+    position: absolute;
+    width: 254px;
+    height: 35px;
+    left: 68px;
+    top: 6px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 35px;
+    color: #FFFFFF;
+}
+.bulkpanel .success-modal h2 {
+    position: absolute;
+    width: 578px;
+    height: 33px;
+    left: 46px;
+    top: 52px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 0.005em;
+    color: #FFFFFF;
+}
+.bulkpanel .failure-modal {
+    box-sizing: border-box;
+    position: fixed;
+    width: 85%;
+    height: 120px;
+    background: #FFE195;
+    border: 1px solid #BDBDBD;
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-left: -12%;
+    top: 80%;
+}
+.bulkpanel .failure-modal span.close-symbol {
+    position: absolute;
+    left: 94%;
+    top: 19px;
+    color: #4A4B50;
+    height: 74px;
+    font-size: 34px;
+    cursor: pointer;
+}
+.bulkpanel .failure-modal h1 {
+    position: absolute;
+    width: 362px;
+    height: 35px;
+    left: 68px;
+    top: 6px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 35px;
+    color: #4A4B50;
+}
+.bulkpanel .failure-modal h2 {
+    position: absolute;
+    width: 640px;
+    height: 33px;
+    left: -25px;
+    top: 52px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 0.005em;
+    color: #4a4b50;
+}
+
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .bulkpanel .userlogo img {
         margin-left: -76px;
@@ -1372,5 +1480,21 @@ img.dropdownrotate2
     .BAModal{
         margin-left: 17%!important;
         margin-top: 10%!important;
+    }
+    .bulkpanel .failure-modal{
+        margin-top: -518px;
+        width: 54%;
+        margin-left: -7%;
+    }
+    .bulkpanel .failure-modal h1{
+        left: 49px;
+    }
+    .bulkpanel .failure-modal h2{
+        left: -44px;
+    }
+    .bulkpanel .success-modal{
+        margin-top: -518px;
+        width: 54%;
+        margin-left: -7%;
     }
   }

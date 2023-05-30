@@ -191,7 +191,7 @@ button.nobutton {
     color: #FFFFFF;
     cursor: pointer;
 }
-.success-modal {
+.userpanelGA .success-modal {
     box-sizing: border-box;
     position: fixed;
     width: 85%;
@@ -201,9 +201,9 @@ button.nobutton {
     box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     margin-left: -12%;
-    margin-top: 172px;
+    top: 80%;
 }
-.success-modal span.close-symbol {
+.userpanelGA .success-modal span.close-symbol {
     position: absolute;
     left: 94%;
     top: 19px;
@@ -212,7 +212,7 @@ button.nobutton {
     font-size: 34px;
     cursor: pointer;
 }
-.success-modal h1 {
+.userpanelGA .success-modal h1 {
     position: absolute;
     width: 254px;
     height: 35px;
@@ -225,7 +225,7 @@ button.nobutton {
     line-height: 35px;
     color: #FFFFFF;
 }
-.success-modal h2 {
+.userpanelGA .success-modal h2 {
     position: absolute;
     width: 578px;
     height: 33px;
@@ -238,6 +238,54 @@ button.nobutton {
     line-height: 33px;
     letter-spacing: 0.005em;
     color: #FFFFFF;
+}
+.userpanelGA .failure-modal {
+    box-sizing: border-box;
+    position: fixed;
+    width: 85%;
+    height: 120px;
+    background: #FFE195;
+    border: 1px solid #BDBDBD;
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-left: -12%;
+    top: 80%;
+}
+.userpanelGA .failure-modal span.close-symbol {
+    position: absolute;
+    left: 94%;
+    top: 19px;
+    color: #4A4B50;
+    height: 74px;
+    font-size: 34px;
+    cursor: pointer;
+}
+.userpanelGA .failure-modal h1 {
+    position: absolute;
+    width: 362px;
+    height: 35px;
+    left: 68px;
+    top: 6px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 35px;
+    color: #4A4B50;
+}
+.userpanelGA .failure-modal h2 {
+    position: absolute;
+    width: 640px;
+    height: 33px;
+    left: 61px;
+    top: 52px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 0.005em;
+    color: #4a4b50;
 }
 
 
@@ -280,5 +328,17 @@ span.titlelabel2 {
 }
 .selectrequire{
     left: -24.9%;
+}
+.userpanelGA .failure-modal{
+    margin-top: -239px;
+}
+.userpanelGA .success-modal{
+    margin-top: -239px;
+}
+.userpanelGA .failure-modal h1{
+    left: 23px;
+}
+.userpanelGA .failure-modal h2{
+    left: 15px;
 }
 }

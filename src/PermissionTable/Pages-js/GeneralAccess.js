@@ -6,16 +6,19 @@ import requirelogo from'../Logos/requirelogo.svg'
 import GAModal from 'react-modal';
 import axios from 'axios';
 import {GeneralAccess_URL} from '../Pages-js/URL';
+import ApiContext from './ApiContext';
 
 
-function GeneralAccess() {
+function GeneralAccess({ url }) {
     const [selectedOption, setSelectedOption] = useState("");
     const [selectOption, setSelectOption] = useState("");
     const [selectedOptionIndex, setSelectedOptionIndex] = useState("");
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
-    const [isUpdateSuccessful, setIsUpdateSuccessful] = useState(false);
+    const [isUpdateSuccessful, setIsUpdateSuccessful] = useState("");
     const [isSelectValue, setIsSelectValue] = useState(true);
+    const [responseValue, setResponseValue] = useState('');
+
 
 
     const options = [
@@ -163,7 +166,6 @@ const customStyles = (menuIsOpen) => ({
     };
 
     const handleSubmit = () => {
-        console.log(selectOption);
         if(selectedOption!==""){
         setIsConfirmationOpen(true);
         setIsSelectValue(true);
@@ -179,7 +181,6 @@ const customStyles = (menuIsOpen) => ({
          const url=`${GeneralAccess_URL}/${selectOption}`;
          axios.get(url)
          .then(response => {
-          console.log(response.data)
           if(response.data==="success"){
          setIsUpdateSuccessful(true);
           }
@@ -245,13 +246,20 @@ const customStyles = (menuIsOpen) => ({
     }
     </div>
     </div>
-    {isUpdateSuccessful && (
+    {(isUpdateSuccessful===true) ? (
         <div className="success-modal">
-          <span className="close-symbol" onClick={() => setIsUpdateSuccessful(false)}>X</span>
+          <span className="close-symbol" onClick={() => setIsUpdateSuccessful("")}>X</span>
           <h1>Update successful</h1>
           <h2>The update operation completed successfully</h2>
         </div>
-      )}
+      ):null}
+      {(isUpdateSuccessful ===false) ? (
+        <div className="failure-modal">
+          <span className="close-symbol" onClick={() => setIsUpdateSuccessful("")}>X</span>
+          <h1>Update was not successful</h1>
+          <h2>The update operation not completed</h2>
+        </div>
+      ):null}
     </div>
   )
 }

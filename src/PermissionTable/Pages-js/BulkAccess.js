@@ -25,7 +25,7 @@ function BulkAccess() {
   const [filterText, setFilterText] = useState("");
   const [filterText2, setFilterText2] = useState("");
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [selectOptions, setSelectOptions] = useState("");
+  const [selectOptions, setSelectOptions] = useState([]);
   const [selectOptionsValue, setSelectOptionsValue] = useState("");
   const [selectedOptionsIndex, setSelectedOptionsIndex] = useState("");
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -36,7 +36,7 @@ function BulkAccess() {
   const [showTable1, setShowTable1] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
-  const [isUpdateSuccessful, setIsUpdateSuccessful] = useState(false);
+  const [isUpdateSuccessful, setIsUpdateSuccessful] = useState("");
   const [isSelectValue, setIsSelectValue] = useState(true);
   const [isSelectRow, setIsSelectRow] = useState(true);
   const [isSelectRow2, setIsSelectRow2] = useState(true);
@@ -261,9 +261,6 @@ const handleChange = (selectedOptions) => {
 
   const handleRowSelected2 = (row) => {
     const newSelectedRows = [...selectedRowsTable2];
-    if(newSelectedRows.length !==0){
-      setIsSelectRow2(true);
-      }
     const index = newSelectedRows.findIndex((r) => r.id === row.id);
     if (index > -1) {
       newSelectedRows.splice(index, 1);
@@ -271,6 +268,12 @@ const handleChange = (selectedOptions) => {
       newSelectedRows.push(row);
     }
     setSelectedRowsTable2(newSelectedRows);
+    if(newSelectedRows.length !==0){
+      setIsSelectRow2(true);
+      }
+      else{
+        setIsSelectRow2("");
+      }
     if (newSelectedRows.length === data2.length) {
       setSelectAll2(true);
     } else {
@@ -287,6 +290,9 @@ const handleChange = (selectedOptions) => {
     if(newSelectedRows.length !==0){
       setIsSelectRow2(true);
       }
+      else{
+        setIsSelectRow2("");
+      }
     setSelectedRowsTable2(newSelectedRows);
     setSelectAll2(!selectAll2);
   };
@@ -294,13 +300,19 @@ const handleChange = (selectedOptions) => {
 
   const handleRowSelected3 = (row) => {
     const newSelectedRows = [...selectedRowsTable3];
-    const index = newSelectedRows.findIndex((r) => r.id === row.id);
+    const index = newSelectedRows.findIndex((r) => r.id === row.id);    
     if (index > -1) {
       newSelectedRows.splice(index, 1);
     } else {
       newSelectedRows.push(row);
     }
     setSelectedRowsTable3(newSelectedRows);
+    if(newSelectedRows.length !==0){
+      setIsSelectRow2(true);
+      }
+      else{
+        setIsSelectRow2("");
+      }
     if (newSelectedRows.length === data3.length) {
       setSelectAll3(true);
     } else {
@@ -314,6 +326,12 @@ const handleChange = (selectedOptions) => {
   };
   const handleSelectAll3 = () => {
     const newSelectedRows = selectAll3 ? [] : [...data3];
+    if(newSelectedRows.length !==0){
+      setIsSelectRow2(true);
+      }
+      else{
+        setIsSelectRow2("");
+      }
     setSelectedRowsTable3(newSelectedRows);
     setSelectAll3(!selectAll3);
    };
@@ -407,7 +425,7 @@ const handleChange = (selectedOptions) => {
     /*  setIsSelectValue(true);
       setIsSelectRow(true);
       setIsSelectRow2(true);*/
-        if(selectOptions.length===0 && selectedRowsTable2.length ===0 && selectedRowsTable.length ===0){
+        if(selectOptions.length===0 && selectedRowsTable2.length ===0 && selectedRowsTable3.length ===0 && selectedRowsTable.length ===0){
         setIsSelectValue(false);
         setIsSelectRow(false);
         setIsSelectRow2(false);
@@ -419,9 +437,10 @@ const handleChange = (selectedOptions) => {
             if(selectedRowsTable.length ===0){
               setIsSelectRow(false);
             }
-            if(selectedRowsTable2.length ===0){
+            if((selectedRowsTable2.length ===0 && selectedRowsTable3.length ===0)){
               setIsSelectRow2(false);
             }
+
         }
         if(selectedRowsTable.length ===0)
         {
@@ -429,11 +448,11 @@ const handleChange = (selectedOptions) => {
             if(selectOptions.length ===0){
               setIsSelectValue(false);
             }
-            if(selectedRowsTable2.length ===0){
+            if(selectedRowsTable2.length ===0 && selectedRowsTable3.length ===0){
               setIsSelectRow2(false);
             }
         }
-        if(selectedRowsTable2.length ===0)
+        if(selectedRowsTable2.length ===0 && selectedRowsTable3.length ===0)
         {
           setIsSelectRow2(false);
             if(selectOptions.length ===0){
@@ -444,7 +463,7 @@ const handleChange = (selectedOptions) => {
             }
         }
       }
-      if(selectOptions.length!==0 && selectedRowsTable2.length !==0 && selectedRowsTable.length !==0){
+      if(selectOptions.length!==0 && (selectedRowsTable2.length !==0 || selectedRowsTable3.length !==0) && selectedRowsTable.length !==0){
           setIsConfirmationOpen(true);
           setIsSelectValue(true);
           setIsSelectRow(true);
@@ -454,20 +473,19 @@ const handleChange = (selectedOptions) => {
       };
     
       const handleConfirm = () => {
-        setIsUpdateSuccessful(true);
+       // setIsUpdateSuccessful(true);
         setIsConfirmationOpen(false);
         // Perform submit action
          // Call the API using Axios
          const ownerids = selectedRowsTable.map(item => item.id);
+         const dataHoldingUserIds = selectedRowsTable2.map(item => item.id);
           const accessUserIds = selectedRowsTable3.map(item => item.id);
-            const permissions =selectOptions;   
-            console.log(ownerids)
-            console.log(accessUserIds)
-            console.log(permissions)     
+          const mergedArrayUserIds = [...dataHoldingUserIds, ...accessUserIds];
+            const permissions =selectOptions;       
          const url=`${BulkAccessPost_URL}`;
          axios.post(url,{
         ownerIds:ownerids,
-        accessUserIds:accessUserIds,
+        accessUserIds:mergedArrayUserIds,
         permissions:permissions
       }) 
          .then(response => {
@@ -634,7 +652,7 @@ const handleChange = (selectedOptions) => {
         </span>
       </div>
       <div className='tabletitle1'>
-       <span className='tabletitle1label'> Select the User whose data you wish to share :</span>
+       <span className='tabletitle1label'> Select the User you want to share with :</span>
       </div>
 
       <div className="tableSelectAll">
@@ -642,7 +660,7 @@ const handleChange = (selectedOptions) => {
         <input style={{ visibility: showTable? 'visible' : 'hidden' }} className={selectAll2?"selectall2":"noselectall2"} type="checkbox" checked={selectAll2} onChange={handleSelectAll2} />
         <label>{selectAll2 ? '' : '-'}</label>              
         <span className='header' >Data Holding Group</span>
-        <div className={isSelectRow2?'row2notrequire':'row2require'}>
+        <div className={(isSelectRow2===false)?'row2require':'row2notrequire'}>
       <img className='requirelogo'src={`${process.env.PUBLIC_URL}js/permissions/media/requirelogo.8cf0c0632507087b71a289a8b2a8285b.svg`} alt="requirelogo" />
       <div className='requirelabel'>This field is required</div>
       </div> 
@@ -775,13 +793,20 @@ const handleChange = (selectedOptions) => {
         </div>  
     )}
         <div className='tablepanel4'></div>
-        {isUpdateSuccessful && (
+        {(isUpdateSuccessful=== true) ? (
         <div className="success-modal">
-          <span className="close-symbol" onClick={() => setIsUpdateSuccessful(false)}>X</span>
+          <span className="close-symbol" onClick={() => setIsUpdateSuccessful("")}>X</span>
           <h1>Update successful</h1>
           <h2>The update operation completed successfully</h2>
         </div>
-      )}
+      ):null}
+        {(isUpdateSuccessful === false) ? (
+        <div className="failure-modal">
+          <span className="close-symbol" onClick={() => setIsUpdateSuccessful("")}>X</span>
+          <h1>Update was not successful</h1>
+          <h2>The update operation not completed</h2>
+        </div>
+      ):null}
         </div>
 
   );
