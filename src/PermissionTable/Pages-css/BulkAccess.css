@@ -176,7 +176,7 @@
     border-color: transparent;
     color: #FFFFFF;
     margin-left: 25%;
-    margin-top: -20px;
+    margin-top: -24px;
 }
 .bulkpanel span.submitlabel {
     font-family: 'Poppins';
@@ -201,7 +201,7 @@
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
     border-radius: 15px 15px 0 0;
 }
-.tablesearch {
+.bulkpanel .tablesearch {
     width: 0%;
     height: 46px;
     background: #F5F5F5;
@@ -305,7 +305,7 @@ span.tabletitle1label {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
     border-radius: 0 0 15px 15px;
     top: 869px;
-    left: 62%;
+    left: 61.8%;
 }
 .tablesearch3 {
     width: 0%;
@@ -402,7 +402,7 @@ input.tablesearchbox {
     background-color: #FFFFFF;
     /* padding-right: 11px; */
     padding-left: -2px;
-    left: 1px;
+    left: 0.5px;
     top: 13px;
     /* border-radius: 30px 0px 0px 0px; */
     border: 1px solid #C0BFBB;
@@ -607,6 +607,12 @@ input.noselectall3 {
     color: #007bff;
     margin-left: 6px;
   }
+  .tablepanel img.requiredstar {
+    width: 10px;
+    position: absolute;
+    left: 78px;
+    top: 10px;
+}
 
 span.header {
     padding-top: 10px;
@@ -619,6 +625,12 @@ span.header {
     letter-spacing: 0.01em;
     color: #4B4B4B;
     opacity: 0.8;
+}
+.tablepanel2 img.requiredstar {
+    left: 42px;
+    position: absolute;
+    top: 12px;
+    width: 10px;
 }
 .tablepanel2 .tableSelectAll .header {
     background-color: initial !important;
@@ -793,7 +805,7 @@ input.itemcheckbox.hidden{
 .my-custom-table3less .rdt_TableHead {
     display: none;
 }
-.my-custom-table .rdt_Table {
+.bulkpanel .my-custom-table .rdt_Table {
     border-inline-start: 5px solid #E43626;
 }
 .my-custom-table2 .rdt_Table {
@@ -1379,6 +1391,10 @@ img.dropdownrotate2
     .bulkpanel .rowrequire {
         width: 58%;
     }
+    .bulkpanel .row2require{
+        top: -14px;
+        left: 18.1%;
+    }
     .bulkpanel .title{
         margin-top: -20px;
     }
@@ -1388,6 +1404,18 @@ img.dropdownrotate2
     input.tablesearchbox{
         margin-left: -93%;
         width: 223px !important;
+    }
+    .tablepanel img.requiredstar {
+        left: 48px;
+        position: absolute;
+        top: 8px;
+        width: 10px;
+    }
+    .tablepanel2 img.requiredstar {
+        left: 27px;
+        position: absolute;
+        top: 9px;
+        width: 10px;
     }
     .tableSelectAll .header{
         font-weight: bold;
@@ -1399,6 +1427,11 @@ img.dropdownrotate2
         font-weight: bold;
         padding-left: 108px;
         top: 51px;
+    }
+    span.tabletitle1label {
+        margin-left: -152px;
+        position: absolute;
+        top: 7px;
     }
     .bulkpanel .my-custom-table{
         height: 530px;
@@ -1460,6 +1493,7 @@ img.dropdownrotate2
     }
     .tablepanel3less .tableSelectAll{
         top: 4px;
+        left: -0.5px;
     }
     .bulkpanel .table3 .my-custom-table3less{
         margin-top: -454px;
@@ -1476,6 +1510,14 @@ img.dropdownrotate2
     }
     .bulkpanel .tablepanel4{
         height: 59px;
+    }
+    .tablepanel .tableSelectAll .header {
+        left: -52px;
+        margin-left: 73px;
+    }
+    .tablepanel span.header {    
+        font-weight: bold;
+        font-size: 10px;    
     }
     .BAModal{
         margin-left: 17%!important;

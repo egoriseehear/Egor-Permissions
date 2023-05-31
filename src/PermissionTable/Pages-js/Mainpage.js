@@ -44,7 +44,7 @@ const generalAccessPage=()=>{
   setShowUserAccessBorder(false); 
   setShowFieldBorder(false); 
   setProtocolAccessBorder(false);
-  setProjectAccessBorder(false); 
+  setProjectAccessBorder(false);  
   setStudyAccessBorder(false); 
 }
 const bulkAccessPage=()=>{
@@ -167,7 +167,7 @@ useEffect(() => {
     <div className='bulkaccesssectionlabel'>Set Bulk Access</div>
     <img className="dropdownlogo" src={`${process.env.PUBLIC_URL}js/permissions/media/dropdownlogo.85cdc1f6fd9b4a654c108d2b61490665.svg`} alt="dropdownlogo" />
     </Link>
-    <Link to="" className={showUserAccessBorder?"useraccesssection" : "useraccesssectionnoborder"} onClick={userAccessPage}>
+    <Link to="SMDB/userAccess" className={showUserAccessBorder?"useraccesssection" : "useraccesssectionnoborder"} onClick={userAccessPage}>
     <img className="useraccesslogo" src={`${process.env.PUBLIC_URL}js/permissions/media/useraccesslogo.9a30b35861e46b7919ce687b59184adb.svg`} alt="useraccesslogo" />
     <img className="useraccessnoborderlogo" src={`${process.env.PUBLIC_URL}js/permissions/media/useraccessblack.4c0db6f4bba159cc894fb42b4cc833cf.svg`} alt="useraccessnoborderlogo" />
     <div className='useraccesssectionlabel'>Set Access by User</div>

@@ -8,6 +8,7 @@ import searchlogo from '../Logos/searchlogo.svg'
 import checkboxsymbol from '../Logos/checkboxsymbol.svg'
 import BAModal from 'react-modal';
 import {BulkAccess_URL,BulkAccessPost_URL} from '../Pages-js/URL';
+import  requiredstar from'../Logos/requiredstar.svg'
 import axios from 'axios';
 
 
@@ -46,10 +47,10 @@ function BulkAccess() {
  
 
   const options = [
-    { value: '1', label: 'View' },
-    { value: '2', label: 'Edit' },
-    { value: '3', label: 'Create' },
-    { value: '4', label: 'Transfer' }
+    { value: '0', label: 'View' },
+    { value: '1', label: 'Edit' },
+    { value: '2', label: 'Create' },
+    { value: '3', label: 'Transfer' }
     // Add more options as needed
   ];
   useEffect(() => {
@@ -101,7 +102,7 @@ const handleChange = (selectedOptions) => {
         height:'auto',
         overflow:'visible',
         marginTop:'-26px',
-        borderColor: '#E3E3E3 !important',             
+        borderColor: isSelectValue === true ?  '#E3E3E3 !important' : '#E43626 !important',             
         fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: '400',
@@ -568,6 +569,7 @@ const handleChange = (selectedOptions) => {
       <div className="tableSelectAll">
         <input className={selectAll?"selectall":"noselectall"} type="checkbox" checked={selectAll} onChange={handleSelectAll} />
         <label>{selectAll ? '' : '-'}</label>
+        <img className='requiredstar' src={`${process.env.PUBLIC_URL}js/permissions/media/requiredstar.269148425daa552fffa152749bb7b46b.svg`} alt="requiredstar" />
         <span className='header' >Select the User whose data you wish to share :</span>
         <div className={isSelectRow?'rownotrequire':'rowrequire'}>
         <img className='requirelogo'src={`${process.env.PUBLIC_URL}js/permissions/media/requirelogo.8cf0c0632507087b71a289a8b2a8285b.svg`} alt="requirelogo" />
@@ -652,6 +654,7 @@ const handleChange = (selectedOptions) => {
         </span>
       </div>
       <div className='tabletitle1'>
+      <img className='requiredstar' src={`${process.env.PUBLIC_URL}js/permissions/media/requiredstar.269148425daa552fffa152749bb7b46b.svg`} alt="requiredstar" />
        <span className='tabletitle1label'> Select the User you want to share with :</span>
       </div>
 

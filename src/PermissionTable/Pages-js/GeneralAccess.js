@@ -1,4 +1,4 @@
-import React,{ useState,useEffect}from 'react'
+import React,{ useState,useEffect }from 'react'
 import Select from 'react-select';
 import '../Pages-css/GeneralAccess.css';
 import generalaccessblack from'../Logos/generalaccessblack.svg'
@@ -6,10 +6,9 @@ import requirelogo from'../Logos/requirelogo.svg'
 import GAModal from 'react-modal';
 import axios from 'axios';
 import {GeneralAccess_URL} from '../Pages-js/URL';
-import ApiContext from './ApiContext';
 
 
-function GeneralAccess({ url }) {
+function GeneralAccess() {
     const [selectedOption, setSelectedOption] = useState("");
     const [selectOption, setSelectOption] = useState("");
     const [selectedOptionIndex, setSelectedOptionIndex] = useState("");
@@ -17,7 +16,7 @@ function GeneralAccess({ url }) {
     const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
     const [isUpdateSuccessful, setIsUpdateSuccessful] = useState("");
     const [isSelectValue, setIsSelectValue] = useState(true);
-    const [responseValue, setResponseValue] = useState('');
+
 
 
 
@@ -55,7 +54,7 @@ const customStyles = (menuIsOpen) => ({
     control: (provided, state) => ({
         ...provided,
         height:'35px',
-        borderColor: isSelectValue === true ?  '#E3E3E3 !important' : 'red !important',             
+        borderColor: isSelectValue === true ?  '#E3E3E3 !important' : '#E43626 !important',             
         fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: '400',
@@ -174,7 +173,6 @@ const customStyles = (menuIsOpen) => ({
             setIsSelectValue(false);
         }
       };
-    
       const handleConfirm = () => {
         // Perform submit action
          // Call the API using Axios
