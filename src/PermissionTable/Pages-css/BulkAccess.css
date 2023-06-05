@@ -408,7 +408,7 @@ input.tablesearchbox {
     border: 1px solid #C0BFBB;
     border-inline-start: 5px solid #E43626;
 }
-input.selectall {
+.bulkpanel input.selectall {
     left: -3px;
     margin-left: 17px;
     border: 1.5px solid #6D6D6D;
@@ -436,7 +436,7 @@ input.noselectall {
 .tablepanel3less span.header {
     background-color: transparent;
 }
-.selectall {
+.bulkpanel .selectall {
     -webkit-appearance: none; /* Hide the default checkbox */
     -moz-appearance: none;
     appearance: none;
@@ -449,7 +449,7 @@ input.noselectall {
     cursor: pointer;
   }
   
-  .selectall::before {
+  .bulkpanel .selectall::before {
     content: '';
     position: absolute;
     /* size: a3; */
@@ -462,11 +462,11 @@ input.noselectall {
     transition: background-color 0.3s ease;
   }
   
-  .selectall:checked::before {
+  .bulkpanel .selectall:checked::before {
     background-color: #FFFFFF; /* Change the background color when checked */
   }
   
-  .selectall:checked + label:before {
+  .bulkpanel .selectall:checked + label:before {
     /*content: '\2023';  Unicode character for the checkmark symbol */
     font-size: 14px;
     color: #007bff;
@@ -637,13 +637,13 @@ span.header {
     margin-left: 72px;
     position: absolute;
 }
-.tablepanel .tableSelectAll .header {
+.bulkpanel .tablepanel .tableSelectAll .header {
     background-color: initial !important;
     margin-left: 75px;
     position: absolute;
     left: -20px;
 }
-.tablepanel span.header {
+.bulkpanel .tablepanel span.header {
     padding-top: 10px;
 	padding-left: 32px;
     font-family: 'Roboto';
@@ -704,10 +704,10 @@ input.itemcheckbox.hidden{
     margin-left: 40%;
     width:100%;
 }
-.rdt_TableRow :nth-child(2){
+.bulkpanel .rdt_TableRow :nth-child(2){
     margin-left: -15px;
 }
-.rdt_TableRow :nth-child(1) {
+.bulkpanel .rdt_TableRow :nth-child(1) {
     left: -15px;
 }
 .secondsection {
@@ -899,7 +899,7 @@ input.itemcheckbox {
     border: 1px solid #D9D9D9;
 }
 
-.rdt_TableBody * {
+.bulkpanel .rdt_TableBody * {
     background-color: transparent ;
 }
 .rdt_ExpanderRow {

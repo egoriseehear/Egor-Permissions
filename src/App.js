@@ -5,6 +5,7 @@ import Useraccess from './PermissionTable/Pages-js/Useraccess';
 import GeneralAccess from './PermissionTable/Pages-js/GeneralAccess';
 import BulkAccess from './PermissionTable/Pages-js/BulkAccess';
 import { BrowserRouter as Router,Routes,Route,Switch,Navigate,Link, BrowserRouter,useNavigate } from 'react-router-dom'
+
 function App() {
   return (
     <div className="App"> 
@@ -14,7 +15,6 @@ function App() {
         <Route path="SMDB/generalAccess" element={<GeneralAccess />}></Route>
         <Route path="SMDB/bulkAccess" element={<BulkAccess />}></Route>
     </Routes>
-
     </div>
   );
 }
