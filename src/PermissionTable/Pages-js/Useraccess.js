@@ -1,15 +1,30 @@
-import React, { useState,useEffect,useRef  } from 'react';
+import React, { useState,useEffect,useRef,Component  } from 'react';
+import ReactDOM from "react-dom";
 import '../Pages-css/Useraccess.css';
 import DataTable from "react-data-table-component";
 //import Select from 'react-select'; 
+import { default as ReactSelect } from "react-select";
 import dropdown from '../Logos/dropdown.svg'
 import userpagelogo from '../Logos/userpagelogo.svg'
 import searchlogo from '../Logos/searchlogo.svg'
+import pluslogo from '../Logos/pluslogo.svg'
 import Select, { components } from "react-select";
 import ReactPaginate from 'react-paginate';
 import { useTable, usePagination } from 'react-table';
 import {UserAccess_URL} from '../Pages-js/URL';
 import axios from 'axios';
+import {UserAccesssharingflagPost_URL} from '../Pages-js/URL';
+import {UserAccessDeletePost_URL} from '../Pages-js/URL';
+import BAModal from 'react-modal';
+
+import Autocomplete from "@mui/material/Autocomplete";
+import { TextField, Stack } from "@mui/material";
+import Checkbox from "@mui/icons-material/CheckBox";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+
+
+
 
 
 function Useraccess() {
@@ -38,9 +53,34 @@ function Useraccess() {
   const[data,setData]=useState([]);
   const[data2,setData2]=useState([]);
   const[data3,setData3]=useState([]);
-  const [selectedRow, setSelectedRow] = useState(null);
+  const [selectedRow, setSelectedRow] = useState([]);
   const[defaultSharing,setDefaultSharing]=useState(0);
- 
+  //const[options,setOptions]=useState([]);
+  const [duplicatedRows, setDuplicatedRows] = useState(false);
+  const [data2duplicate, setData2duplicate] = useState([]);
+  const [data2Index,setData2Index]=useState(); 
+  const [sharedUser,setSharedUser]=useState([]);
+  const[options,setOptions]=useState([])
+  const[optionsmouselines,setOptionsmouselines]=useState([])
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [isUpdateSuccessful, setIsUpdateSuccessful] = useState("");
+  const [row, setRow] = useState("");
+  const [deletePopup, setDeletePopup] = useState(false);
+  const [shareDeletePopup, setShareDeletePopup] = useState(false);
+  const [deletePopupIndex, setDeletePopupIndex] = useState();
+  const[deleteselectall,setDeleteselectall]=useState(false);
+  const[buttonvalallselect,setButtonvalallselect]=useState(false);
+  const[viewMouselines,setViewMouselines]=useState([]);
+  const[editMouselines,setEditMouselines]=useState([]);
+  const[ownerdeleteindex,setOwnerdeleteindex]=useState();
+  const[ownerdeleterow,setOwnerdeleterow]=useState();
+  const[deleteindexpopup,setdeleteindexpopup]=useState()
+  const[deleteshareindexpopup,setdeleteshareindexpopup]=useState()
+  const [deleteSharePopup, setDeleteSharePopup] = useState(false);
+
+  const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+  const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
 
   useEffect(() => {
    // Call the API using Axios for UserAccess
@@ -49,43 +89,65 @@ function Useraccess() {
    .then(response => {
      console.log(response.data)
      var idincrement=0;
-     const ownernames = response.data.map(({ownerId,ownerName,defaultSharing}) => ({
+     const ownernames = response.data.map(({ownerId,ownerName,defaultSharing,userLevel}) => ({
       id: "dataid"+(idincrement++),
       ownerId:ownerId,
       name: ownerName,
       defaultSharing:defaultSharing,
+      userLevel:userLevel,
 }))
 var idincrement2=0;
 const sharedUsersList= response.data.map(({ownerId,sharedUsersList}) => ({
   ownerId:ownerId,
-    sharedUsersList:sharedUsersList.map(({sharedUserId,sharedUserName}) => ({
+    sharedUsersList:sharedUsersList.map(({sharedUserId,sharedUserName,editMouseLines,viewMouseLines,sharingflag}) => ({
       id:"dataid2"+(idincrement2++),
       sharedUserId:sharedUserId,
-      sharedUserName:sharedUserName,     
+      sharedUserName:sharedUserName,  
+      ownerId:ownerId,  
+      editMouseLines:editMouseLines,
+      viewMouseLines:viewMouseLines,
+      sharingflag:sharingflag,
     }))
 }))
+
+
 var idincrement3=0;
 const unSharedUsersList= response.data.map(({ownerId,unSharedUsersList}) => ({
   ownerId:ownerId,
   unSharedUsersList:unSharedUsersList.map(({userid,username}) => ({
       id:"dataid3"+(idincrement3++),
       unSharedUserId:userid,
-      unSharedUserName:username,     
+      unSharedUserName:username, 
+      ownerId:ownerId,    
     }))
 }))
+var idincrement4=0;
+const mouselines= response.data.map(({ownerId,mouselines}) => ({
+  ownerId:ownerId,
+  mouselines:mouselines.map(({mouseLineId,mouseLineName}) => ({
+      id:"mouselines"+(idincrement3++),
+      mouselinesId:mouseLineId,
+      mouselinesName:mouseLineName,  
+      ownerId:ownerId,   
+    }))
+}))
+
 setData(ownernames);
 setData2(sharedUsersList);
 setData3(unSharedUsersList);
-/*const index = sharedUsersList.findIndex((element) => element.ownerid === sharedUsersList.ownerId);
-console.log(index)
-console.log(sharedUsersList.[index].sharedUsersList)*/
+setOptions(mouselines);
+
+//const index = sharedUsersList.findIndex((element) => element.ownerid === sharedUsersList.ownerId);
+const index2 = mouselines.findIndex((element) => element.ownerid === mouselines.ownerId);
+
+
    })
    .catch(error => {
    console.error(error);
    }) 
  }, []);
 
-  const options = [
+ /* const options = [
     { label: 'Option 1', value: 'option1' },
     { label: 'Option 2', value: 'option2' },
     { label: 'Option 3', value: 'option3' },
@@ -95,7 +157,10 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
     { label: 'Option 7', value: 'option7' },
     { label: 'Option 8', value: 'option8' },
     { label: 'Option 9', value: 'option9' },
-  ];
+  ];*/
+
+
+  
  /*const data2 = [
     { id:"data21",name: "Bob" },
     {id:"data22",name: "Jane" }
@@ -105,10 +170,10 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
     return (
       <tr  className="table-row">
       <td className='multicheckbox'>
-        <input  type="checkbox" checked={isChecked} onChange={() => onSelect(option.value)} />
+        <input  type="checkbox" checked={isChecked} onChange={() => onSelect(option)} />
         {isChecked && <span className="tick">&#x2713;</span>}
       </td>
-      <td className='multitabledata'>{option.label}</td>
+      <td className='multitabledata'>{option}</td>
     </tr>
     );
   }
@@ -130,29 +195,35 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
   const [searchQuery, setSearchQuery] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const itemsPerPage = 2; 
+  const [selectedAutoValues, setSelectedAutoValues] = useState([]);
+  const [page, setPage] = useState(1);
+
   
 
 
-  const handlePageChange = (pageNumber, index,row) => {
+  const handlePageChange = (pageNumber, index,row,increment) => {
 
     setCurrentPage(pageNumber);
     /*const textboxValue = textboxValues[row.id] ? textboxValues[row.id][index] : [];
     const indexOfLastItem = pageNumber * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentOptions = textboxValue.slice(indexOfFirstItem, indexOfLastItem);
-    setSelectedOptionsmulti(currentOptions);*/
-  
+    setSelectedOptionsmulti(currentOptions);  
     setPaginationIndex((prevPaginationIndex) => ({
       ...prevPaginationIndex,
       [row.id]: pageNumber,
-    }));
+    }));*/
+    const totalPages = Math.ceil(selectedAutoValues.length / itemsPerPage);
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentValues = selectedAutoValues.slice(startIndex, endIndex);
+    setSelectedAutoValues(currentValues);
+    setPage((prevPage) => prevPage + increment);
   
   };
 
- /* const handleInputChange = (event, row, index) => {
-    const value = event.target.value;
-  
-    const newTextboxValues = { ...textboxValues };
+ {/* const handleInputChange  = (row, index) => {
+   const newTextboxValues = { ...textboxValues };
   
     if (!newTextboxValues[row.id]) {
       newTextboxValues[row.id] = {};
@@ -162,17 +233,22 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
       newTextboxValues[row.id][index] = [];
     }
   
-    newTextboxValues[row.id][index] = [value]; // Store the value as an array
+    newTextboxValues[row.id][index] = [value]; 
   
-    setTextboxValues(newTextboxValues);
-  };*/
+  setTextboxValues(newTextboxValues);
+
+  };*/}
   
-  
+ 
+
+  const handleTextFieldChange = (event) => {
+    console.log(event.target.value)
+  };
 
   
  
 
-  const handleSelect = (value,row,index) => {
+  {/*const handleSelect = (value,row,index) => {
     const updatedOptions = [...selectedOptionsmulti];
 
     // If the option is already selected, remove it. Otherwise, add it to the selectedOptions array.
@@ -211,7 +287,7 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
   
     // Update the textbox values
     setTextboxValues(newTextboxValues);
-  };
+  };*/}
 
 
 
@@ -239,7 +315,7 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
    setActiveRowIndex(index);
    setIsTableVisible(true);
    setCurrentPage(1);
-   console.log(row.id)
+
   // setIsEditing(true);
   };    
     
@@ -258,20 +334,179 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
   const handleButtonClick = (index,row) => {
     const newStates = [...rowStates];
     newStates[index] = !newStates[index];
-    setRowStates[index](newStates[index]);
-    console.log(newStates[index])
-  /*  if(rowStates[index]===false){
-      setRowStates[index]=true;
-      console.log("true")
-      }
-      else if(rowStates[index]===true){
-        setRowStates[index]=false;
-        console.log("false")
-      }*/
+    //setRowStates(newStates);
+    setIsSetYes(true);
+    if(selectAll===true){
+      setDeleteselectall(true)
+    }else{
+      setDeleteselectall(false)
+    }
+    var ids=[];
+    ids[0]=row.ownerId
+    var sharingFlag;
+    if(newStates[index]===true){
+    sharingFlag=1;
+    }
+    else{
+      sharingFlag=0;
+    }
+    var url;
+if(selectAll===true){
+   ids = selectedRowsTable.map(item => item.ownerId);
+   url=`${UserAccesssharingflagPost_URL}`;
+}
+else{
+  const index = data.findIndex((element) => element.ownerId === row.ownerId);
+  const ids = data[index].ownerId;
+  url=`${UserAccesssharingflagPost_URL}`;
+}
 
-    setIsSetYes(!isSetYes);
+    axios.post(url,{
+      ownerIds:ids,
+      sharingFlag:sharingFlag
+    }) 
+       .then(response => {
+        if(response){
+       setIsUpdateSuccessful(true);
+       const url=`${UserAccess_URL}`;
+      axios.get(url)
+        .then(response => { 
+          const rowchange=response.data[index]
+          if(rowchange.defaultSharing===1){
+            setButtonvalallselect(true);
+            if(selectAll){
+              var newStates2 = [...rowStates].fill(true);
+              setRowStates(newStates2)
+            }
+            else{
+              var newStates2 = [...rowStates]
+               newStates2[index]=true
+              setRowStates(newStates2)
+              }
+
+          }
+          else {
+            setButtonvalallselect(false);
+
+            if(selectAll){
+              var newStates2 = [...rowStates].fill(false);
+              setRowStates(newStates2)
+            }
+            else{
+              var newStates2 = [...rowStates]
+               newStates2[index]=false
+               setRowStates(newStates2)
+              }
+
+          }
+        })
+        .catch(error => {
+        console.error(error);
+        }) 
+
+        }
+        else{
+          setIsUpdateSuccessful(false);
+        }
+       })
+       .catch(error => {
+       console.error(error);
+       setIsUpdateSuccessful(false);
+       })
+       .finally(() => {
+       setIsConfirmationOpen(false);
+       });
+  };
+
+      /*Submit Button Popup*/
+      BAModal.setAppElement('#root'); // Set the root element for accessibility
+
+      const ConfirmationDialog = ({ isOpen, onClose, onConfirm }) => {
+      return (
+          <BAModal
+          className="BAModal"
+          isOpen={isOpen}
+          onRequestClose={onClose}
+          contentLabel="Confirmation Dialog"
+          >       
+          <button className='yesbutton' onClick={onConfirm}>Yes</button>
+          <button className='nobutton' onClick={onClose}>No</button>
+          </BAModal>
+      );
+      }; 
+      const handleConfirm = () => {
+        const rowdelete=ownerdeleterow
+        const indexowner = data.findIndex((element) => element.ownerId === rowdelete.ownerId);
+        const userlevel = data[indexowner].userLevel;
+        const ownerId = data[indexowner].ownerId;
+        const shareduserIdIndex = data2.findIndex((element) => element.ownerId === rowdelete.ownerId);
+         const shareduserId = data2[shareduserIdIndex].sharedUsersList[0].sharedUserId;
+         //const mouselineIdIndex = data2.findIndex((element) => element.ownerId === rowdelete.ownerId);
+        // const mouselineId = data2[shareduserIdIndex].sharedUserId[0].mouseLineId
+   if(userlevel===1){
+       setIsUpdateSuccessful(false);
+      }
+      else{
+         setIsUpdateSuccessful(true);
+         setIsConfirmationOpen(false);
+          const url=`${UserAccessDeletePost_URL}`;
+         /*  axios.post(url,{
+             ownerId:ownerId,
+             shareduserId:shareduserId,
+             MouseLineId:mouselineId,
+           }) 
+              .then(response => {
+               if(response.data==="success"){
+              setIsUpdateSuccessful(true);
+               }
+               else{
+                 setIsUpdateSuccessful(false);
+               }
+              })
+              .catch(error => {
+              console.error(error);
+              setIsUpdateSuccessful(false);
+              })
+              .finally(() => {
+              setIsConfirmationOpen(false);
+              });*/
+
+            }
+       };
+     
+       const handleClose = () => {
+         setIsConfirmationOpen(false);
+       };
+
+  const handleOwnerLevelDeleteClick = (index,row) => {
+    setDeletePopup(false);
+    setIsConfirmationOpen(true);
+    setOwnerdeleteindex(index);
+    setOwnerdeleterow(row);
+  };
+  const passindextopopup = (index) => {
+    setDeletePopup(true);
+    setdeleteindexpopup(index);
+  };
+  const handleShareLevelDeleteClick = (index,row) => {
+    setDeleteSharePopup(false);
+    setIsConfirmationOpen(true);
+    setOwnerdeleteindex(index);
+    setOwnerdeleterow(row);
+  };
+  const passshareindextopopup = (index) => {
+    setDeleteSharePopup(true);
+    setdeleteshareindexpopup(index);
   };
   const [rowStates, setRowStates] = useState(data.map(() => false));
+  const [rowStatesView, setRowStatesView] = useState(data.map(() => false));
+  const [rowStatesEdit, setRowStatesEdit] = useState(data.map(() => false));
+  const [rowStatesCreate, setRowStatesCreate] = useState(data.map(() => false));
+  const [rowStatesTransfer, setRowStatesTransfer] = useState(data.map(() => false));
+  const [rowStatesViewRow, setRowStatesViewRow] = useState();
+  const [rowStatesEditRow, setRowStatesEditRow] = useState();
+  const [rowStatesCreateRow, setRowStatesCreateRow] = useState();
+  const [rowStatesTransferRow, setRowStatesTransferRow] = useState();
   const textBoxRef = useRef(null);
  /* useEffect(() => {
     if (isEditing) {
@@ -289,35 +524,133 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
         name: "Action",
         cell: (row,index) => {
           //const currentPage = currentPage[paginationIndex] || 1;
-          const defaultSharing = row.defaultSharing; 
+          if(isSetYes !==true){
+          const defaultSharing = row.defaultSharing;
           if(defaultSharing===0){
             rowStates[index]=false;
-            console.log("0")
             }
             else if(defaultSharing===1){
               rowStates[index]=true;
-              console.log("1")
-            }      
-          return (          
+            }
+          }
+          return (   
+        
             <div className="buttons-defaultsharing">
-        <button className={rowStates[index] ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
+           {!isSetYes  ?
+          <button className={rowStates[index] ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
                  {rowStates[index] ? "Yes" : "No"}
+                </button>:!deleteselectall ?
+                <button className={rowStates[index] ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
+                 {rowStates[index] ? "Yes" : "No"}
+                </button>:<button className={rowStates[index] ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
+                 {rowStates[index] ? "Yes" : "No"}
+                </button>}
+           </div>
+          );
+         }
+      },
+      {
+        name: "Action",
+        cell: (row,index) => {
+          
+          return (          
+            <div className="buttons-deleteownerlevel">
+                   <button className='deleteownerlevel' onClick={()=>passindextopopup(index)}>
+                  &#8942;
                 </button>
+               </div>
+          );
+         }
+      },
+      {
+        name: "Action",
+        cell: (row,index) => {
+          
+          return (          
+            <div className="buttons-deleteownerlevelpopup">
+              {deletePopup && deleteindexpopup===index ?
+                   <button className='deleteownerlevelpopup' onClick={()=>handleOwnerLevelDeleteClick(index,row)}>
+                  Delete
+                </button>:null}
                </div>
           );
          }
       }
 
   ];
+  const handleViewClick = (index,row) => {
+    const newStates = [...rowStates];
+    newStates[row.id] = !newStates[row.id];
+    setRowStates(newStates);
+    setIsSetYes(true)
+  };
+  const handleEditClick = (index,row) => {
+    const newStates = [...rowStatesEdit];
+    newStates[index] = !newStates[index];
+    setRowStatesEdit(newStates);
+  /*  if(rowStates[index]===false){
+      setRowStates[index]=true;
+      console.log("true")
+      }
+      else if(rowStates[index]===true){
+        setRowStates[index]=false;
+        console.log("false")
+      }*/
+      setRowStatesEditRow(row.id);
+    setIsSetYes(true);
+  };
+  const handleCreateClick = (index,row) => {
+    const newStates = [...rowStatesCreate];
+    newStates[index] = !newStates[index];
+    setRowStatesCreate(newStates);
+  /*  if(rowStates[index]===false){
+      setRowStates[index]=true;
+      console.log("true")
+      }
+      else if(rowStates[index]===true){
+        setRowStates[index]=false;
+        console.log("false")
+      }*/
+      setRowStatesCreateRow(row.id);
+    setIsSetYes(true);
+  };
+  const handleTransferClick = (index,row) => {
+    const newStates = [...rowStatesTransfer];
+    newStates[index] = !newStates[index];
+    setRowStatesTransfer(newStates);
+  /*  if(rowStates[index]===false){
+      setRowStates[index]=true;
+      console.log("true")
+      }
+      else if(rowStates[index]===true){
+        setRowStates[index]=false;
+        console.log("false")
+      }*/
+      setRowStatesTransferRow(row.id);
+    setIsSetYes(true);
+  };
   const columns2 = [
     {
    name: 'Access User',
    selector: 'sharedUserName',
-   sortable: true,   
+   sortable: true,  
+   width: '100px', 
  },
  {
   name: "Textbox",
   cell: (row,index) => {
+    var rowId;  
+    var indexmouseline;   
+    if(row.data){      
+     rowId=row.data.id; 
+     indexmouseline = options.findIndex((element) => element.ownerId === row.data.ownerId);
+    }    
+    else if(!row.data){
+      rowId=row.id;
+      indexmouseline = options.findIndex((element) => element.ownerId === row.ownerId);
+    }
+    const optionsmouselines=options[indexmouseline].mouselines;
+    setOptionsmouselines(optionsmouselines)
     //const currentPage = currentPage[paginationIndex] || 1;
     const textboxValue = textboxValues[row.id] ? textboxValues[row.id][index] : [];
     var indexOfLastItem="";
@@ -329,67 +662,231 @@ console.log(sharedUsersList.[index].sharedUsersList)*/
      indexOfFirstItem = indexOfLastItem - itemsPerPage;
      currentOptions = textboxValue.slice(indexOfFirstItem, indexOfLastItem);
      totalPages = Math.ceil(textboxValue.length / itemsPerPage); 
-
+     const indexshared = data2.findIndex((element) => element.ownerId === row.ownerId);
+     const indexrow = data2[indexshared].sharedUsersList.findIndex((element) => element.id === row.id);
+     var idincrement5=0;
+     const sharedUserId= data2[indexshared].sharedUsersList[indexrow].sharedUserId;
+     const viewMouseLinesvalue= data2[indexshared].sharedUsersList[indexrow].viewMouseLines
+    const viewMouseLines=viewMouseLinesvalue.map(({mouseLineId,mouseLineName}) => ({
+      id:"viewmouse"+(idincrement5++),
+      sharedUserId:sharedUserId,
+      mouseLineId:mouseLineId,
+      mouseLineName:mouseLineName,
+    }))
+    var idincrement6=0;
+    /*const editMouseLinesvalue= data2[indexshared].sharedUsersList[indexrow].editMouseLines;
+    console.log(editMouseLinesvalue)
+    const editMouseLines= editMouseLinesvalue.map(({mouseLineId,mouseLineName}) => ({
+      id:"editmouse"+(idincrement6++),
+      sharedUserId:sharedUserId,
+      mouseLineId:mouseLineId,
+      mouseLineName:mouseLineName,
+    }))
+        setViewMouselines(viewMouseLines)
+        console.log(viewMouseLines)
+    //setEditMouselines(editMouseLines)
+    
+    //console.log(editMouseLines)*/
     return (
-    <div className='mouselinetableinput'>
-    <input
+      
+    <div>
+   {/* <input
       type="text"
       value={textboxValues[row.id] ? currentOptions : []}
       onClick={() => handleInputClick(row, index)}
+      defaultValue="test"
       //onChange={() => handleInputChange( row, index)}
       //ref={textBoxRef}
-      readOnly
+    />*/}
+
+<Stack spacing={2} sx={{ width: 200 }}>
+<Autocomplete
+      multiple
+      id="checkboxes-tags-demo"
+      options={optionsmouselines}
+      getOptionLabel={(optionsmouselines) => optionsmouselines?.mouselinesName}
+      renderOption={(props, option, { selected }) => (
+        <li {...props}>
+          <Checkbox
+            icon={icon}
+            checkedIcon={checkedIcon}
+            style={{ marginRight: 8 }}
+            checked={selected}
+          />
+          {option.mouselinesName}
+        </li>
+      )}
+      style={{ width: 500 }}
+      //onChange={handleSelectionChange }
+      disableCloseOnSelect
+      renderInput={(params) => (
+        <TextField {...params} onChange={handleTextFieldChange} placeholder="select mouselines" />
+      )}
     />
+    </Stack>
+
 
     <div className="buttons-container">
-       <button className="plusbutton" onClick={() => handlePageChange(currentPage + 1, index,row)} disabled={ currentPage === totalPages || (activeRowIndex !== index) || activeRow.id !== row.id}> 
+       <button className="plusbutton" onClick={() => handlePageChange(currentPage + 1, index,row,-1)} disabled={ currentPage === totalPages || (activeRowIndex !== index) || activeRow.id !== row.id}> 
        <span className='plusbuttonlabel'>+ </span>
        </button>
-       <button className="minusbutton"  onClick={() => handlePageChange(currentPage - 1, index,row)}  disabled={ currentPage === 1 || (activeRowIndex !== index) || activeRow.id !== row.id}>
+       <button className="minusbutton"  onClick={() => handlePageChange(currentPage - 1, index,row,1)}  disabled={ currentPage === 1 || (activeRowIndex !== index) || activeRow.id !== row.id}>
        <span className='plusbuttonlabel'>-</span>
        </button>
        {activeRowIndex === index && activeRow.id === row.id ?
        <span className='recordcount'>{Math.min(indexOfLastItem,textboxValue.length)}/{textboxValue.length}</span>
        :<span className='recordcount'> {Math.min(indexOfLastItem,textboxValue.length)}/{textboxValue.length} </span>}
         </div>
-    {activeRowIndex === index && isTableVisible && activeRow.id === row.id && (     
+  {/*  {activeRowIndex === index && isTableVisible && activeRow.id === row.id && (     
       <table className='mouselinetable' ref={tableRef}>
           <tbody className='mouselinetablebody'>
-            {filteredOptions.map((option) => (
+            {optionsmouselines.map((mouselines) => (
               <DataRow
-                key={option.value}
-                option={option}
+                key={mouselines.mouselinesId}
+                option={mouselines.mouselinesName}
                 className="mouselinetablecheckbox"
-                onSelect={() => handleSelect(option.value, row,index)}
-                isChecked={(textboxValues[row.id] ? textboxValues[row.id][index] : []).includes(option.value)}
+                onSelect={() => handleSelect(mouselines.mouselinesName, row,index)}
+                isChecked={(textboxValues[row.id] ? textboxValues[row.id][index] : []).includes(mouselines.mouselinesName)}
               />
             ))}
           </tbody>
         </table>
-         )}
+         )}*/}
+         </div>
+            
+
+
+
+            
+    );
+   }
+},
+{
+  name: "View",
+  cell: (row,index) => {
+    console.log(row)
+    const indexsharing = data2.findIndex((element) => element.ownerId === row.ownerId);
+    const indexsharingflag = data2[indexsharing].sharedUsersList.findIndex((element) => element.id === row.id);
+    const defaultSharing = data2[indexsharing].sharedUsersList[indexsharingflag].sharingflag;
+   if(!isSetYes[row.id]){
+    if(defaultSharing===0){
+      rowStates[row.id]=false;
+      }
+      else if(defaultSharing===1){
+        rowStates[row.id]=true;
+      }
+    }
+    return (          
+      <div className="buttons-View">
+  <button className={(rowStates[row.id]) ?"viewenable":"viewdisable"} onClick={() =>handleViewClick(index,row)}>
+           {(rowStates[row.id]) ? "Enable" : "Disable"}
+          </button>
          </div>
     );
    }
 },
- {
-  name: 'View',
-  selector: '',
+{
+  name: "Edit",
+  cell: (row,index) => {
+    //const currentPage = currentPage[paginationIndex] || 1;
+    const defaultSharing = row.defaultSharing;
+   if(isSetYes ===false){
+    if(defaultSharing===0){
+      rowStates[index]=false;
+      }
+      else if(defaultSharing===1){
+        rowStates[index]=true;
+      }
+    }
+    return (          
+      <div className="buttons-Edit">
+  <button className={(rowStatesEdit[index] && rowStatesEditRow===row.id) ?"editenable":"editdisable"} onClick={() =>handleEditClick(index,row)}>
+           {(rowStatesEdit[index] && rowStatesEditRow===row.id) ? "Enable" : "Disable"}
+          </button>
+         </div>
+    );
+   }
+},
+{
+  name: "Secbreak2",
+  cell: (row,index) => {
     
+    return (          
+      <div className="secbreak2">
+         </div>
+    );
+   }
 },
 {
-  name: 'Edit',
-  selector: '',
-   
+  name: "Create",
+  cell: (row,index) => {
+    //const currentPage = currentPage[paginationIndex] || 1;
+    const defaultSharing = row.defaultSharing;
+   if(isSetYes ===false){
+    if(defaultSharing===0){
+      rowStates[index]=false;
+      }
+      else if(defaultSharing===1){
+        rowStates[index]=true;
+      }
+    }
+    return (          
+      <div className="buttons-Create">
+  <button className={(rowStatesCreate[index] && rowStatesCreateRow===row.id) ?"createenable":"createdisable"} onClick={() =>handleCreateClick(index,row)}>
+           {(rowStatesCreate[index] && rowStatesCreateRow===row.id) ? "Enable" : "Disable"}
+          </button>
+         </div>
+    );
+   }
 },
 {
-  name: 'Create',
-  selector: '',
-     
+  name: "Transfer",
+  cell: (row,index) => {
+    //const currentPage = currentPage[paginationIndex] || 1;
+    const defaultSharing = row.defaultSharing;
+   if(isSetYes ===false && rowStatesTransferRow===row.id){
+    if(defaultSharing===0){
+      rowStates[index]=false;
+      }
+      else if(defaultSharing===1){
+        rowStates[index]=true;
+      }
+    }
+    return (     
+      <div className="buttons-Transfer">
+  <button className={(rowStatesTransfer[index]) ?"transferenable":"transferdisable"} onClick={() =>handleTransferClick(index,row)}>
+           {(rowStatesTransfer[index]) ? "Enable" : "Disable"}
+          </button>
+         </div>      
+    );
+   }
 },
 {
-  name: 'Transfer', 
-  selector: '',
-  
+  name: "Action",
+  cell: (row,index) => {
+    
+    return (          
+      <div className="buttons-deletesharelevel">
+             <button className='deletesharelevel' onClick={()=>passshareindextopopup(index)}>
+            &#8942;
+          </button>
+         </div>
+    );
+   }
+},
+{
+  name: "Action",
+  cell: (row,index) => {
+    
+    return (          
+      <div className="buttons-deletesharelevelpopup">
+        {deleteSharePopup && deleteshareindexpopup===index ?
+             <button className='deletesharelevelpopup' onClick={()=>handleShareLevelDeleteClick(index,row)}>
+            Delete
+          </button>:null}
+         </div>
+    );
+   }
 }
 ]; 
 const columns3 = [
@@ -399,9 +896,13 @@ const columns3 = [
  sortable: true,   
 },
 {
+  name: "Textbox",
+  cell: (row,index) => {
+  }
+},
+{
 name: 'View',
-selector: '',
-  
+selector: '',  
 },
 {
 name: 'Edit',
@@ -417,6 +918,136 @@ selector: '',
 name: 'Transfer',
 selector: '',
 
+}
+];
+const columns4 = [
+  {
+ name: 'Access User',
+ selector: 'sharedUserName',
+ sortable: true,   
+},
+{
+  name: "View",
+  cell: (row,index) => {
+    console.log(row)
+    const indexsharing = data2.findIndex((element) => element.ownerId === row.ownerId);
+    console.log(indexsharing)
+    const indexsharingflag = data2[indexsharing].sharedUsersList.findIndex((element) => element.id === row.id);
+    const defaultSharing = data2[indexsharing].sharedUsersList[indexsharingflag].sharingflag;
+   if(!isSetYes[row.id]){
+    if(defaultSharing===0){
+      rowStates[row.id]=false;
+      }
+      else if(defaultSharing===1){
+        rowStates[row.id]=true;
+      }
+    }
+    return (          
+      <div className="buttons-View">
+  <button className={(rowStates[row.id]) ?"viewenable":"viewdisable"} onClick={() =>handleViewClick(index,row)}>
+           {(rowStates[row.id]) ? "Enable" : "Disable"}
+          </button>
+         </div>
+    );
+   }
+},
+{
+name: 'Edit',
+selector: '',
+ 
+},
+{
+  name: "Edit",
+  cell: (row,index) => {
+    //const currentPage = currentPage[paginationIndex] || 1;
+    const defaultSharing = row.defaultSharing;
+   if(isSetYes ===false){
+    if(defaultSharing===0){
+      rowStates[index]=false;
+      }
+      else if(defaultSharing===1){
+        rowStates[index]=true;
+      }
+    }
+    return (          
+      <div className="buttons-Edit">
+  <button className={(rowStatesEdit[index] && rowStatesEditRow===row.id) ?"editenable":"editdisable"} onClick={() =>handleEditClick(index,row)}>
+           {(rowStatesEdit[index] && rowStatesEditRow===row.id) ? "Enable" : "Disable"}
+          </button>
+         </div>
+    );
+   }
+},
+{
+  name: "Create",
+  cell: (row,index) => {
+    //const currentPage = currentPage[paginationIndex] || 1;
+    const defaultSharing = row.defaultSharing;
+   if(isSetYes ===false){
+    if(defaultSharing===0){
+      rowStates[index]=false;
+      }
+      else if(defaultSharing===1){
+        rowStates[index]=true;
+      }
+    }
+    return (          
+      <div className="buttons-Create">
+  <button className={(rowStatesCreate[index] && rowStatesCreateRow===row.id) ?"createenable":"createdisable"} onClick={() =>handleCreateClick(index,row)}>
+           {(rowStatesCreate[index] && rowStatesCreateRow===row.id) ? "Enable" : "Disable"}
+          </button>
+         </div>
+    );
+   }
+},
+{
+  name: "Transfer",
+  cell: (row,index) => {
+    //const currentPage = currentPage[paginationIndex] || 1;
+    const defaultSharing = row.defaultSharing;
+   if(isSetYes ===false && rowStatesTransferRow===row.id){
+    if(defaultSharing===0){
+      rowStates[index]=false;
+      }
+      else if(defaultSharing===1){
+        rowStates[index]=true;
+      }
+    }
+    return (     
+      <div className="buttons-Transfer">
+  <button className={(rowStatesTransfer[index]) ?"transferenable":"transferdisable"} onClick={() =>handleTransferClick(index,row)}>
+           {(rowStatesTransfer[index]) ? "Enable" : "Disable"}
+          </button>
+         </div>      
+    );
+   }
+},
+{
+  name: "Action",
+  cell: (row,index) => {
+    
+    return (          
+      <div className="buttons-deletesharelevel">
+             <button className='deletesharelevel' onClick={()=>passshareindextopopup(index)}>
+            &#8942;
+          </button>
+         </div>
+    );
+   }
+},
+{
+  name: "Action",
+  cell: (row,index) => {
+    
+    return (          
+      <div className="buttons-deletesharelevelpopup">
+        {deleteSharePopup && deleteshareindexpopup===index ?
+             <button className='deletesharelevelpopup' onClick={()=>handleShareLevelDeleteClick(index,row)}>
+            Delete
+          </button>:null}
+         </div>
+    );
+   }
 }
 ];
   const filteredData = data.filter(row =>
@@ -515,51 +1146,135 @@ selector: '',
 
     setShowTable1(!showTable1);
   };
-  const handleRowSelecteddrop = (row) => {
-   if (selectedRow === row) {
-      // If the selected row is already expanded, close it
-      setSelectedRow(null);
+  const handleRowSelecteddrop = (row,index) => {
+    if(duplicatedRows===false){
+    setDuplicatedRows(true)
+    
+    const newId = row.id;
+    const newRow = row;
+  
+    // Find the index of the row with the matching ID in the existing tableData
+    const existingRowIndex = data2duplicate.findIndex((row) => row.id === newId);
+  
+    if (existingRowIndex !== -1) {
+
+      // If the matching row is found, insert the new row after it
+      setData2duplicate((prevData) => {
+        const newData = [...prevData];
+        newData.splice(existingRowIndex + 1, 0, newRow);
+        return newData;
+      });
     } else {
-      // Otherwise, expand the selected row
-      setSelectedRow(row); 
+      // If no matching row is found, simply append the new row to the tableData
+      setData2duplicate((prevData) => [...prevData, newRow]);
     }
+   
+    }
+    
+    else{
+      const newId = row.id;
+      const newRow = row;
+      const existingRowIndex = setData2duplicate.findIndex((row) => row.id === newId);
+      const rowCount = data2[data2Index].sharedUsersList.filter((row) => row.id === newId).length;
+      if(rowCount){
+      if (existingRowIndex !== -1) {
+        // If the matching row is found, insert the new row after it
+        setData2duplicate.splice(existingRowIndex + 1, 0, newRow);            
+      }     
+    }
+  
+  }
   };
   const renderDropdown2 = (row) => {
-    if (selectedRow === row) {
-       // If the selected row is already expanded, close it
-       setSelectedRow(null);
-     } else {
-       // Otherwise, expand the selected row
-       setSelectedRow(row); 
-     }
+    const allAccessUsers = data2duplicate.map((user) => {
+      return {
+         id: user.id, 
+         sharedUserName: user.sharedUserName,
+         sharedUserId:user.sharedUserId,
+         ownerId:user.ownerId,
+         editMouseLines:user.editMouseLines,
+         viewMouseLines:user.viewMouseLines
+      };
+    });
+   const index = allAccessUsers.findIndex((element) => element.sharedUserId === row.data.sharedUserId);
+   const dropdowndata=allAccessUsers[index].id;
+   const conditionalRowStyles = [
+    {
+      when: row => row.id !== dropdowndata, // replace "error" with the name of the column you want to check    
+      style: {
+        display: "none"      
+      }
+    }
+  ];
      return (
       <>
-        <div className='seconddrop'>test</div>
+ 
+ <DataTable      
+        columns={[
+           
+          {
+            cell: (row) => (
+              <div className={row.id !== dropdowndata ? 'hideRow' : 'notHideRow'}>
+              <div className="line1"></div> 
+              </div>
+            ),
+            allowOverflow: true,
+            button: true,
+            //width: "5%"
+          },
+          ...columns4,
+        ]}
+        data={allAccessUsers}
+        defaultSortField="id"
+        selectableRows
+        pagination
+        highlightOnHover
+        striped
+        noHeader={false}
+        persistTableHead
+        dense
+        selectableRowsVisibleOnly
+        selectableRowsHighlight
+        selectableRowsSingle
+        selectableRowsClear={() => setSelectedRow([])}
+        className="my-custom-tableinsideduplicate"
+        conditionalRowStyles={conditionalRowStyles}
+        
+      /> 
         </>
      )
    };
 
- const expandedRows2 = selectedRowsTable.map((row) => ( 
-   <tr key={`${row.id}-expanded`}>            
+ const expandedRows2 = selectedRows1.map((row) => ( 
+ {/*  <tr key={`${row.id}-expanded`}>            
       <td colSpan={columns2.length + 1}>{renderDropdown2(row)}</td>
- </tr>
+ </tr>*/}
   )); 
  
 
 
-  const renderDropdown = (row) => {    
+  const renderDropdown = (row,index) => {    
     var rowId;  
-    var index;   
+    var indexshared; 
+   var rowindex=index;
     if(row.data){      
      rowId=row.data.id;
     setSelectedRowId(row.data.id);  
-     index = data2.findIndex((element) => element.ownerId === row.data.ownerId);
+     indexshared = data2.findIndex((element) => element.ownerId === row.data.ownerId);
+     setData2duplicate(data2[indexshared].sharedUsersList);
     }    
     else if(!row.data){
       rowId=row.id;
       setSelectedRowId(row.id);
       index = data2.findIndex((element) => element.ownerId === row.ownerId);
+      setData2duplicate(data2[indexshared].sharedUsersList);
     }
+    if(duplicatedRows===true){
+    data2[indexshared].sharedUsersList=data2duplicate;
+    }
+  
+
+
     var rowId2;  
     var index2;   
     if(row.data){      
@@ -570,9 +1285,7 @@ selector: '',
       rowId2=row.id;
       index2 = data3.findIndex((element) => element.ownerId === row.ownerId);
     }
-    console.log(data3)
-    console.log(index2)
-    console.log(data3[index2].unSharedUsersList)
+ 
     const remainingItems = data.filter((item) => item.id !== rowId);
     return (
       <> 
@@ -582,10 +1295,12 @@ selector: '',
       <input className="selectall1" type="checkbox" checked={selectAll1} onChange={handleSelectAll1} />
         <img className={showTable?"dropdownrotate1" : "dropdown1"} src={`${process.env.PUBLIC_URL}js/permissions/media/dropdown.54f3e29fc5039e44a7463745979b0cfe.svg`} alt="Dropdown" onClick={handleDropdownClick} />
         <span className='access1'>Access User</span>
-        <span className='view1'>View</span>
-        <span className='edit1'>Edit</span>
-        <span className='create1'>Create</span>
-        <span className='transfer1'>Transfer</span>
+        <span className='louselinelabel'>Select the Mouseline you wish to share</span>
+        <span className='view1'>Select the Data Permission level</span>
+        <span className='edit1'></span>
+        <span className='secbreak'></span>
+        <span className='create1'>create and transfer records for the selected user</span>
+        <span className='transfer1'></span>
         </div>   
         {showTable && (
       <DataTable      
@@ -602,7 +1317,7 @@ selector: '',
                 checked={isRowSelected1(row)}
                 //style={"width: 18px;height: 18px;"}
               />
-              <button className='plustodown' onClick={() => handleRowSelecteddrop(row)}>+</button>
+               <img className="plustodown" src={`${process.env.PUBLIC_URL}js/permissions/media/pluslogo.b52f8f5335fd30099bd1f7d7a937db41.svg`} alt="plus" />
               </div>
             ),
             allowOverflow: true,
@@ -611,9 +1326,9 @@ selector: '',
           },
           ...columns2,
         ]}
-        data={data2[index].sharedUsersList}
+        data={data2[indexshared].sharedUsersList}
         defaultSortField="id"
-        selectableRows
+        selectableRows={true}
         pagination
         highlightOnHover
         striped
@@ -625,19 +1340,14 @@ selector: '',
         selectableRowsSingle
         selectableRowsClear={() => setSelectedRows1([])}
         className="my-custom-tableinside"
-        expandableRows 
+        expandableRows ={true}
         expandableRowsComponent={renderDropdown2}
         expandableRowsVisibleOnly
-        expandableRowsExpanded={expandedRows2} 
-        onRowExpandToggled={(expanded, row) => {
-          if (!expanded) {
-            // do something when the dropdown is collapsed
-            setSelectedRowId(null)
-            console.log(`The dropdown for row ${row.id} is now collapsed.`);
-          }
-        }}      
+        expandableRowsExpanded={true} 
+        keyField="id"  
         /> 
         )}
+
         <div className='emptyheight2'></div>
         <div className='tableSelectAll3'>
         <div className="line4"></div> 
@@ -696,9 +1406,9 @@ selector: '',
   }; 
    
  const expandedRows = selectedRowsTable.map((row) => ( 
-   <tr key={`${row.id}-expanded`}>            
-      <td colSpan={columns.length + 1}>{renderDropdown(row)}</td>
- </tr>
+  {/* <tr key={`${row.id}-expanded`}>            
+      <td colSpan={columns.length + 1}>{renderDropdown(row,index)}</td>
+ </tr>*/}
   )); 
 
   return (
@@ -786,14 +1496,33 @@ selector: '',
           if (!expanded) {
             // do something when the dropdown is collapsed
             setSelectedRowId(null)
-            console.log(`The dropdown for row ${row.id} is now collapsed.`);
           }
         }}
         className="my-custom-table"
         />  
- 
-    
-
+     { isConfirmationOpen ?
+    <div className='confirmationpopup'>
+    <ConfirmationDialog
+        isOpen={isConfirmationOpen}
+        onClose={handleClose}
+        onConfirm={handleConfirm}
+      />
+    </div>:null
+    }
+  {(isUpdateSuccessful=== true) ? (
+        <div className="success-modal">
+          <span className="close-symbol" onClick={() => setIsUpdateSuccessful("")}>X</span>
+          <h1>Update successful</h1>
+          <h2>The update operation completed successfully</h2>
+        </div>
+      ):null}
+        {(isUpdateSuccessful === false) ? (
+        <div className="failure-modal">
+          <span className="close-symbol" onClick={() => setIsUpdateSuccessful("")}>X</span>
+          <h1>Update was not successful</h1>
+          <h2>The update operation not completed</h2>
+        </div>
+      ):null}
     </div>
   );
 }

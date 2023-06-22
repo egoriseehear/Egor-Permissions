@@ -798,3 +798,187 @@
     left: 5%;
 }
 }
+@media only screen and (max-width: 767px)  {
+    .mainpage{
+        width: 51%;
+    }
+
+    .profilesection{
+        margin-left: 3%;
+    }
+    .profilesection img.circle{
+        margin-left: -73px;
+        margin-top: 10px;
+    }
+    .generalaccesssection{
+        width: 79%;
+        margin-left: 3%;
+    }
+    .generalaccesssection img.dropdownlogo{
+        left: 92%;
+    }
+    .userpanel{
+        margin-left: 46%;
+    }
+    .generalaccesssectionnoborder .generalaccesssectionlabel{
+        left: 11%;
+    }
+    .userpanel .userlogo{
+        margin-left: 93px;
+    }
+    .bulkaccesssectionnoborder img.bulkaccessnoborderlogo{
+        left: -10%;
+    }
+    .useraccesssection{
+        margin-left: -1%;
+        width: 90%;
+    }
+    .useraccesssection img.useraccesslogo{
+        left: 0.5%;
+    }
+    .useraccesssection img.dropdownlogo{
+        left: 40.5%;
+    }
+    .fieldaccesssectionnoborder img.fieldaccessnoborderlogo{
+        margin-left: -8.5%;
+    }
+    .protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
+        margin-left: -5.2%;
+    }
+    .projectaccesssectionnoborder img.projectaccesssectionnoborder{
+        margin-left: -5.2%;
+    }
+    .studyaccesssectionnoborder img.studyaccessnoborderlogo{
+        margin-left: -20px;
+    }
+    .useraccesssectionnoborder img.useraccessnoborderlogo{
+        left: 1%;
+    }
+    .fieldaccesssection img.dropdownlogo{
+        left: 37%;
+    }
+    .fieldaccesssection .fieldaccesssectionlabel{
+        left: 9%;
+    }
+    .fieldaccesssection img.fieldaccesslogo{
+        left: 3%;
+    }
+    .fieldaccesssection{
+        margin-left: 1%;
+    }
+    .fieldaccesssectionnoborder img.fieldaccessnoborderlogo{
+        margin-left: -1.5%;
+    }
+    .protocolaccesssection{
+        margin-left: 0%;
+    }
+    .protocolaccesssection img.dropdownlogo{
+        left: 36%;
+    }
+    .protocolaccesssection .protocolaccesssectionlabel{
+        left: 9%;
+    }
+    .protocolaccesssection img.protocolaccesslogo {
+        left: 2%;
+    }
+    .protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
+        margin-left:1.8%;
+    }
+    .projectaccesssection{
+        margin-left: -1%;
+    }
+    .projectaccesssection img.projectaccesslogo{
+        left: 1%;
+    }
+    .projectaccesssection img.dropdownlogo{
+        left: 34%;
+    }
+    .studyaccesssection{
+        margin-left: 0%;
+    }
+    .studyaccesssection img.studyaccesslogo{
+        left: 1px;
+    }
+    .studyaccesssection img.dropdownlogo{
+        left: 35%;
+    }
+    .studyaccesssection .studyaccesssectionlabel{
+        left: 8%;
+    }
+    .projectaccesssectionnoborder img.projectaccesssectionnoborder{
+        margin-left: 0.8%;
+    }
+
+}
+@media only screen and (min-width: 600px){
+    .generalaccesssectionnoborder img.generalaccessnoborderlogo {
+        top: 301px;
+    }
+    .useraccesssectionnoborder .useraccesssectionlabel{
+        margin-top: -11px;
+    }
+    .useraccesssectionnoborder img.useraccessnoborderlogo{
+        top: 454px;
+    }
+    .fieldaccesssectionnoborder .fieldaccesssectionlabel{
+        top: 521px;
+    }
+    .useraccesssection .useraccesssectionlabel{
+        margin-top: 7px;
+    }
+    .useraccesssection img.useraccesslogo{
+        top: 470px;
+    }
+    .useraccesssection img.dropdownlogo{
+        top: 480px;
+    }
+    .useraccesssectionnoborder img.useraccessnoborderlogo{
+        top: 471px;
+    }
+    .fieldaccesssection{
+        margin-top: 8px;
+    }
+    .protocolaccesssection {
+        margin-top: 9px;
+    }
+    .projectaccesssection {
+        margin-top: 46px;
+    }
+    .studyaccesssection {
+        margin-top: 92px;
+    }
+    .profilesection img.circle{
+        margin-left: -113px;
+    }
+    .userpanelGA .generalaccessblacklogo img {
+        top: 185px;
+    }
+    .userpanelGA button.submitbutton {
+        left: 87%;
+    }
+    .bulkpanel .tablepanel4{
+        top: 915px;
+    }
+    .borderclass{
+        margin-top: -532px;
+    }
+    .studyaccesssection img.studyaccesslogo{
+        left: 43px;
+    }
+}
+@media only screen and (min-width: 600px){
+    .profilesection img.circle{
+    margin-left: -104px;
+    }
+    .userpanelGA span.generalaccessblacklogolabel{
+        line-height: 13px;
+        margin-left: 62px;
+    }
+    .userpanelGA .generalaccessblacklogo img{
+        left: 22%;
+        top: 182px;
+    }
+    .userpanelGA .title{
+        margin-left: -18%;
+    }
+ }

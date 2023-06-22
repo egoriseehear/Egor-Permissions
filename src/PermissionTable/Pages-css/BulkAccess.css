@@ -1539,4 +1539,10 @@ img.dropdownrotate2
         width: 54%;
         margin-left: -7%;
     }
+    @media only screen and (max-width: 767px)  {
+        .bulkpanel {
+            margin-left: 45%;
+        }
+
+    }
   }

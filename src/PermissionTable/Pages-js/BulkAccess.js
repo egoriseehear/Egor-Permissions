@@ -1,7 +1,7 @@
 import React, { useState,useEffect  } from 'react';
 import '../Pages-css/BulkAccess.css';
 import DataTable from "react-data-table-component";
-import Select from 'react-select'; 
+import Select, { components } from 'react-select'; 
 import dropdown from '../Logos/dropdown.svg'
 import userpagelogo from '../Logos/userpagelogo.svg'
 import searchlogo from '../Logos/searchlogo.svg'
@@ -10,6 +10,7 @@ import BAModal from 'react-modal';
 import {BulkAccess_URL,BulkAccessPost_URL} from '../Pages-js/URL';
 import  requiredstar from'../Logos/requiredstar.svg'
 import axios from 'axios';
+
 
 
 function BulkAccess() {
@@ -44,7 +45,7 @@ function BulkAccess() {
   const [dataHoldingList,setDataHoldingList]=useState([]);
   const [accessGroupList,setAccessGroupList]=useState([]);
 
- 
+
 
   const options = [
     { value: '0', label: 'View' },
@@ -126,7 +127,7 @@ const handleChange = (selectedOptions) => {
       menu: (provided, state) => ({
         ...provided,
         top:'5px',
-        position: 'absolute',         
+        position: 'absolute',     
       }),
       menuList: (provided, state) => ({
         ...provided,
@@ -169,6 +170,7 @@ const handleChange = (selectedOptions) => {
     dropdownIndicator: (provided,state) => ({
       ...provided,
       color: state.isFocused ? 'transparent' : 'transparent',
+      cursor: 'pointer',
     transition: 'all 0.2s',
     ':hover': {
       color: 'transparent',
