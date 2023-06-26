@@ -58,6 +58,7 @@ function Useraccess() {
   //const[options,setOptions]=useState([]);
   const [duplicatedRows, setDuplicatedRows] = useState(false);
   const [data2duplicate, setData2duplicate] = useState([]);
+  const [data3duplicate, setData3duplicate] = useState([]);
   const [data2Index,setData2Index]=useState(); 
   const [sharedUser,setSharedUser]=useState([]);
   const[options,setOptions]=useState([])
@@ -77,6 +78,9 @@ function Useraccess() {
   const[deleteindexpopup,setdeleteindexpopup]=useState()
   const[deleteshareindexpopup,setdeleteshareindexpopup]=useState()
   const [deleteSharePopup, setDeleteSharePopup] = useState(false);
+  const parentTableRef = useRef(null);
+  const expandedTableRef = useRef(null);
+
 
   const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
   const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -241,9 +245,7 @@ const index2 = mouselines.findIndex((element) => element.ownerid === mouselines.
   
  
 
-  const handleTextFieldChange = (event) => {
-    console.log(event.target.value)
-  };
+
 
   
  
@@ -332,14 +334,20 @@ const index2 = mouselines.findIndex((element) => element.ownerid === mouselines.
     {id:"data32",name: "Alice" }
   ];*/
   const handleButtonClick = (index,row) => {
-    const newStates = [...rowStates];
+    console.log("clicked")
+    var newStates;
+    newStates = [...rowStates];
     newStates[index] = !newStates[index];
-    //setRowStates(newStates);
     setIsSetYes(true);
     if(selectAll===true){
       setDeleteselectall(true)
+       newStates = [...rowStates].fill(newStates[index]);
+       setRowStates(newStates);
+       console.log(newStates)
     }else{
       setDeleteselectall(false)
+    setRowStates(newStates);
+    console.log(newStates[index])
     }
     var ids=[];
     ids[0]=row.ownerId
@@ -360,14 +368,13 @@ else{
   const ids = data[index].ownerId;
   url=`${UserAccesssharingflagPost_URL}`;
 }
-
     axios.post(url,{
       ownerIds:ids,
       sharingFlag:sharingFlag
     }) 
        .then(response => {
-        if(response){
-       setIsUpdateSuccessful(true);
+    {/*    if(response){
+      // setIsUpdateSuccessful(true);
        const url=`${UserAccess_URL}`;
       axios.get(url)
         .then(response => { 
@@ -407,7 +414,7 @@ else{
         }
         else{
           setIsUpdateSuccessful(false);
-        }
+        }*/}
        })
        .catch(error => {
        console.error(error);
@@ -503,6 +510,14 @@ else{
   const [rowStatesEdit, setRowStatesEdit] = useState(data.map(() => false));
   const [rowStatesCreate, setRowStatesCreate] = useState(data.map(() => false));
   const [rowStatesTransfer, setRowStatesTransfer] = useState(data.map(() => false));
+  const [rowStatesViewUnshared, setRowStatesViewUnshared] = useState(data.map(() => false));
+  const [rowStatesEditUnshared, setRowStatesEditUnshared] = useState(data.map(() => false));
+  const [rowStatesCreateUnshared, setRowStatesCreateUnshared] = useState(data.map(() => false));
+  const [rowStatesTransferUnshared, setRowStatesTransferUnshared] = useState(data.map(() => false));
+  const [rowStatesViewDuplicate, setRowStatesViewDuplicate] = useState(data.map(() => false));
+  const [rowStatesEditDuplicate, setRowStatesEditDuplicate] = useState(data.map(() => false));
+  const [rowStatesCreateDuplicate, setRowStatesCreateDuplicate] = useState(data.map(() => false));
+  const [rowStatesTransferDuplicate, setRowStatesTransferDuplicate] = useState(data.map(() => false));
   const [rowStatesViewRow, setRowStatesViewRow] = useState();
   const [rowStatesEditRow, setRowStatesEditRow] = useState();
   const [rowStatesCreateRow, setRowStatesCreateRow] = useState();
@@ -536,15 +551,18 @@ else{
           return (   
         
             <div className="buttons-defaultsharing">
-           {!isSetYes  ?
+          {/* {!isSetYes  ?
           <button className={rowStates[index] ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
                  {rowStates[index] ? "Yes" : "No"}
                 </button>:!deleteselectall ?
                 <button className={rowStates[index] ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
                  {rowStates[index] ? "Yes" : "No"}
-                </button>:<button className={rowStates[index] ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
+                </button>:<button className={rowStates ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
+                 {rowStates ? "Yes" : "No"}
+                </button>}*/}
+                <button className={rowStates[index] ?"yes":"no"} onClick={() =>handleButtonClick(index,row)}>
                  {rowStates[index] ? "Yes" : "No"}
-                </button>}
+                </button>
            </div>
           );
          }
@@ -579,54 +597,113 @@ else{
 
   ];
   const handleViewClick = (index,row) => {
-    const newStates = [...rowStates];
+  /*  const newStates = [...rowStates];
     newStates[row.id] = !newStates[row.id];
     setRowStates(newStates);
-    setIsSetYes(true)
+    setIsSetYes(true)*/
+    console.log("1")
+    const newStates = [...rowStatesView];
+    newStates[index] = !newStates[index];
+    setRowStatesView(newStates);
+      setRowStatesViewRow(row.id); 
+    setIsSetYes(true);
   };
+  const handleViewClickUnshared = (index,row) => {
+    /*  const newStates = [...rowStates];
+      newStates[row.id] = !newStates[row.id];
+      setRowStates(newStates);
+      setIsSetYes(true)*/
+      console.log("2")
+      const newStates = [...rowStatesViewUnshared];
+      newStates[index] = !newStates[index];
+      setRowStatesViewUnshared(newStates);
+        setRowStatesViewRow(row.id);
+      setIsSetYes(true);
+    };
+    const handleViewClickDuplicate = (index,row) => {
+     /*   const newStates = [...rowStatesViewDuplicate];
+        newStates[row.id] = !newStates[index];
+        setRowStatesViewDuplicate(newStates);
+          setRowStatesViewRow(row.id);*/
+          const dataTable = parentTableRef.current;
+
+// Check if the ref is valid
+if (dataTable) {
+  // Programmatically trigger the click event on the first dropdown
+  const dropdownElement = dataTable.querySelector('.DnOeK');
+  if (dropdownElement) {
+    dropdownElement.click();
+  }
+}
+          setRowStatesViewDuplicate(prevRowStates => {
+            const newRowStates = [...prevRowStates];
+            newRowStates[index] =  !newRowStates[index]; // Set the state to true for the specific row
+            return newRowStates;
+          });
+        setIsSetYes(true);
+      };
+
   const handleEditClick = (index,row) => {
     const newStates = [...rowStatesEdit];
     newStates[index] = !newStates[index];
     setRowStatesEdit(newStates);
-  /*  if(rowStates[index]===false){
-      setRowStates[index]=true;
-      console.log("true")
-      }
-      else if(rowStates[index]===true){
-        setRowStates[index]=false;
-        console.log("false")
-      }*/
-      setRowStatesEditRow(row.id);
+      setRowStatesEditRow(row.id); 
+    setIsSetYes(true);
+  };
+  const handleEditClickUnshared = (index,row) => {
+    const newStates = [...rowStatesEditUnshared];
+    newStates[index] = !newStates[index];
+    setRowStatesEditUnshared(newStates);
+      setRowStatesEditRow(row.id); 
+    setIsSetYes(true);
+  };
+  const handleEditClickDuplicate = (index,row) => {
+    const newStates = [...rowStatesEditDuplicate];
+    newStates[index] = !newStates[index];
+    setRowStatesEditDuplicate(newStates);
+      setRowStatesEditRow(row.id); 
     setIsSetYes(true);
   };
   const handleCreateClick = (index,row) => {
-    const newStates = [...rowStatesCreate];
+     const newStates = [...rowStatesCreate];
     newStates[index] = !newStates[index];
     setRowStatesCreate(newStates);
-  /*  if(rowStates[index]===false){
-      setRowStates[index]=true;
-      console.log("true")
-      }
-      else if(rowStates[index]===true){
-        setRowStates[index]=false;
-        console.log("false")
-      }*/
-      setRowStatesCreateRow(row.id);
+      setRowStatesCreateRow(row.id); 
     setIsSetYes(true);
   };
+  const handleCreateClickUnshared = (index,row) => {
+    const newStates = [...rowStatesCreateUnshared];
+   newStates[index] = !newStates[index];
+   setRowStatesCreateUnshared(newStates);
+     setRowStatesCreateRow(row.id); 
+   setIsSetYes(true);
+ };
+ const handleCreateClickDuplicate = (index,row) => {
+  const newStates = [...rowStatesCreateDuplicate];
+ newStates[index] = !newStates[index];
+ setRowStatesCreateDuplicate(newStates);
+   setRowStatesCreateRow(row.id); 
+ setIsSetYes(true);
+};
   const handleTransferClick = (index,row) => {
     const newStates = [...rowStatesTransfer];
     newStates[index] = !newStates[index];
     setRowStatesTransfer(newStates);
-  /*  if(rowStates[index]===false){
-      setRowStates[index]=true;
-      console.log("true")
-      }
-      else if(rowStates[index]===true){
-        setRowStates[index]=false;
-        console.log("false")
-      }*/
-      setRowStatesTransferRow(row.id);
+      setRowStatesCreateRow(row.id); 
+    setIsSetYes(true);
+  };
+  const handleTransferClickUnshared = (index,row) => {
+    const newStates = [...rowStatesTransferUnshared];
+    newStates[index] = !newStates[index];
+    setRowStatesTransferUnshared(newStates);
+      setRowStatesCreateRow(row.id); 
+    setIsSetYes(true);
+  };
+  const handleTransferClickDuplicate = (index,row) => {
+    const newStates = [...rowStatesTransferDuplicate];
+    newStates[index] = !newStates[index];
+    setRowStatesTransferDuplicate(newStates);
+      setRowStatesCreateRow(row.id); 
     setIsSetYes(true);
   };
   const columns2 = [
@@ -640,17 +717,26 @@ else{
   name: "Textbox",
   cell: (row,index) => {
     var rowId;  
-    var indexmouseline;   
+    var indexmouseline;  
+    var indexviewmouseline;
     if(row.data){      
      rowId=row.data.id; 
      indexmouseline = options.findIndex((element) => element.ownerId === row.data.ownerId);
+     indexviewmouseline = data2duplicate.findIndex((element) => element.id === row.data.id);
     }    
     else if(!row.data){
       rowId=row.id;
       indexmouseline = options.findIndex((element) => element.ownerId === row.ownerId);
+      indexviewmouseline = data2duplicate.findIndex((element) => element.id === row.id);
     }
     const optionsmouselines=options[indexmouseline].mouselines;
     setOptionsmouselines(optionsmouselines)
+    const viewmouselines=data2duplicate[indexviewmouseline].viewMouseLines;
+    setViewMouselines(viewmouselines)
+    const editmouselines=data2duplicate[indexviewmouseline].editMouseLines;
+    setEditMouselines(editmouselines)
+    console.log(viewmouselines)
+    console.log(editmouselines)
     //const currentPage = currentPage[paginationIndex] || 1;
     const textboxValue = textboxValues[row.id] ? textboxValues[row.id][index] : [];
     var indexOfLastItem="";
@@ -667,12 +753,14 @@ else{
      var idincrement5=0;
      const sharedUserId= data2[indexshared].sharedUsersList[indexrow].sharedUserId;
      const viewMouseLinesvalue= data2[indexshared].sharedUsersList[indexrow].viewMouseLines
+    if(viewMouseLinesvalue!==null){
     const viewMouseLines=viewMouseLinesvalue.map(({mouseLineId,mouseLineName}) => ({
       id:"viewmouse"+(idincrement5++),
       sharedUserId:sharedUserId,
       mouseLineId:mouseLineId,
       mouseLineName:mouseLineName,
     }))
+  }
     var idincrement6=0;
     /*const editMouseLinesvalue= data2[indexshared].sharedUsersList[indexrow].editMouseLines;
     console.log(editMouseLinesvalue)
@@ -704,7 +792,10 @@ else{
       multiple
       id="checkboxes-tags-demo"
       options={optionsmouselines}
-      getOptionLabel={(optionsmouselines) => optionsmouselines?.mouselinesName}
+      disableCloseOnSelect
+      getOptionLabel={(optionsmouselines) =>
+        optionsmouselines?.mouselinesName
+      }
       renderOption={(props, option, { selected }) => (
         <li {...props}>
           <Checkbox
@@ -713,17 +804,15 @@ else{
             style={{ marginRight: 8 }}
             checked={selected}
           />
-          {option.mouselinesName}
+        {option?.mouselinesName}
         </li>
       )}
       style={{ width: 500 }}
-      //onChange={handleSelectionChange }
-      disableCloseOnSelect
       renderInput={(params) => (
-        <TextField {...params} onChange={handleTextFieldChange} placeholder="select mouselines" />
+        <TextField {...params} label="Checkboxes" placeholder="Favorites" />
       )}
     />
-    </Stack>
+            </Stack>
 
 
     <div className="buttons-container">
@@ -764,26 +853,19 @@ else{
 {
   name: "View",
   cell: (row,index) => {
-    console.log(row)
-    const indexsharing = data2.findIndex((element) => element.ownerId === row.ownerId);
-    const indexsharingflag = data2[indexsharing].sharedUsersList.findIndex((element) => element.id === row.id);
-    const defaultSharing = data2[indexsharing].sharedUsersList[indexsharingflag].sharingflag;
-   if(!isSetYes[row.id]){
-    if(defaultSharing===0){
-      rowStates[row.id]=false;
+     //const currentPage = currentPage[paginationIndex] || 1;
+     const defaultSharing = row.defaultSharing;
+     if(isSetYes ===false){
+    //  setRowStatesView([true]);
       }
-      else if(defaultSharing===1){
-        rowStates[row.id]=true;
-      }
-    }
-    return (          
-      <div className="buttons-View">
-  <button className={(rowStates[row.id]) ?"viewenable":"viewdisable"} onClick={() =>handleViewClick(index,row)}>
-           {(rowStates[row.id]) ? "Enable" : "Disable"}
-          </button>
-         </div>
-    );
-   }
+      return (               
+        <div className="buttons-View">  
+    <button className={(rowStatesView[index]) ?"viewenable":"viewdisable"} onClick={() =>handleViewClick(index,row)}>
+             {(rowStatesView[index]) ? "Enable" : "Disable"}
+            </button>
+           </div>
+      );
+     }
 },
 {
   name: "Edit",
@@ -791,17 +873,13 @@ else{
     //const currentPage = currentPage[paginationIndex] || 1;
     const defaultSharing = row.defaultSharing;
    if(isSetYes ===false){
-    if(defaultSharing===0){
-      rowStates[index]=false;
-      }
-      else if(defaultSharing===1){
-        rowStates[index]=true;
-      }
+  //  setRowStatesEdit([true]);
     }
-    return (          
+    return (  
+   
       <div className="buttons-Edit">
-  <button className={(rowStatesEdit[index] && rowStatesEditRow===row.id) ?"editenable":"editdisable"} onClick={() =>handleEditClick(index,row)}>
-           {(rowStatesEdit[index] && rowStatesEditRow===row.id) ? "Enable" : "Disable"}
+  <button className={(rowStatesEdit[index]) ?"editenable":"editdisable"} onClick={() =>handleEditClick(index,row)}>
+           {(rowStatesEdit[index]) ? "Enable" : "Disable"}
           </button>
          </div>
     );
@@ -822,18 +900,11 @@ else{
   cell: (row,index) => {
     //const currentPage = currentPage[paginationIndex] || 1;
     const defaultSharing = row.defaultSharing;
-   if(isSetYes ===false){
-    if(defaultSharing===0){
-      rowStates[index]=false;
-      }
-      else if(defaultSharing===1){
-        rowStates[index]=true;
-      }
-    }
+   
     return (          
       <div className="buttons-Create">
-  <button className={(rowStatesCreate[index] && rowStatesCreateRow===row.id) ?"createenable":"createdisable"} onClick={() =>handleCreateClick(index,row)}>
-           {(rowStatesCreate[index] && rowStatesCreateRow===row.id) ? "Enable" : "Disable"}
+  <button className={(rowStatesCreate[index] ) ?"createenable":"createdisable"} onClick={() =>handleCreateClick(index,row)}>
+           {(rowStatesCreate[index]) ? "Enable" : "Disable"}
           </button>
          </div>
     );
@@ -844,14 +915,6 @@ else{
   cell: (row,index) => {
     //const currentPage = currentPage[paginationIndex] || 1;
     const defaultSharing = row.defaultSharing;
-   if(isSetYes ===false && rowStatesTransferRow===row.id){
-    if(defaultSharing===0){
-      rowStates[index]=false;
-      }
-      else if(defaultSharing===1){
-        rowStates[index]=true;
-      }
-    }
     return (     
       <div className="buttons-Transfer">
   <button className={(rowStatesTransfer[index]) ?"transferenable":"transferdisable"} onClick={() =>handleTransferClick(index,row)}>
@@ -901,23 +964,73 @@ const columns3 = [
   }
 },
 {
-name: 'View',
-selector: '',  
+  name: "View",
+  cell: (row,index) => {
+    console.log(row)
+    const indexsharing = data3.findIndex((element) => element.ownerId === row.ownerId);
+    console.log(indexsharing)
+    const indexsharingflag = data3[indexsharing].unSharedUsersList.findIndex((element) => element.id === row.id);
+    return (          
+      <div className="buttons-ViewUnshared">
+  <button className={(rowStatesViewUnshared[index]) ?"viewenable":"viewdisable"} onClick={() =>handleViewClickUnshared(index,row)}>
+           {(rowStatesViewUnshared[index]) ? "Enable" : "Disable"}
+          </button>
+         </div>
+    );
+   }
 },
 {
-name: 'Edit',
-selector: '',
- 
+  name: "Edit",
+  cell: (row,index) => {
+    const indexsharing = data3.findIndex((element) => element.ownerId === row.ownerId);
+    const indexsharingflag = data3[indexsharing].unSharedUsersList.findIndex((element) => element.id === row.id);
+    return (          
+      <div className="buttons-EditUnshared">
+  <button className={(rowStatesEditUnshared[index]) ?"editenable":"editdisable"} onClick={() =>handleEditClickUnshared(index,row)}>
+           {(rowStatesEditUnshared[index]) ? "Enable" : "Disable"}
+          </button>
+         </div>
+    );
+   }
 },
 {
-name: 'Create',
-selector: '',
+  name: "Secbreak4",
+  cell: (row,index) => {
+    
+    return (          
+      <div className="secbreak2">
+         </div>
+    );
+   }
+},
+{
+  name: "Create",
+  cell: (row,index) => {
+    //const currentPage = currentPage[paginationIndex] || 1;
+    const defaultSharing = row.defaultSharing;
    
+    return (          
+      <div className="buttons-CreateUnshared">
+  <button className={(rowStatesCreateUnshared[index] ) ?"createenable":"createdisable"} onClick={() =>handleCreateClickUnshared(index,row)}>
+           {(rowStatesCreateUnshared[index]) ? "Enable" : "Disable"}
+          </button>
+         </div>
+    );
+   }
 },
 {
-name: 'Transfer',
-selector: '',
-
+  name: "Transfer",
+  cell: (row,index) => {
+    //const currentPage = currentPage[paginationIndex] || 1;
+    const defaultSharing = row.defaultSharing;
+    return (     
+      <div className="buttons-TransferUnshared">
+  <button className={(rowStatesTransferUnshared[index]) ?"transferenable":"transferdisable"} onClick={() =>handleTransferClickUnshared(index,row)}>
+           {(rowStatesTransferUnshared[index]) ? "Enable" : "Disable"}
+          </button>
+         </div>      
+    );
+   }
 }
 ];
 const columns4 = [
@@ -934,46 +1047,35 @@ const columns4 = [
     console.log(indexsharing)
     const indexsharingflag = data2[indexsharing].sharedUsersList.findIndex((element) => element.id === row.id);
     const defaultSharing = data2[indexsharing].sharedUsersList[indexsharingflag].sharingflag;
-   if(!isSetYes[row.id]){
-    if(defaultSharing===0){
-      rowStates[row.id]=false;
-      }
-      else if(defaultSharing===1){
-        rowStates[row.id]=true;
-      }
-    }
     return (          
-      <div className="buttons-View">
-  <button className={(rowStates[row.id]) ?"viewenable":"viewdisable"} onClick={() =>handleViewClick(index,row)}>
-           {(rowStates[row.id]) ? "Enable" : "Disable"}
+      <div className="buttons-ViewDuplicate">
+  <button className={(rowStatesViewDuplicate[index]) ?"viewenable":"viewdisable"} onClick={() =>handleViewClickDuplicate(index,row)}>
+           {(rowStatesViewDuplicate[index]) ? "Enable" : "Disable"}
           </button>
          </div>
     );
    }
 },
 {
-name: 'Edit',
-selector: '',
- 
-},
-{
   name: "Edit",
   cell: (row,index) => {
     //const currentPage = currentPage[paginationIndex] || 1;
     const defaultSharing = row.defaultSharing;
-   if(isSetYes ===false){
-    if(defaultSharing===0){
-      rowStates[index]=false;
-      }
-      else if(defaultSharing===1){
-        rowStates[index]=true;
-      }
-    }
     return (          
-      <div className="buttons-Edit">
-  <button className={(rowStatesEdit[index] && rowStatesEditRow===row.id) ?"editenable":"editdisable"} onClick={() =>handleEditClick(index,row)}>
-           {(rowStatesEdit[index] && rowStatesEditRow===row.id) ? "Enable" : "Disable"}
+      <div className="buttons-EditDuplicate">
+  <button className={(rowStatesEditDuplicate[index]) ?"editenable":"editdisable"} onClick={() =>handleEditClickDuplicate(index,row)}>
+           {(rowStatesEditDuplicate[index]) ? "Enable" : "Disable"}
           </button>
+         </div>
+    );
+   }
+},
+{
+  name: "Secbreak3",
+  cell: (row,index) => {
+    
+    return (          
+      <div className="secbreak2">
          </div>
     );
    }
@@ -983,18 +1085,10 @@ selector: '',
   cell: (row,index) => {
     //const currentPage = currentPage[paginationIndex] || 1;
     const defaultSharing = row.defaultSharing;
-   if(isSetYes ===false){
-    if(defaultSharing===0){
-      rowStates[index]=false;
-      }
-      else if(defaultSharing===1){
-        rowStates[index]=true;
-      }
-    }
     return (          
-      <div className="buttons-Create">
-  <button className={(rowStatesCreate[index] && rowStatesCreateRow===row.id) ?"createenable":"createdisable"} onClick={() =>handleCreateClick(index,row)}>
-           {(rowStatesCreate[index] && rowStatesCreateRow===row.id) ? "Enable" : "Disable"}
+      <div className="buttons-CreateDuplicate">
+  <button className={(rowStatesCreateDuplicate[index]) ?"createenable":"createdisable"} onClick={() =>handleCreateClickDuplicate(index,row)}>
+           {(rowStatesCreateDuplicate[index]) ? "Enable" : "Disable"}
           </button>
          </div>
     );
@@ -1005,18 +1099,10 @@ selector: '',
   cell: (row,index) => {
     //const currentPage = currentPage[paginationIndex] || 1;
     const defaultSharing = row.defaultSharing;
-   if(isSetYes ===false && rowStatesTransferRow===row.id){
-    if(defaultSharing===0){
-      rowStates[index]=false;
-      }
-      else if(defaultSharing===1){
-        rowStates[index]=true;
-      }
-    }
     return (     
-      <div className="buttons-Transfer">
-  <button className={(rowStatesTransfer[index]) ?"transferenable":"transferdisable"} onClick={() =>handleTransferClick(index,row)}>
-           {(rowStatesTransfer[index]) ? "Enable" : "Disable"}
+      <div className="buttons-TransferDuplicate">
+  <button className={(rowStatesTransferDuplicate[index]) ?"transferenable":"transferdisable"} onClick={() =>handleTransferClickDuplicate(index,row)}>
+           {(rowStatesTransferDuplicate[index]) ? "Enable" : "Disable"}
           </button>
          </div>      
     );
@@ -1129,18 +1215,39 @@ selector: '',
 
 
   const handleSelectAll1 = () => {
-    const newSelectedRows1 = selectAll1 ? [] : [...data2];
+    const allAccessUsers = data2duplicate.map((user) => {
+      return {
+         id: user.id, 
+         sharedUserName: user.sharedUserName,
+         sharedUserId:user.sharedUserId,
+         ownerId:user.ownerId,
+         editMouseLines:user.editMouseLines,
+         viewMouseLines:user.viewMouseLines
+      };
+    });
+    console.log(allAccessUsers)
+    const newSelectedRows1 = selectAll1 ? [] : [...allAccessUsers];
     setSelectedRows1(newSelectedRows1);
     setSelectAll1(!selectAll1);
+    console.log(newSelectedRows1)
   };  
 
   const handleDropdownClick = () => {
     setShowTable(!showTable);
   };
-  const handleSelectAll2 = () => {
-    const newSelectedRows2 = selectAll2 ? [] : [...data3];
+  const handleSelectAll2 = () => {    
+    const allAccessUsers = data3duplicate.map((user) => {
+      return {
+         id: user.id, 
+         unSharedUserName: user.unSharedUserName,
+         unSharedUserId:user.unSharedUserId,
+         ownerId:user.ownerId
+      };
+    });
+    const newSelectedRows2 = selectAll2 ? [] : [...allAccessUsers];
     setSelectedRows2(newSelectedRows2);
     setSelectAll2(!selectAll2);
+    console.log(newSelectedRows2)
   };
   const handleDropdownClick1 = () => {
 
@@ -1185,7 +1292,8 @@ selector: '',
   
   }
   };
-  const renderDropdown2 = (row) => {
+  const renderDropdown2 = (row,event) => {
+    console.log("renderDropdown2")
     const allAccessUsers = data2duplicate.map((user) => {
       return {
          id: user.id, 
@@ -1196,8 +1304,17 @@ selector: '',
          viewMouseLines:user.viewMouseLines
       };
     });
+    var dropdowndata;
+    if(row.data){
    const index = allAccessUsers.findIndex((element) => element.sharedUserId === row.data.sharedUserId);
-   const dropdowndata=allAccessUsers[index].id;
+    dropdowndata=allAccessUsers[index].id;
+    }
+    else if(!row.data){
+      const index = allAccessUsers.findIndex((element) => element.sharedUserId === row.sharedUserId);
+       dropdowndata=allAccessUsers[index].id;
+    }
+    console.log(row.id)
+    console.log(dropdowndata)
    const conditionalRowStyles = [
     {
       when: row => row.id !== dropdowndata, // replace "error" with the name of the column you want to check    
@@ -1209,7 +1326,8 @@ selector: '',
      return (
       <>
  
- <DataTable      
+ <DataTable   
+ ref={expandedTableRef}   
         columns={[
            
           {
@@ -1262,6 +1380,7 @@ selector: '',
     setSelectedRowId(row.data.id);  
      indexshared = data2.findIndex((element) => element.ownerId === row.data.ownerId);
      setData2duplicate(data2[indexshared].sharedUsersList);
+     console.log(data2[indexshared].sharedUsersList)
     }    
     else if(!row.data){
       rowId=row.id;
@@ -1280,10 +1399,14 @@ selector: '',
     if(row.data){      
      rowId2=row.data.id; 
      index2 = data3.findIndex((element) => element.ownerId === row.data.ownerId);
+     setData3duplicate(data3[indexshared].unSharedUsersList);
+     console.log(data3[indexshared].unSharedUsersList)
     }    
     else if(!row.data){
       rowId2=row.id;
       index2 = data3.findIndex((element) => element.ownerId === row.ownerId);
+      setData3duplicate(data3[indexshared].unSharedUsersList);
+      console.log(data3[indexshared].unSharedUsersList)
     }
  
     const remainingItems = data.filter((item) => item.id !== rowId);
@@ -1303,7 +1426,8 @@ selector: '',
         <span className='transfer1'></span>
         </div>   
         {showTable && (
-      <DataTable      
+      <DataTable  
+      ref={parentTableRef}     
         columns={[
            
           {
@@ -1343,7 +1467,13 @@ selector: '',
         expandableRows ={true}
         expandableRowsComponent={renderDropdown2}
         expandableRowsVisibleOnly
-        expandableRowsExpanded={true} 
+        expandableRowsExpanded={expandedRows} 
+        onRowExpandToggled={(expanded, row) => {
+          if (!expanded) {
+            // do something when the dropdown is collapsed
+            setSelectedRowId(null)
+          }
+        }}
         keyField="id"  
         /> 
         )}
@@ -1354,13 +1484,13 @@ selector: '',
       <input className="selectall2" type="checkbox" checked={selectAll2} onChange={handleSelectAll2} />
       <img className={showTable1?"dropdownrotate2" : "dropdown2"} src={`${process.env.PUBLIC_URL}js/permissions/media/dropdown.54f3e29fc5039e44a7463745979b0cfe.svg`} alt="Dropdown" onClick={handleDropdownClick1} />
         <span className='access2'>User you want to share with</span>
-        <span className='view2'>View</span>
-        <span className='edit2'>Edit</span>
-        <span className='create2'>Create</span>
-        <span className='transfer2'>Transfer</span>
-        </div>   
+        <span className='louselinelabel'>Select the Mouseline you wish to share</span>
+        <span className='view2'>Select the Data Permission level</span>
+        <span className='edit2'></span>
+        <span className='transfer2'></span>
+        </div>  
         {showTable1 && (    
-        <DataTable      
+        <DataTable    
         columns={[
             
           {
@@ -1395,7 +1525,7 @@ selector: '',
         selectableRowsHighlight
         selectableRowsSingle
         selectableRowsClear={() => setSelectedRows2([])}
-        expandableRows
+        //expandableRows
         className="my-custom-tableinside2"
         />       
         )}

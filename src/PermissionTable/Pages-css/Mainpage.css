@@ -798,118 +798,169 @@
     left: 5%;
 }
 }
-@media only screen and (max-width: 767px)  {
+@media only screen and (min-width: 393px) and (max-width: 767px)  {
     .mainpage{
-        width: 51%;
+        width: 51% !important;
     }
 
     .profilesection{
-        margin-left: 3%;
+        margin-left: 3% !important;
     }
     .profilesection img.circle{
-        margin-left: -73px;
-        margin-top: 10px;
+        margin-left: -73px !important;
+        margin-top: 10px !important;
     }
     .generalaccesssection{
-        width: 79%;
-        margin-left: 3%;
+        width: 79% !important;
+        margin-left: 3% !important;
     }
     .generalaccesssection img.dropdownlogo{
-        left: 92%;
+        left: 92% !important;
     }
     .userpanel{
-        margin-left: 46%;
+        margin-left: 46% !important;
     }
     .generalaccesssectionnoborder .generalaccesssectionlabel{
-        left: 11%;
+        left: 11% !important;
+    }
+    .generalaccesssectionnoborder img.generalaccessnoborderlogo{
+        left: 7% !important;
+        margin-top: 2.5% !important;
+        top: unset !important;
     }
     .userpanel .userlogo{
-        margin-left: 93px;
+        margin-left: 93px !important;
     }
     .bulkaccesssectionnoborder img.bulkaccessnoborderlogo{
-        left: -10%;
+        left: 0%!important;
+    }
+    .bulkaccesssectionnoborder{
+        margin-left: 13% !important;
+    }
+    .bulkaccesssection{
+        left: -37px !important;
     }
     .useraccesssection{
-        margin-left: -1%;
-        width: 90%;
+        margin-left: -1% !important;
+        width: 90% !important;
     }
-    .useraccesssection img.useraccesslogo{
-        left: 0.5%;
+    .useraccesssectionnoborder .useraccesssectionlabel{
+        width: unset !important;
     }
-    .useraccesssection img.dropdownlogo{
-        left: 40.5%;
-    }
-    .fieldaccesssectionnoborder img.fieldaccessnoborderlogo{
-        margin-left: -8.5%;
-    }
-    .protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
-        margin-left: -5.2%;
-    }
-    .projectaccesssectionnoborder img.projectaccesssectionnoborder{
-        margin-left: -5.2%;
-    }
-    .studyaccesssectionnoborder img.studyaccessnoborderlogo{
-        margin-left: -20px;
+    .useraccesssectionnoborder .useraccesssectionlabel{
+        left: 11% !important;
     }
     .useraccesssectionnoborder img.useraccessnoborderlogo{
-        left: 1%;
+        margin-top: -12px !important;
+        left: 6%!important;
     }
-    .fieldaccesssection img.dropdownlogo{
-        left: 37%;
+    .useraccesssection .useraccesssectionlabel{
+        margin-top: 6px !important;
+        width: unset !important;
+        left: 11.5%;
     }
-    .fieldaccesssection .fieldaccesssectionlabel{
-        left: 9%;
+    .useraccesssection img.useraccesslogo{
+        left: 6.5%!important;
     }
-    .fieldaccesssection img.fieldaccesslogo{
-        left: 3%;
-    }
-    .fieldaccesssection{
-        margin-left: 1%;
+    .useraccesssection img.dropdownlogo{
+        left: 40.5% !important;
     }
     .fieldaccesssectionnoborder img.fieldaccessnoborderlogo{
-        margin-left: -1.5%;
+        margin-left: -8.5% !important;
     }
-    .protocolaccesssection{
-        margin-left: 0%;
-    }
-    .protocolaccesssection img.dropdownlogo{
-        left: 36%;
-    }
-    .protocolaccesssection .protocolaccesssectionlabel{
-        left: 9%;
-    }
-    .protocolaccesssection img.protocolaccesslogo {
-        left: 2%;
+    .fieldaccesssectionnoborder .fieldaccesssectionlabel{
+        left: 12% !important;
     }
     .protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
-        margin-left:1.8%;
+        margin-left: -5.2% !important;
+    }
+    .projectaccesssectionnoborder img.projectaccesssectionnoborder{
+        margin-left: -5.2% !important;
+    }
+    .studyaccesssectionnoborder img.studyaccessnoborderlogo{
+        margin-left: 11px!important;
+    }
+    .useraccesssectionnoborder img.useraccessnoborderlogo{
+        left: 1% !important;
+    }
+    .fieldaccesssection img.dropdownlogo{
+        left: 37% !important;
+    }
+    .fieldaccesssection .fieldaccesssectionlabel{
+        left: 9% !important;
+        margin-top: 7px !important;
+        width: unset !important;
+    }
+    .fieldaccesssection img.fieldaccesslogo{
+        left: 3% !important;
+    }
+    .fieldaccesssection{
+        margin-left: 1% !important;
+    }
+    .fieldaccesssectionnoborder img.fieldaccessnoborderlogo{
+        margin-left: -1.5% !important;
+    }
+    .fieldaccesssectionnoborder img.fieldaccessnoborderlogo{
+        margin-left: -3.5%!important;
+    }
+    .protocolaccesssection{
+        margin-left: 0% !important;
+    }
+    .protocolaccesssection img.dropdownlogo{
+        left: 36% !important;
+    }
+    .protocolaccesssection .protocolaccesssectionlabel{
+        left: 9% !important;
+    }
+    .protocolaccesssection img.protocolaccesslogo {
+        left: 2% !important;
+    }
+    .protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
+        margin-left:1.8% !important;
+    }
+    .protocolaccesssectionnoborder .protocolaccesssectionlabel{
+        left: 12%;
     }
     .projectaccesssection{
-        margin-left: -1%;
+        margin-left: -1% !important;
     }
     .projectaccesssection img.projectaccesslogo{
-        left: 1%;
+        left: 1% !important;
     }
     .projectaccesssection img.dropdownlogo{
-        left: 34%;
+        left: 34% !important;
     }
     .studyaccesssection{
         margin-left: 0%;
     }
     .studyaccesssection img.studyaccesslogo{
-        left: 1px;
+        left: 1px !important;
     }
     .studyaccesssection img.dropdownlogo{
-        left: 35%;
+        left: 35% !important;
     }
     .studyaccesssection .studyaccesssectionlabel{
-        left: 8%;
+        left: 8% !important;
+        margin-top: 14px !important;
+        width: unset;
     }
     .projectaccesssectionnoborder img.projectaccesssectionnoborder{
-        margin-left: 0.8%;
+        margin-left: 1.8%!important;
+    }
+    .projectaccesssectionnoborder .projectaccesssectionlabel{
+        left: 12% !important; 
+    }
+    .projectaccesssection .projectaccesssectionlabel{
+        margin-top: 10px !important;
+        width: unset !important;
+    }
+    .studyaccesssectionnoborder .studyaccesssectionlabel{
+        left: 12% !important;
     }
 
+
 }
+/*
 @media only screen and (min-width: 600px){
     .generalaccesssectionnoborder img.generalaccessnoborderlogo {
         top: 301px;
@@ -981,4 +1032,140 @@
     .userpanelGA .title{
         margin-left: -18%;
     }
- }
+ }*/
+ @media (max-width: 1279px){
+    .profilesection img.circle {
+        margin-left: -71px;
+    }
+    .generalaccesssection .generalaccesssectionlabel{
+        line-height: 14px;
+        left: 22%;
+    margin-top: 7px;
+    top: 7px;
+    }
+    .generalaccesssectionnoborder img.generalaccessnoborderlogo{
+        left: 4%;
+        margin-top: 1%;
+        margin-top: 2%;
+        top: unset;
+    }
+    .bulkaccesssection .bulkaccesssectionlabel{
+        left: 20%;
+        margin-top: 13px;
+        line-height: 15px;
+    }
+    .bulkaccesssection img.bulkaccesslogo{
+        height: 18px;
+        left: 9%;
+        position: absolute;
+        top: 29%;
+        width: 18px;
+    }
+    .bulkaccesssectionnoborder img.bulkaccessnoborderlogo{
+        left: 11%;
+        top: 43%;
+    }
+    .useraccesssectionnoborder img.useraccessnoborderlogo{
+        margin-top: 1%;
+        top: unset;
+    }
+    .useraccesssectionnoborder .useraccesssectionlabel{
+        margin-top: -14px;
+        width: 93px;
+    }
+    .useraccesssectionnoborder img.useraccessnoborderlogo{
+        margin-top: 0%;;
+    }
+    .useraccesssection .useraccesssectionlabel{
+        margin-top: -3px;
+        width: 93px;
+    }
+    .useraccesssection img.useraccesslogo{
+        margin-top: 10px;
+        top: unset;
+    }
+    .useraccesssection img.dropdownlogo{
+        margin-top: 15px;
+        top: unset;
+    }
+    .fieldaccesssection{
+        margin-top: 23px;
+    }
+    .fieldaccesssection img.fieldaccesslogo{
+        margin-top: 10px;
+        top: unset;
+    }
+    .fieldaccesssection .fieldaccesssectionlabel{
+        line-height: 22px;
+        width: 93px;
+        margin-top: -1px;
+    }
+    .fieldaccesssection img.dropdownlogo{
+        margin-top: 15px;
+        top: unset;
+    }
+    .fieldaccesssectionnoborder img.fieldaccessnoborderlogo{
+        margin-top: -24px;
+        top: unset;
+    }
+    .fieldaccesssectionnoborder .fieldaccesssectionlabel{
+        top: unset;
+        margin-top: -28px;
+    }
+    .protocolaccesssectionnoborder img.protocolaccesssectionnoborder{
+        margin-left: 0.8%;
+    }
+    .protocolaccesssection .protocolaccesssectionlabel{
+        margin-top: 0px;
+        line-height: 20px;
+        width: 93px;
+    }
+    .protocolaccesssection img.protocolaccesslogo{
+        top: unset;
+        margin-top: 10px;
+    }
+    .protocolaccesssection img.dropdownlogo{
+        top: unset;
+        margin-top: 14px;
+    }
+    .projectaccesssectionnoborder img.projectaccesssectionnoborder{
+        margin-left: 1.5%;
+    }
+    .projectaccesssection .projectaccesssectionlabel{
+        line-height: 18px;
+        width: 93px; 
+        margin-top: 3px;   
+    }
+    .projectaccesssection img.projectaccesslogo{
+        top: unset;
+        margin-top: 10px;
+    }
+    .projectaccesssection img.dropdownlogo{
+        top: unset;
+        margin-top: 10px;
+    }
+    .studyaccesssectionnoborder img.studyaccessnoborderlogo{
+        margin-left: 11px;
+        margin-top: 73px;
+        top: auto;
+    }
+    .studyaccesssectionnoborder .studyaccesssectionlabel{
+        margin-top: 88px;
+        top: auto
+    }
+    .studyaccesssection img.studyaccesslogo{
+        left: unset;
+        margin-left: 17px;
+        margin-top: 12px;
+        top: unset;
+    }
+    .studyaccesssection .studyaccesssectionlabel{
+        width: 90px;
+        line-height: 16px; 
+    }
+    .studyaccesssection img.dropdownlogo {
+        top: unset;
+        margin-top: 15px;
+    }
+    
+    }

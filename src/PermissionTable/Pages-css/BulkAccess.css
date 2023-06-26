@@ -1539,10 +1539,57 @@ img.dropdownrotate2
         width: 54%;
         margin-left: -7%;
     }
-    @media only screen and (max-width: 767px)  {
-        .bulkpanel {
-            margin-left: 45%;
+    @media (max-width: 1279px) {
+        .bulkpanel .userlogo{ 
+            margin-left: 35px;
+        }
+        .bulkpanel .css-b62m3t-container{
+            left: unset;
+            margin-left: 3%;
+        }
+        .bulkpanel .tablepanel2{
+            top: 127%;
+        }
+        .tablepanel3less .tableSelectAll{
+            top: 60px;
+        }
+        .bulkpanel .tablepanel4{
+            top: 913px;
+            height: 58px;
+        }
+        .borderclass{
+            margin-top: -535px;
+        }
+        .tablepanel2 .tableSelectAll .header{
+            margin-left: -21px;
+        }
+        img.dropdown1, img.dropdownrotate1{
+            left: 0px;
+        }
+        .bulkpanel .table2 .my-custom-table2{
+            width: 35.3%;
+            left: -0.4%;
+        }
+        .tablepanel3 .tableSelectAll{
+            height: 40px;
+            left: 1px;
+            position: absolute;
+            top: 23px;
+            width: 195%;
+        }
+        .table3{
+            position: absolute;
+            width: 103%;
+            margin-left: 38.5%;
         }
 
     }
   }
+  @media only screen and (min-width: 393px) and (max-width: 767px) {
+    .bulkpanel {
+        margin-left: 45% !important;
+    }
+    .bulkpanel .tablepanel2{
+        left: 87% !important;
+    }
+}

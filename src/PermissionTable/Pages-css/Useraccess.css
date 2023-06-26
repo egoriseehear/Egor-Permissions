@@ -108,9 +108,9 @@ td.multitabledata {
     width: 263px;
     z-index: 9998;
 }
-.MuiAutocomplete-root.MuiAutocomplete-hasPopupIcon.css-18nc3u2 {
+/*.MuiAutocomplete-root.MuiAutocomplete-hasPopupIcon.css-18nc3u2 {
     display: none;
-}
+}*/
 .buttons-container {
     display: flex;
     flex-direction: column;
@@ -384,6 +384,7 @@ img.plustodown {
     height:auto;
     border-inline-start: 5px solid #089CCD;
     border: 1px solid #F5F5F5;
+    border-inline-start: 5px solid #089ccd;
 }
 nav.sc-ejWHKt.fPIktX.rdt_Pagination {
     width: 93.8%;
@@ -464,27 +465,27 @@ button.deleteownerlevelpopup {
     width: 106.09px;
     height: 30px;
 }
-button.viewdisable {
+.buttons-View button.viewdisable {
     background-color: #afafaf;
     border-radius: 2px;
     height: 30px;
     position: absolute;
     width: 70.09px;
     top: 4px;
-    margin-left: 77px;
+    margin-left: 105px;
     z-index:1;
 }
-button.viewenable {
-    background-color: #afafaf;
+.buttons-View button.viewenable {
+    background-color: #47B861;
     border-radius: 2px;
     height: 30px;
     position: absolute;
     width:70.09px;
     top: 4px;
-    margin-left: 77px;
+    margin-left: 105px;
     z-index: 1;
 }
-button.editdisable {
+.buttons-Edit button.editdisable {
     background-color: #afafaf;
     border-radius: 2px;
     height: 30px;
@@ -493,10 +494,10 @@ button.editdisable {
     top: 4px;
     left: 61px;
     z-index:1;
-    margin-left: 59px;
+    margin-left: 84px;
 }
-button.editenable {
-    background-color: #afafaf;
+.buttons-Edit button.editenable {
+    background-color: #47B861;
     border-radius: 2px;
     height: 30px;
     position: absolute;
@@ -504,7 +505,7 @@ button.editenable {
     top: 4px;
     left: 61px;
     z-index: 1;
-    margin-left: 59px;
+    margin-left: 84px;
 }
 .secbreak2 {
     width: 2px;
@@ -514,7 +515,7 @@ button.editenable {
     position: relative;
     margin-left: 64px;
 }
-button.createdisable {
+.buttons-Create button.createdisable {
     background-color: #afafaf;
     border-radius: 2px;
     height: 30px;
@@ -524,8 +525,8 @@ button.createdisable {
     left: 60px;
     z-index:1;
 }
-button.createenable {
-    background-color: #afafaf;
+.buttons-Create button.createenable {
+    background-color: #47B861;
     border-radius: 2px;
     height: 30px;
     position: absolute;
@@ -534,7 +535,7 @@ button.createenable {
     left: 60px;
     z-index: 1;
 }
-button.transferdisable {
+.buttons-Transfer button.transferdisable {
     background-color: #afafaf;
     border-radius: 2px;
     height: 30px;
@@ -545,8 +546,8 @@ button.transferdisable {
     z-index:1;
     margin-left: -13px;
 }
-button.transferenable {
-    background-color: #afafaf;
+.buttons-Transfer button.transferenable {
+    background-color: #47B861;
     border-radius: 2px;
     height: 30px;
     position: absolute;
@@ -555,6 +556,195 @@ button.transferenable {
     left: 54px;
     z-index: 1;
     margin-left: -13px;
+}
+.buttons-ViewUnshared button.viewdisable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: 185px;
+    z-index:1;
+}
+.buttons-ViewUnshared button.viewenable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: 185px;
+    z-index:1;
+}
+.buttons-EditUnshared button.editdisable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: 54px;
+    z-index:1;
+    margin-left: 84px;
+}
+.buttons-EditUnshared button.editenable {
+    background-color: #47B861;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: 54px;
+    z-index: 1;
+    margin-left: 84px;
+}
+.secbreak2 {
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    left: 22px;
+    position: relative;
+    margin-left: 64px;
+}
+.buttons-CreateUnshared button.createdisable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: -3px;
+    z-index:1;
+}
+.buttons-CreateUnshared button.createenable {
+    background-color: #47B861;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: -3px;
+    z-index: 1;
+}
+.buttons-TransferUnshared button.transferdisable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: -34px;
+    z-index:1;
+    margin-left: -13px;
+}
+.buttons-TransferUnshared button.transferenable {
+    background-color: #47B861;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: -34px;
+    z-index: 1;
+    margin-left: -13px;
+}
+.buttons-ViewDuplicate button.viewdisable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: 79px;
+    z-index:1;
+}
+.buttons-ViewDuplicate button.viewenable {
+    background-color: #47B861;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width:70.09px;
+    top: 4px;
+    margin-left: 105px;
+    z-index: 1;
+}
+.buttons-EditDuplicate button.editdisable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: 61px;
+    z-index:1;
+    margin-left: 84px;
+}
+.buttons-EditDuplicate button.editenable {
+    background-color: #47B861;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: 61px;
+    z-index: 1;
+    margin-left: 84px;
+}
+ .secbreak2 {
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    left: 22px;
+    position: relative;
+    margin-left: 64px;
+}
+.buttons-CreateDuplicate button.createdisable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: -3px;
+    z-index:1;
+}
+.buttons-CreateDuplicate button.createenable {
+    background-color: #47B861;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: -3px;
+    z-index: 1;
+}
+.buttons-TransferDuplicate button.transferdisable {
+    background-color: #afafaf;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: -34px;
+    z-index:1;
+    margin-left: -13px;
+}
+.buttons-TransferDuplicate button.transferenable {
+    background-color: #47B861;
+    border-radius: 2px;
+    height: 30px;
+    position: absolute;
+    width: 70.09px;
+    top: 4px;
+    left: -34px;
+    z-index: 1;
+    margin-left: -13px;
+}
+.tableSelectAll3 span.view2 {
+    left: 446px;
+    position: absolute;
+    width: 148px;
 }
 /*.userpanel .rdt_TableBody  {
     height: 79px;
@@ -620,6 +810,9 @@ button.transferenable {
 .my-custom-tableinside .sc-fFGjHI.sc-ispOId.hXlnOW.dkQmCI{
     visibility: hidden;
 }
+.my-custom-tableinside .line1 {
+    left: 13px!important;
+}
 input.selectall1 {
     border: 1.5px solid #6d6d6d;
     height: 18px;
@@ -641,8 +834,13 @@ img.dropdownrotate1
 }
 span.louselinelabel{
     position: relative;
-    left: 90px;
+    left: 118px;
     width: 294px;
+}
+.my-custom-tableinside .rdt_TableRow {
+    height: 40px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #ddd4d4;
 }
 .my-custom-tableinside2 .sc-fFGjHI.sc-ispOId.hXlnOW.dkQmCI{
     visibility: hidden;
@@ -652,18 +850,61 @@ input.itemcheckbox2 {
     width: 15px;
 }
 input.selectall2 {
-    margin-left: 14px;
-    width: 18px;
+    border: 1.5px solid #6d6d6d;
     height: 18px;
     left: 12px;
-    border: 1.5px solid #6D6D6D;
+    margin-left: 14px;
+    width: 15px;
+    accent-color: #6D6D6D;
+    appearance: none;
 }
 .my-custom-tableinside2 .sc-gTRrQi.kryIMW.rdt_TableHead{
     display:none !important;
 }
-input.itemcheckbox2 {
-    width: 18px;
-    height: 18px
+.hElSYh:hover:not(:disabled) {
+    background-color: transparent;
+}
+.my-custom-tableinsideduplicate [data-column-id="2"] {
+    left: 26px;
+}
+.my-custom-tableinsideduplicate button.deletesharelevel {
+    left: 178px !important;
+    top: 6px;
+}
+.my-custom-tableinsideduplicate button.transferdisable {
+    left: 182px !important;
+    top: 10px;
+}
+.my-custom-tableinsideduplicate button.transferenable {
+    left: 182px !important;
+    top: 10px;
+}
+.my-custom-tableinsideduplicate button.createdisable {
+    left: 185px !important;
+    top: 10px;
+}
+.my-custom-tableinsideduplicate button.createenable {
+    left: 185px !important;
+    top: 10px;
+}
+.my-custom-tableinsideduplicate button.editenable {
+    left: 192px!important;
+    top: 10px;
+}
+.my-custom-tableinsideduplicate button.editdisable {
+    left: 192px !important;
+    top: 10px;
+}
+.my-custom-tableinsideduplicate button.viewdisable {
+    left: 195px !important;
+    top: 10px;
+}
+.my-custom-tableinsideduplicate button.viewenable {
+    left: 194px!important;
+    top: 10px;
+}
+.my-custom-tableinsideduplicate .line1 {
+    left: 38px !important;
 }
 .line1 {
     position: absolute;
@@ -710,7 +951,7 @@ span.header5 {
     width: 101%;
     border-radius: inherit;
     overflow: visible;
-    margin-left: 1px;
+    margin-left: -25px;
     top: 3px;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
     border-inline-start: 5px solid #E5E5E5;
@@ -743,8 +984,8 @@ span.header5 {
     align-items: center;
 }
 img.dropdown2 {
-    width:8px !important;
-    margin-left: 12px;
+    margin-left: 23px;
+    width: 8px!important;
 }
 span.access1 {
     left: 40px;
@@ -755,7 +996,7 @@ span.access1 {
     font-weight: 400;
 }
 span.view1 {
-    left: -38px;
+    left: 68px;
     position: relative;
     font-family: 'Roboto';
     font-size: 14px;
@@ -768,19 +1009,19 @@ span.edit1 {
     left: 17px;
 }
 span.create1 {
-    left: 11px;
-    margin-left: -98px;
-    position: relative;
-    font-family: 'Roboto';
+    font-family: Roboto;
     font-size: 14px;
     font-weight: 400;
+    left: 58px;
+    margin-left: -45px;
+    position: relative;
     width: 500px;
 }
 span.secbreak {
     width: 2px;
     height: 100%;
     background-color: #ccc;
-    left: -89px;
+    left: 32px;
     position: relative;
 }
 span.transfer1 {
@@ -804,7 +1045,7 @@ span.transfer2 {
 img.dropdownrotate2
 {
     width:8px !important;
-    margin-left: 12px;
+    margin-left: 23px;
     transform: rotate(90deg);
 }
 .emptyheight2 {
@@ -815,12 +1056,33 @@ img.dropdownrotate2
     margin-left: -30px;
   }
   input.itemcheckbox3 {
-    width: 18px;
-    height: 18px
+    height: 18px;
+    left: 21px;
+    width: 15px;
+    position: relative;
+}
+.my-custom-tableinside2 [data-column-id="2"] {
+    color: #4b4b4b;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    left: 5px;
+    letter-spacing: .01em;
+    line-height: 19px;
+}
+.tableSelectAll3 span.louselinelabel {
+    left: 272px;
+    position: absolute;
+    width: 141px;
+}
+.tableSelectAll3 span.view2 {
+    position: absolute;
+    left: 499px;
 }
 .line2 {
     position: absolute;
-    margin-left: -26px;
+    margin-left: -31px;
     padding-top: 14px;
     top: 8px;
     align-items: centre;
@@ -828,6 +1090,7 @@ img.dropdownrotate2
     width: 16px;
     display: inline-block;
     border-bottom: 2px solid #089CCD;
+    margin-top: 10px;
 }
 .line4 {
     position: absolute;
