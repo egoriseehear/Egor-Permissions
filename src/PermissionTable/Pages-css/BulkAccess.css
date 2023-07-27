@@ -1165,7 +1165,7 @@ img.dropdownrotate2
     border-radius: 8px;
     background-color: #F5F5F5;
   }
-  .BAModal button.yesbutton{
+.BAModal button.yesbutton{
     position: absolute;
     width: 92px;
     height: 38px;
@@ -1182,7 +1182,7 @@ img.dropdownrotate2
     color: #FFFFFF;
     cursor: pointer;
   }
-  .BAModal button.nobutton {
+.BAModal button.nobutton {
     position: absolute;
     width: 92px;
     height: 38px;
@@ -1199,7 +1199,7 @@ img.dropdownrotate2
     color: #FFFFFF;
     cursor: pointer;
 }
-.BAModal {
+.BAModal  {
     height: 491px !important;
     box-sizing: border-box !important;
     position: relative !important;
@@ -1593,3 +1593,238 @@ img.dropdownrotate2
         left: 87% !important;
     }
 }
+
+.zoom-level-165 .bulkpanel .tablepanel4{
+    top: 914px !important;
+}
+.zoom-level-165 .borderclass{
+    margin-top: -534px !important;
+}
+.zoom-level-165 .bulkpanel .tablepanel2{
+    top: 317px !important;
+}
+.zoom-level-165.tabletitle1{
+    top: 47px !important;
+}
+.zoom-level-165 .tablepanel2 .tableSelectAll{
+    top: 43px !important;
+}
+.zoom-level-165 .tablepanel3less .tableSelectAll{
+    top: 61px!important;
+}
+.zoom-level-165 .bulkpanel .table2 .my-custom-table2{
+    left: 0% !important;
+    width: 35% !important;
+    margin-top: -523px !important;
+}
+.zoom-level-165 .tablepanel3 .tableSelectAll{
+    top: 29px !important;
+}
+.zoom-level-165 .bulkpanel .table3 .my-custom-table3{
+    left: -9.3%!important;
+    width: 35.5%!important;
+    top: 6px !important;
+}
+.zoom-level-165 .bulkpanel .table3 .my-custom-table3less{
+    width: 35% !important;
+    left: -16% !important;
+    margin-top: -424px !important;
+}
+.zoom-level-165 input.noselectall{
+    left: -19px !important;
+}
+.zoom-level-165 .bulkpanel .tablepanel .tableSelectAll .header{
+    left: -58px !important;
+}
+.zoom-level-165 .tablepanel img.requiredstar{
+    left: 38px !important;
+}
+.zoom-level-165 span.tabletitle1label{
+    margin-left: -89px !important;
+}
+.zoom-level-165 .tablepanel2 img.requiredstar{
+    left: 4px !important;
+}
+zoom-level-165 .tablepanel2 .tableSelectAll .header{
+    margin-left: -54px !important;
+}
+.zoom-level-165 .tablepanel3 .tableSelectAll .header{
+    margin-left: -56px !important;
+}
+.zoom-level-165 .noborderclass{
+    margin-left: 52.1% !important;
+}
+
+
+.zoom-level-188 .bulkpanel .tablepanel4{
+    top: 914px !important;
+}
+.zoom-level-188 .borderclass{
+    margin-top: -534px !important;
+}
+.zoom-level-188 .bulkpanel .tablepanel2{
+    top: 317px !important;
+}
+.zoom-level-188.tabletitle1{
+    top: 47px !important;
+}
+.zoom-level-188 .tablepanel2 .tableSelectAll{
+    top: 43px !important;
+}
+.zoom-level-188 .tablepanel3less .tableSelectAll{
+    top: 61px!important;
+}
+.zoom-level-188 .bulkpanel .table2 .my-custom-table2{
+    left: 0% !important;
+    width: 35% !important;
+    margin-top: -523px !important;
+}
+.zoom-level-188 .tablepanel3 .tableSelectAll{
+    top: 29px !important;
+}
+.zoom-level-188 .bulkpanel .table3 .my-custom-table3{
+    left: -9.3%!important;
+    width: 35.5%!important;
+    top: 6px !important;
+}
+.zoom-level-188 .bulkpanel .table3 .my-custom-table3less{
+    width: 35% !important;
+    left: -16% !important;
+    margin-top: -424px !important;
+}
+.zoom-level-188 input.noselectall{
+    left: -19px !important;
+}
+.zoom-level-188 .bulkpanel .tablepanel .tableSelectAll .header{
+    left: -58px !important;
+}
+.zoom-level-188 .tablepanel img.requiredstar{
+    left: 38px !important;
+}
+.zoom-level-188 span.tabletitle1label{
+    margin-left: -89px !important;
+}
+.zoom-level-188 .tablepanel2 img.requiredstar{
+    left: 4px !important;
+}
+zoom-level-188 .tablepanel2 .tableSelectAll .header{
+    margin-left: -54px !important;
+}
+.zoom-level-188 .tablepanel3 .tableSelectAll .header{
+    margin-left: -56px !important;
+}
+.zoom-level-188 .noborderclass{
+    margin-left: 52.1% !important;
+}
+
+
+.zoom-level-263 input.tablesearchbox{
+    width: 228px !important;
+}
+.zoom-level-263 input.noselectall{
+    margin-left: 13px !important;
+}
+.zoom-level-263 .bulkpanel .tablepanel .tableSelectAll .header{
+    left: -80px !important;
+}
+.zoom-level-263 .bulkpanel .tablepanel span.header{
+    line-height: 15px!important;
+}
+.zoom-level-263 .tablepanel img.requiredstar{
+    left: 31px!important;
+}
+.zoom-level-263 span.tabletitle1label{
+    margin-left: 12px!important;
+}
+.zoom-level-263 .tablepanel2 img.requiredstar{
+    left: 23px!important;
+}
+.zoom-level-263 .tablepanel3less .tableSelectAll{
+    left: 180.5px!important;
+}
+.zoom-level-263 .tablepanel3less span.header{
+    left: 39px!important;
+}
+.zoom-level-263 .tablepanel3less img.dropdown2{
+    margin-left: 23px!important;
+
+}
+.zoom-level-263 .bulkpanel .table2 .my-custom-table2{
+    left: 1.1%!important;
+    margin-top: -545px!important;
+}
+.zoom-level-263 .tablepanel3 .tableSelectAll{
+    left: 181px!important;
+    top: 2px!important;
+}
+.zoom-level-263 img.dropdownrotate2{
+    margin-left: 42px!important;
+}
+.zoom-level-263 .tablepanel3 input.noselectall3{
+    left: 4.8%!important;
+}
+.zoom-level-263 .tablepanel3 .tableSelectAll .header{
+    margin-left: 75px!important;
+}
+.zoom-level-263 .bulkpanel .table3 .my-custom-table3 {
+    left: -9%!important;
+    margin-top: -289px;
+}
+
+.zoom-level-263 img.dropdownrotate1{
+    left: 17px!important;
+}
+.zoom-level-263 input.noselectall2{
+    left: -15px!important;
+}
+.zoom-level-263 .tablepanel2 .tableSelectAll .header{
+    margin-left: 62px!important;
+}
+.zoom-level-263 .bulkpanel .tablepanel2{
+    top: 296px!important;
+}
+.zoom-level-263 .bulkpanel .tablepanel4{
+    left: 87.3%!important;
+    top: 909px!important;
+}
+.zoom-level-263 span.sc-iCnXOK.sc-kJpdyg.dvakKn.hOXYFc {
+    position: relative!important;
+    left: 53px!important;
+}
+.zoom-level-263 .sc-jnqLxu.hSDvtr {
+    position: relative!important;
+    left: 33px!important;
+}
+.zoom-level-263 span.sc-iCnXOK.sc-dyTUbJ.dvakKn.fwhfat {
+    position: relative!important;
+    left: 21px!important;
+}
+
+.zoom-level-300 .bulkpanel .tablepanel{
+    width: 54%!important;
+}
+.zoom-level-300 .bulkpanel .my-custom-table{
+    width: 72.1%!important;
+}
+.zoom-level-300 .bulkpanel nav.rdt_Pagination{
+    width: 66.1%!important;
+}
+.zoom-level-300 .bulkpanel .tablepanel2{
+    left: 101%!important;
+}
+.zoom-level-300 .tablesearch2{
+    margin-left: -94%!important;
+}
+.zoom-level-300 span.tabletitle1label {
+    margin-left: -7px!important;
+}
+.zoom-level-300 .bulkpanel .tablepanel3less{
+    left: 103.8%!important;
+}
+.zoom-level-300 .borderclass{
+    margin-left: 72.3%!important;
+}
+.zoom-level-300 .bulkpanel .tablepanel4{
+    left: 106.8%!important;
+}
+

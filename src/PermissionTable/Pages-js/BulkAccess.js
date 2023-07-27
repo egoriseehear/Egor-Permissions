@@ -44,7 +44,8 @@ function BulkAccess() {
   const [isSelectRow2, setIsSelectRow2] = useState(true);
   const [dataHoldingList,setDataHoldingList]=useState([]);
   const [accessGroupList,setAccessGroupList]=useState([]);
-
+  const [zoomLevel, setZoomLevel] = useState(100);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
 
   const options = [
@@ -54,6 +55,22 @@ function BulkAccess() {
     { value: '3', label: 'Transfer' }
     // Add more options as needed
   ];
+  useEffect(() => {
+    const detectZoomLevel = () => {
+      const ratio = Math.round((window.devicePixelRatio || 1) * 100);
+      setZoomLevel(ratio);
+      setWindowWidth(window.innerWidth);
+    };
+  
+    detectZoomLevel();
+  
+    window.addEventListener('resize', detectZoomLevel);
+  
+    return () => {
+      window.removeEventListener('resize', detectZoomLevel);
+    };
+  }, []);
+
   useEffect(() => {
      // Call the API using Axios for AdminName
      const url=`${BulkAccess_URL}`;
@@ -514,7 +531,8 @@ const handleChange = (selectedOptions) => {
       };
 
   return (
-    <div className='bulkpanel'>
+    <div className={`zoom-level-${zoomLevel}`}>
+      <div className='bulkpanel'>
     <div className='submitsection'>
         <div className='userlogo'>
         <img src={`${process.env.PUBLIC_URL}js/permissions/media/userpagelogo.0dae6c67151988674041208254a6d3c4.svg`} alt="upload" />
@@ -812,6 +830,7 @@ const handleChange = (selectedOptions) => {
           <h2>The update operation not completed</h2>
         </div>
       ):null}
+      </div>
         </div>
 
   );

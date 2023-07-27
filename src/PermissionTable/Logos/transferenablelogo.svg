@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="30">
+<path style="fill:#47b961; stroke:none;" d="M0 0L0 30L22 30L22 0L0 0z"/>
+<path style="fill:#a3ddb1; stroke:none;" d="M21 4L22 5L21 4z"/>
+<path style="fill:#f8fcf9; stroke:none;" d="M21 5L22 6L21 5z"/>
+<path style="fill:#75cb89; stroke:none;" d="M21 6L22 7L21 6z"/>
+<path style="fill:#a3ddb1; stroke:none;" d="M15 7L14 9L15 7z"/>
+<path style="fill:#f8fcf9; stroke:none;" d="M15 8L17 12L3 12L3 13L20 13L15 8z"/>
+<path style="fill:#a3ddb1; stroke:none;" d="M3 11L3 12L16 12L3 11z"/>
+<path style="fill:#afe1bb; stroke:none;" d="M16 11L17 12L16 11z"/>
+<path style="fill:#a3ddb1; stroke:none;" d="M2 12L3 13L2 12z"/>
+<path style="fill:#75cb89; stroke:none;" d="M20 12L21 13L20 12z"/>
+<path style="fill:#a3ddb1; stroke:none;" d="M3 13L3 14L20 14L3 13M3 17L3 18L20 18L20 19L7 19L7 20L21 19L3 17z"/>
+<path style="fill:#75cb89; stroke:none;" d="M2 18L3 19L2 18z"/>
+<path style="fill:#f8fcf9; stroke:none;" d="M3 18L8 23L6 19L20 19L3 18z"/>
+<path style="fill:#afe1bb; stroke:none;" d="M6 19L7 20L6 19z"/>
+<path style="fill:#a3ddb1; stroke:none;" d="M8 22L9 23L8 22M7 23L8 24L7 23z"/>
+</svg>

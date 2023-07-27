@@ -117,19 +117,18 @@ td.multitabledata {
     width: 30px;
     background-color: #09c;
     height: 34px;
-    left: 247px;
+    left: 205px !important;
     position: absolute;
     top: 2px;
     border: 1px solid #09c;
-    z-index: 9998;
-    display: none;
+    z-index: 1;
 }
 button.plusbutton {
     display: flex;
     flex-direction: column;
     background-color: #fff;
     height: 10px;
-    left: 2px;
+    left: 2px !important;
     position: absolute;
     top: 0px;
     /* z-index: 9999; */
@@ -139,7 +138,7 @@ button.plusbutton {
 span.plusbuttonlabel {
     color: #09c;
     font-size: 10px;
-    left: 8px;
+    left: 8px !important;
     padding-top: -8px;
     position: absolute;
     top: -4.5px;
@@ -149,7 +148,7 @@ button.minusbutton {
     display: flex;
     flex-direction: column;
     height: 10px;
-    left: 2px;
+    left: 2px !important;
     position: absolute;
     top: 23px;
     width: 25px;
@@ -162,7 +161,7 @@ color: #fff;
     font-size: 10px;
     font-style: normal;
     font-weight: bold;
-    left: 2px;
+    left: 2px !important;
     letter-spacing: .01em;
     line-height: 19px;
     position: relative;
@@ -175,6 +174,118 @@ color: #fff;
     border-bottom: 1px solid #7B7B7B;
     width: 93%;
     margin-left: 35px;
+}
+.buttons-containerduplicate {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    background-color: #09c;
+    height: 29px;
+    left: 255px!important;
+    position: absolute;
+    top: 9px;
+    border: 1px solid #09c;
+    z-index: 1;
+}
+button.plusbuttonduplicate {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    height: 10px;
+    left: 2px !important;
+    position: absolute;
+    top: 0px;
+    /* z-index: 9999; */
+    border: 2px solid #09c;
+    width: 25px;
+}
+span.plusbuttonlabelduplicate {
+    color: #09c;
+    font-size: 10px;
+    left: 8px !important;
+    padding-top: -8px;
+    position: absolute;
+    top: -4.5px;
+}
+button.minusbuttonduplicate {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 10px;
+    left: 2px!important;
+    position: absolute;
+    top: 19px;
+    width: 25px;
+    z-index: 9999;
+    border: 2px solid #09c;
+}
+span.recordcountduplicate {
+color: #fff;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: bold;
+    left: 2px !important;
+    letter-spacing: .01em;
+    line-height: 19px;
+    position: relative;
+    top: 4px;
+}
+.buttons-containerunshared {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    background-color: #09c;
+    height: 34px;
+    left: 244px!important;
+    position: absolute;
+    top: 8px;
+    border: 1px solid #09c;
+    z-index: 1;
+}
+button.plusbuttonunshared {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    height: 10px;
+    left: 2px !important;
+    position: absolute;
+    top: 0px;
+    /* z-index: 9999; */
+    border: 2px solid #09c;
+    width: 25px;
+}
+span.plusbuttonlabelunshared {
+    color: #09c;
+    font-size: 10px;
+    left: 8px !important;
+    padding-top: -8px;
+    position: absolute;
+    top: -4.5px;
+}
+button.minusbuttonunshared {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 10px;
+    left: 3px!important;
+    position: absolute;
+    top: 23px;
+    width: 25px;
+    z-index: 9999;
+    border: 2px solid #09c;
+}
+span.recordcountunshared {
+color: #fff;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: bold;
+    left: 2px;
+    letter-spacing: .01em;
+    line-height: 19px;
+    position: relative;
+    top: 6px;
 }
 .userpanel .css-b62m3t-container {
     width: 30%;
@@ -342,7 +453,7 @@ input.itemcheckbox.hidden{
     display:none;
 }
 .my-custom-table .rdt_TableRow :nth-child(2){
-    margin-left: -17px;
+    margin-left: 0px;
 }
 .my-custom-tableinside .rdt_TableRow :nth-child(2){
     margin-left: 0;
@@ -404,6 +515,7 @@ nav.sc-ejWHKt.fPIktX.rdt_Pagination {
 input.itemcheckbox{
     width: 18px;
     height: 18px;
+    accent-color: #6D6D6D;
 }
 
 .sc-fFGjHI.sc-ispOId.hXlnOW.dkQmCI {
@@ -459,11 +571,17 @@ button.deleteownerlevelpopup {
     height: 30px;
 }
 .my-custom-table button.yes {
-    background-color: #AFAFAF;
     border-radius: 2px;
     position: absolute;
     width: 106.09px;
     height: 30px;
+    background-color: #47B861;
+    border-radius: 2px;
+    border-color: #47b861;
+}
+button.deletesharelevelpopup {
+    margin-left: -173px;
+    margin-top: 26px;
 }
 .buttons-View button.viewdisable {
     background-color: #afafaf;
@@ -474,6 +592,7 @@ button.deleteownerlevelpopup {
     top: 4px;
     margin-left: 105px;
     z-index:1;
+    border-color:#afafaf;
 }
 .buttons-View button.viewenable {
     background-color: #47B861;
@@ -484,6 +603,17 @@ button.deleteownerlevelpopup {
     top: 4px;
     margin-left: 105px;
     z-index: 1;
+    border-color: #47b861;
+}
+span.viewenablelabel {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+span.viewdisablelabel {
+    color: #4B4B4B;
+    font-family: 'Roboto';
+    font-weight: 400;
 }
 .buttons-Edit button.editdisable {
     background-color: #afafaf;
@@ -495,6 +625,7 @@ button.deleteownerlevelpopup {
     left: 61px;
     z-index:1;
     margin-left: 84px;
+    border-color:#afafaf;
 }
 .buttons-Edit button.editenable {
     background-color: #47B861;
@@ -506,7 +637,19 @@ button.deleteownerlevelpopup {
     left: 61px;
     z-index: 1;
     margin-left: 84px;
+    border-color: #47b861;
 }
+span.editenablelabel {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+span.editdisablelabel {
+    color: #4B4B4B;
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+
 .secbreak2 {
     width: 2px;
     height: 100%;
@@ -515,6 +658,14 @@ button.deleteownerlevelpopup {
     position: relative;
     margin-left: 64px;
 }
+.secbreak3 {
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    left: 158px!important;
+    position: relative;
+}
+
 .buttons-Create button.createdisable {
     background-color: #afafaf;
     border-radius: 2px;
@@ -524,6 +675,7 @@ button.deleteownerlevelpopup {
     top: 4px;
     left: 60px;
     z-index:1;
+    border-color:#afafaf;
 }
 .buttons-Create button.createenable {
     background-color: #47B861;
@@ -534,6 +686,18 @@ button.deleteownerlevelpopup {
     top: 4px;
     left: 60px;
     z-index: 1;
+    border-color: #47b861;
+}
+span.createenablelabel {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-weight: 400;
+    margin-left: -7px;
+}
+span.createdisablelabel {
+    color: #4B4B4B;
+    font-family: 'Roboto';
+    font-weight: 400;
 }
 .buttons-Transfer button.transferdisable {
     background-color: #afafaf;
@@ -557,23 +721,39 @@ button.deleteownerlevelpopup {
     z-index: 1;
     margin-left: -13px;
 }
+span.transferenablelabel {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-weight: 400;
+    margin-left: -1px;
+}
+img.transferenablelogo {
+    left: 0px !important;
+    width: 14px;
+    position: absolute;
+}
+span.transferdisablelabel {
+    color: #4B4B4B;
+    font-family: 'Roboto';
+    font-weight: 400;
+}
 .buttons-ViewUnshared button.viewdisable {
     background-color: #afafaf;
     border-radius: 2px;
     height: 30px;
     position: absolute;
     width: 70.09px;
-    top: 4px;
+    top: 7px;
     left: 185px;
     z-index:1;
 }
 .buttons-ViewUnshared button.viewenable {
-    background-color: #afafaf;
+    background-color: #47B861;
     border-radius: 2px;
     height: 30px;
     position: absolute;
     width: 70.09px;
-    top: 4px;
+    top: 7px;
     left: 185px;
     z-index:1;
 }
@@ -583,7 +763,7 @@ button.deleteownerlevelpopup {
     height: 30px;
     position: absolute;
     width: 70.09px;
-    top: 4px;
+    top: 7px;
     left: 54px;
     z-index:1;
     margin-left: 84px;
@@ -594,7 +774,7 @@ button.deleteownerlevelpopup {
     height: 30px;
     position: absolute;
     width: 70.09px;
-    top: 4px;
+    top: 7px;
     left: 54px;
     z-index: 1;
     margin-left: 84px;
@@ -613,7 +793,7 @@ button.deleteownerlevelpopup {
     height: 30px;
     position: absolute;
     width: 70.09px;
-    top: 4px;
+    top: 7px;
     left: -3px;
     z-index:1;
 }
@@ -623,7 +803,7 @@ button.deleteownerlevelpopup {
     height: 30px;
     position: absolute;
     width: 70.09px;
-    top: 4px;
+    top: 7px;
     left: -3px;
     z-index: 1;
 }
@@ -633,7 +813,7 @@ button.deleteownerlevelpopup {
     height: 30px;
     position: absolute;
     width: 70.09px;
-    top: 4px;
+    top: 7px;
     left: -34px;
     z-index:1;
     margin-left: -13px;
@@ -644,7 +824,7 @@ button.deleteownerlevelpopup {
     height: 30px;
     position: absolute;
     width: 70.09px;
-    top: 4px;
+    top: 7px;
     left: -34px;
     z-index: 1;
     margin-left: -13px;
@@ -817,8 +997,9 @@ input.selectall1 {
     border: 1.5px solid #6d6d6d;
     height: 18px;
     left: 12px;
-    width: 26px;
+    width: 31px;
     position: relative;
+    accent-color: #6d6d6d;
 }
 img.dropdown1 {
     width: 8px!important;
@@ -832,7 +1013,7 @@ img.dropdownrotate1
     left: 7px;
     transform: rotate(90deg);
 }
-span.louselinelabel{
+span.Mouselinelabel{
     position: relative;
     left: 118px;
     width: 294px;
@@ -848,6 +1029,7 @@ span.louselinelabel{
 input.itemcheckbox2 {
     height: 18px;
     width: 15px;
+    accent-color: #6d6d6d;
 }
 input.selectall2 {
     border: 1.5px solid #6d6d6d;
@@ -856,7 +1038,13 @@ input.selectall2 {
     margin-left: 14px;
     width: 15px;
     accent-color: #6D6D6D;
-    appearance: none;
+    appearance: auto;
+}
+.userpanel .selectall2:before{
+    display:none;
+}
+.userpanel .selectall2:checked:before{
+    display: none;
 }
 .my-custom-tableinside2 .sc-gTRrQi.kryIMW.rdt_TableHead{
     display:none !important;
@@ -867,40 +1055,53 @@ input.selectall2 {
 .my-custom-tableinsideduplicate [data-column-id="2"] {
     left: 26px;
 }
-.my-custom-tableinsideduplicate button.deletesharelevel {
-    left: 178px !important;
+.my-custom-tableinsideduplicate button.deletesharelevelduplicate {
+    left: 95px!important;
     top: 6px;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: #6d6d6d;
+    font-size: 22px;
+    /* left: 170px; */
+    position: absolute;
+    /* top: 1px; */
+    z-index: 1;
+}
+.my-custom-tableinsideduplicate button.deletesharelevelpopupduplicate {
+    margin-left: -71px;
+    margin-top: 45px;
 }
 .my-custom-tableinsideduplicate button.transferdisable {
-    left: 182px !important;
+    left: 95px!important;
     top: 10px;
 }
 .my-custom-tableinsideduplicate button.transferenable {
-    left: 182px !important;
+    left: 95px!important;
     top: 10px;
 }
 .my-custom-tableinsideduplicate button.createdisable {
-    left: 185px !important;
+    left: 95px!important;
     top: 10px;
 }
 .my-custom-tableinsideduplicate button.createenable {
-    left: 185px !important;
+    left: 95px!important;
     top: 10px;
 }
 .my-custom-tableinsideduplicate button.editenable {
-    left: 192px!important;
+    left: 96px!important;
     top: 10px;
 }
 .my-custom-tableinsideduplicate button.editdisable {
-    left: 192px !important;
+    left: 96px !important;
     top: 10px;
 }
 .my-custom-tableinsideduplicate button.viewdisable {
-    left: 195px !important;
+    left: 200px!important;
     top: 10px;
 }
 .my-custom-tableinsideduplicate button.viewenable {
-    left: 194px!important;
+    left: 95px!important;
     top: 10px;
 }
 .my-custom-tableinsideduplicate .line1 {
@@ -959,7 +1160,7 @@ span.header5 {
 }
 .my-custom-tableinside2 .rdt_TableRow {
     border-bottom: 1px solid #ddd4d4;
-    width: 102%;
+    width: 100%;
     height: 50px;
 }
 .hideRow {
@@ -1029,6 +1230,7 @@ span.transfer1 {
 }
 span.access2 {
     margin-left: 19px;
+    width: 114px;
 }
 span.view2 {
     margin-left: 42px;
@@ -1036,8 +1238,17 @@ span.view2 {
 span.edit2 {
     margin-left: 77px;
 }
+span.secbreak5 {
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    left: 469px;
+    position: relative;
+}
 span.create2 {
-    margin-left: 91px;
+    position: relative;
+    left: 372px;
+    width: 230px;
 }
 span.transfer2 {
     margin-left: 56px;
@@ -1057,9 +1268,10 @@ img.dropdownrotate2
   }
   input.itemcheckbox3 {
     height: 18px;
-    left: 21px;
+    left: -6px;
     width: 15px;
     position: relative;
+    accent-color: #6D6D6D;
 }
 .my-custom-tableinside2 [data-column-id="2"] {
     color: #4b4b4b;
@@ -1071,18 +1283,18 @@ img.dropdownrotate2
     letter-spacing: .01em;
     line-height: 19px;
 }
-.tableSelectAll3 span.louselinelabel {
-    left: 272px;
+.tableSelectAll3 span.Mouselinelabel2 {
+    left: 267px;
     position: absolute;
     width: 141px;
 }
 .tableSelectAll3 span.view2 {
     position: absolute;
-    left: 499px;
+    left: 445px;
 }
 .line2 {
     position: absolute;
-    margin-left: -31px;
+    margin-left: -41px;
     padding-top: 14px;
     top: 8px;
     align-items: centre;
@@ -1222,6 +1434,43 @@ button.deletesharelevel {
     letter-spacing: 0.005em;
     color: #4a4b50;
 }
+.userpanel .failure-modal-delete {
+    box-sizing: border-box;
+    position: fixed;
+    width: 85%;
+    height: 120px;
+    background: #FFE195;
+    border: 1px solid #BDBDBD;
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-left: -12%;
+    top: 80%;
+}
+.userpanel .failure-modal-delete span.close-symbol {
+    position: absolute;
+    left: 94%;
+    top: 19px;
+    color: #4A4B50;
+    height: 74px;
+    font-size: 34px;
+    cursor: pointer;
+}
+
+.userpanel .failure-modal-delete h2 {
+    color: #4a4b50;
+    font-family: Roboto;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    height: 33px;
+    left: 20px;
+    letter-spacing: .005em;
+    line-height: 33px;
+    position: absolute;
+    top: 29px;
+    width: 95%;
+    text-align: left;
+}
   /* Popup Modal Style*/
   .GAModal {
     box-sizing: border-box !important;
@@ -1283,6 +1532,96 @@ button.nobutton {
     color: #FFFFFF;
     cursor: pointer;
 }
+/* Auto Complete*/
+.css-feqhe6 {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    vertical-align: top;
+    width: 47%;
+    margin-left: -342px;
+}
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    z-index: 2;
+}
+.BAModaluseraccess {
+    height: 192px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    width: 462px !important;
+    background: #FFFFFF !important;
+    border: 1px solid #BDBDBD !important;
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 15px !important;
+    margin-left: 31% !important;
+    margin-top: 24%!important;
+}
+.BAModaluseraccess button.yesbutton{
+    position: absolute;
+    width: 92px;
+    height: 38px;
+    left: 231px;
+    top: 124px;
+    background: #47B861;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0.005em;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+.BAModaluseraccess button.nobutton {
+    position: absolute;
+    width: 92px;
+    height: 38px;
+    left: 343px;
+    top: 124px;
+    background: #AFAFAF;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0.005em;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.BAModaluseraccess .deletepopuplabel1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0.005em;
+    color:#4B4B4B;
+    position: relative;
+    left: 41px;
+    top: 32px;
+}
+.BAModaluseraccess .deletepopuplabel2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0.005em;
+    color:#4B4B4B;
+    display:block;
+    position: relative;
+    top: 40px;
+    left: 42px;
+}
+
+
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 .submitsection {
     margin-left: 18px;
@@ -1316,4 +1655,50 @@ nav.sc-ejWHKt.fPIktX.rdt_Pagination{
 .userpanel{
     margin-left: 46%;
 }
+}
+
+/*Auto Complete*/
+svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiChip-deleteIcon.MuiChip-deleteIconMedium.MuiChip-deleteIconColorDefault.MuiChip-deleteIconFilledColorDefault.css-vubbuv {
+    display: none;
+}
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-18nc3u2 .MuiOutlinedInput-root {
+    padding-right: 65px;
+    max-height: 37px;
+    overflow: hidden;
+    z-index: 1;
+}
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiAutocomplete-inputRoot.css-segi59 {
+    width: 236px;
+    height: 24px;
+}
+/*.css-vubbuv{
+   display:none;
+}*/
+.css-p0rm37{
+    left: -10px!important;
+    top: -7px;
+}
+button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.MuiAutocomplete-popupIndicator.css-uge3vf {
+    display: none;
+}
+.css-18nc3u2 .MuiAutocomplete-tag{
+    margin: 3px;
+    /* max-width: 103px; */
+    width: 73px;
+    height: 24px;
+    left: -4px !important;
+    /* position: relative; */
+    top: -5px;
+}
+
+/* Auto Complete duplicate table*/
+.my-custom-tableinsideduplicate .MuiAutocomplete-root.MuiAutocomplete-hasPopupIcon.css-18nc3u2{
+    left: 48px;
+    position: relative;
+}
+
+.my-custom-tableinside2 .MuiAutocomplete-root.MuiAutocomplete-hasPopupIcon.css-18nc3u2{
+    left: 62px;
+    position: relative;
+    z-index: 1;
 }
