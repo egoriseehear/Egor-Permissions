@@ -1,0 +1,28 @@
+@import "./mixins";
+@import "./classes";
+@import "./vars";
+
+@import "../SetFieldAccess";
+@import "../ProtocolAccess";
+
+.hide {
+  display: none !important;
+}
+
+.hideOpasity {
+    opacity: 0;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  padding: 0 15px;
+  text-align: left;
+  font-family: "Roboto" !important;
+}
+
+body {
+  font-family: "Roboto" !important;
+}

@@ -1,0 +1,13 @@
+@import './vars';
+
+.mainCaption {
+    // font-size, font-style, line-height, font-weight, color
+    @include textStyles(20px, normal, 23px, 600, $textColor);
+    opacity: 0.8;
+}
+
+.text {
+    // font-size, font-style, line-height, font-weight, color
+    @include textStyles(16px, normal, 19px, 400, $textColor);
+    opacity: 0.8;
+}

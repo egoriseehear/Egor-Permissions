@@ -176,13 +176,13 @@ useEffect(() => {
   <div className='useraccesssectionlabel'>Set Access by User</div>
   <img className="dropdownlogo" src={`${process.env.PUBLIC_URL}js/permissions/media/dropdownlogo.85cdc1f6fd9b4a654c108d2b61490665.svg`} alt="dropdownlogo" /> 
   </Link>
-  <Link to="" className={showFieldBorder?"fieldaccesssection" : "fieldaccesssectionnoborder"} onClick={fieldAccessPage}>
+  <Link to="SMDB/setFieldAccess" className={showFieldBorder?"fieldaccesssection" : "fieldaccesssectionnoborder"} onClick={fieldAccessPage}>
   <img className="fieldaccessnoborderlogo" src={`${process.env.PUBLIC_URL}js/permissions/media/fieldaccessblack.f171dd3c7152ae389677096c577625ee.svg`} alt="fieldaccessnoborderlogo" />
   <img className="fieldaccesslogo" src={`${process.env.PUBLIC_URL}js/permissions/media/fieldlogo.73cc9d76033b645be229471b2e16d48d.svg`} alt="fieldaccesslogo" />
   <div className='fieldaccesssectionlabel'>Set Field Access</div>
   <img className="dropdownlogo" src={`${process.env.PUBLIC_URL}js/permissions/media/dropdownlogo.85cdc1f6fd9b4a654c108d2b61490665.svg`} alt="dropdownlogo" /> 
   </Link>
-  <Link to="" className={showProtocolAccessBorder?"protocolaccesssection" : "protocolaccesssectionnoborder"} onClick={protocolAccessPage}>
+  <Link to="SMDB/protocolAccess" className={showProtocolAccessBorder?"protocolaccesssection" : "protocolaccesssectionnoborder"} onClick={protocolAccessPage}>
   <img className="protocolaccesssectionnoborder" src={`${process.env.PUBLIC_URL}js/permissions/media/protocolaccessblack.fc014adc64c973b0afdfe9ca4fd9f3a6.svg`} alt="fieldaccessnoborderlogo" />
   <img className="protocolaccesslogo" src={`${process.env.PUBLIC_URL}js/permissions/media/protocolaccess.408191c9abfa36a5e2c67588444d89af.svg`} alt="fieldaccesslogo" />
   <div className='protocolaccesssectionlabel'>Protocol Access</div>
