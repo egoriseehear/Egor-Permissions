@@ -242,13 +242,8 @@ export const SetFieldAccess = () => {
       return updatedUsers;
     });
 
-    let updatedGenotypeFlag;
-    if (switcherAll) {
-      updatedGenotypeFlag = updatedFlagValue;
-    } else {
-      updatedGenotypeFlag = row?.genotypeFlag === 0 ? 1 : -1;
-    }
-
+    let updatedGenotypeFlag = row?.genotypeFlag === 0 ? 1 : -1;
+    
     const updatedData = userHolder.map((user) => {
       if (user.id === userHolderId.id) {
         const updatedSharedUsersList = user.sharedUsersList.map(
@@ -333,13 +328,8 @@ export const SetFieldAccess = () => {
       return updatedUsers;
     });
 
-    let updatedCommentFlag;
-    if (switcherAll) {
-      updatedCommentFlag = updatedFlagValue;
-    } else {
-      updatedCommentFlag = row?.commentFlag === 0 ? 2 : -2;
-    }
-
+    let updatedCommentFlag = row?.commentFlag === 0 ? 2 : -2;
+    
     const updatedData = userHolder.map((user) => {
       if (user.id === userHolderId.id) {
         const updatedSharedUsersList = user.sharedUsersList.map(
@@ -424,13 +414,8 @@ export const SetFieldAccess = () => {
       return updatedUsers;
     });
 
-    let updatedPhysicalTagFlag;
-    if (switcherAll) {
-      updatedPhysicalTagFlag = updatedFlagValue;
-    } else {
-      updatedPhysicalTagFlag = row?.physicalTagFlag === 0 ? 3 : -3;
-    }
-
+    let updatedPhysicalTagFlag = row?.physicalTagFlag === 0 ? 3 : -3;
+    
     const updatedData = userHolder.map((user) => {
       if (user.id === userHolderId.id) {
         const updatedSharedUsersList = user.sharedUsersList.map(
@@ -514,13 +499,8 @@ export const SetFieldAccess = () => {
       return updatedUsers;
     });
 
-    let updatedEarMarkFlag;
-    if (switcherAll) {
-      updatedEarMarkFlag = updatedFlagValue;
-    } else {
-      updatedEarMarkFlag = row?.earMarkFlag === 0 ? 4 : -4;
-    }
-
+    let updatedEarMarkFlag = row?.earMarkFlag === 0 ? 4 : -4;
+    
     const updatedData = userHolder.map((user) => {
       if (user.id === userHolderId.id) {
         const updatedSharedUsersList = user.sharedUsersList.map(
@@ -604,13 +584,8 @@ export const SetFieldAccess = () => {
       return updatedUsers;
     });
 
-    let updatedEndMiceFlag;
-    if (switcherAll) {
-      updatedEndMiceFlag = updatedFlagValue;
-    } else {
-      updatedEndMiceFlag = row?.endMiceFlag === 0 ? 5 : -5;
-    }
-
+    let updatedEndMiceFlag = row?.endMiceFlag === 0 ? 5 : -5;
+    
     const updatedData = userHolder.map((user) => {
       if (user.id === userHolderId.id) {
         const updatedSharedUsersList = user.sharedUsersList.map(
@@ -678,7 +653,6 @@ export const SetFieldAccess = () => {
   };
 
   const handleSwitchAllChange = async (row) => {
-    setSwitcherAll((prevValue) => (prevValue === 0 ? 1 : 0));
     setSwitchAllUsers((prevSwitches) => {
       const updatedSwitches = { ...prevSwitches };
 
