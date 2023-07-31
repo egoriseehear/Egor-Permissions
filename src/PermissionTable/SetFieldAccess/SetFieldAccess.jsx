@@ -694,7 +694,7 @@ export const SetFieldAccess = () => {
       return updatedSwitches;
     });
 
-    let updatedAllFlag = switcherAll === 0 ? 6 : -6;
+    let updatedAllFlag = row?.allFlag === false ? 6 : -6;
 
     try {
       // Create the object for the API request
@@ -981,7 +981,7 @@ export const SetFieldAccess = () => {
       name: "All",
       cell: (row) => (
         <Switch
-          checked={switchAllUsers[row.id]}
+          checked={row?.allFlag}
           onChange={() => handleSwitchAllChange(row)}
         />
       ),
@@ -1000,6 +1000,14 @@ export const SetFieldAccess = () => {
         physicalTagFlag: user.physicalTagFlag,
         earMarkFlag: user.earMarkFlag,
         endMiceFlag: user.endMiceFlag,
+        allFlag:
+          user.genotypeFlag === 1 &&
+          user.commentFlag === 1 &&
+          user.physicalTagFlag === 1 &&
+          user.earMarkFlag === 1 &&
+          user.endMiceFlag === 1
+            ? true
+            : false,
       };
     });
 
